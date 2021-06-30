@@ -1,15 +1,24 @@
 {
   "name": "mydogspies-front",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy-production": "next build && scp -r ./.next/* mydogspies@188.166.81.55:/var/www/mydogspies.com/mydogspies-front/.next"
   },
   "dependencies": {
-    "next": "10.2.0",
+    "axios": "^0.21.1",
+    "babel-plugin-superjson-next": "^0.3.0",
+    "next": "^10.2.3",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.35.1",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
+    "jest": "^26.6.3"
   }
 }

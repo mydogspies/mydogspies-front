@@ -1,0 +1,43 @@
+/* Reset css */
+@use 'reset.css';
+
+/* --- MAIN --- */
+
+
+
+/* --- ADMIN --- */
+
+/* Offline */
+
+#offline-logo {
+
+}
+
+#offline-text {
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+  #offline-logo {
+
+  }
+
+  #offline-text {
+
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  #offline-logo {
+
+  }
+
+
+  #offline-text {
+
+  }
+}
+
+
