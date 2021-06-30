@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3007",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3007",
     "deploy-production": "next build && scp -r ./.next/* mydogspies@188.166.81.55:/var/www/mydogspies.com/mydogspies-front/.next"
   },
   "dependencies": {
