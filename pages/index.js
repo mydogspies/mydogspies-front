@@ -7,11 +7,8 @@ export default function Home() {
           <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
         </Head>
         <main>
-          <div>
-            <h3>
-              HELLO INDEX!
-            </h3>
-          </div>
+            <h1>Welcome to Mydogspies</h1>
+            <p>This site is under some serious construction and will be back end of summer 2021!</p>
         </main>
       </div>
   )
