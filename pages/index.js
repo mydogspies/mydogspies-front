@@ -1,6 +1,7 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-export default function Home() {
+export default function Home({siteStatus}) {
+
   return (
       <div>
         <Head>
@@ -11,5 +12,5 @@ export default function Home() {
             <p>This site is under some serious construction and will be back end of summer 2021!</p>
         </main>
       </div>
-  )
+  );
 }

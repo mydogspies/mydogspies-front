@@ -1,7 +1,20 @@
-import '../styles/globals.scss'
+import {UserProvider} from '@auth0/nextjs-auth0';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import StatusWrapper from "../components/status-wrapper";
+
+import '../styles/globals.scss';
+
+function MyApp({Component, pageProps}) {
+
+    return (
+        <UserProvider>
+
+          <StatusWrapper>
+            <Component {...pageProps} />
+          </StatusWrapper>
+
+        </UserProvider>
+    );
 }
 
 export default MyApp
