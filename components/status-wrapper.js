@@ -17,7 +17,7 @@ export default function StatusWrapper({children}) {
 
         try {
             const response = await fetch('http://localhost:5011/api/v1/status');
-            const res = response.data;
+            const res = response.json();
             setSite(res.online ? 'online' : 'offline');
             setOnlineStatus(res.online);
         } catch (error) {
