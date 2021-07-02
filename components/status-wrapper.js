@@ -16,6 +16,8 @@ export default function StatusWrapper({children}) {
     async function getSite() {
 
         try {
+            axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
+            axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
             const response = await axios('http://localhost:5011/api/v1/status');
             const res = response.data;
             setSite(res.online ? 'online' : 'offline');
