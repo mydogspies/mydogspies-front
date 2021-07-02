@@ -16,10 +16,7 @@ export default function StatusWrapper({children}) {
     async function getSite() {
 
         try {
-            const response = await fetch('http://localhost:5011/api/v1/status', {
-                crossDomain:true,
-                headers: {'Content-Type':'application/json'}
-            });
+            const response = await fetch('http://localhost:5011/api/v1/status');
             const res = response.json();
             setSite(res.online ? 'online' : 'offline');
             setOnlineStatus(res.online);
