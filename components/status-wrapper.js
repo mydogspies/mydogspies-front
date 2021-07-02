@@ -1,6 +1,7 @@
 import {useUser} from '@auth0/nextjs-auth0';
 import React, {useEffect, useRef, useState} from 'react';
 import styled from "styled-components";
+import Head from "next/head";
 
 const axios = require('axios');
 
@@ -61,7 +62,17 @@ export default function StatusWrapper({children}) {
             </>
         )
     } else {
-        return null;
+        return (
+            <div>
+                <Head>
+                    <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
+                </Head>
+                <main>
+                    <h1>Welcome to Mydogspies</h1>
+                    <p>We will be back late summer 2021!</p>
+                </main>
+            </div>
+        );
     }
 }
 
