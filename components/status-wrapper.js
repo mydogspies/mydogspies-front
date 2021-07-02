@@ -16,7 +16,7 @@ export default function StatusWrapper({children}) {
     async function getSite() {
 
         try {
-            const response = await axios('http://10.110.0.3:5011/api/v1/status');
+            const response = await axios('http://127.0.0.1:5011/api/v1/status');
             const res = response.data;
             setSite(res.online ? 'online' : 'offline');
             setOnlineStatus(res.online);
