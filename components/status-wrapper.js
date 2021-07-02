@@ -18,7 +18,6 @@ export default function StatusWrapper({children}) {
         try {
             const response = await fetch('http://localhost:5011/api/v1/status', {
                 crossDomain:true,
-                method: 'GET',
                 headers: {'Content-Type':'application/json'}
             });
             const res = response.json();
