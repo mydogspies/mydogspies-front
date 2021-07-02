@@ -16,7 +16,7 @@ export default function StatusWrapper({children}) {
     async function getSite() {
 
         try {
-            const response = await fetch(process.env.DB_API + '/api/v1/status');
+            const response = await fetch('/api/v1/status');
             const res = response.json();
             setSite(res.online ? 'online' : 'offline');
             setOnlineStatus(res.online);
