@@ -5,7 +5,7 @@ import Head from "next/head";
 
 const axios = require('axios');
 
-export default function StatusWrapper({children, currentSite, currentOnlineStatus}) {
+export default function StatusWrapper({children, status}) {
 
     const {user, error, isLoading} = useUser();
     // const [site, setSite] = useState(null);
@@ -45,21 +45,21 @@ export default function StatusWrapper({children, currentSite, currentOnlineStatu
     if (user) {
         return (
             <>
-                {currentOnlineStatus
+                {status
                     ?
-                    <Logged><div>You are logged in as {user.name} and the site is {currentSite}</div></Logged>
+                    <Logged><div>You are logged in as {user.name} and the site is online</div></Logged>
                     :
-                    <Logged><div>You are logged in as {user.name} but the site is {currentSite}!</div></Logged>
+                    <Logged><div>You are logged in as {user.name} but the site is offline!</div></Logged>
 
                 }
                 {React.cloneElement(children, {siteStatus: true})}
             </>
 
         )
-    } else if(currentOnlineStatus !== null && !user) {
+    } else if(status !== null && !user) {
         return (
             <>
-                {React.cloneElement(children, {siteStatus: currentOnlineStatus})}
+                {React.cloneElement(children, {siteStatus: status})}
             </>
         )
     } else {
@@ -77,24 +77,24 @@ export default function StatusWrapper({children, currentSite, currentOnlineStatu
     }
 }
 
-export async function getStaticProps(context) {
-
-    let currentSite;
-    let currentOnlineStatus;
-
-    try {
-        const response = await fetch('https://api.mydogspies.com/api/v1/status');
-        const res = response.json();
-        currentSite = res.online ? 'online' : 'offline';
-        currentOnlineStatus = res.online;
-        console.log('currentSite: ' + currentSite + '| currentOnlineStatus: ' + currentOnlineStatus);
-    } catch (error) {
-        console.log(error);
-    }
-    return {
-        props: {currentSite, currentOnlineStatus}, // will be passed to the page component as props
-    }
-}
+// export async function getStaticProps(context) {
+//
+//     let currentSite;
+//     let currentOnlineStatus;
+//
+//     try {
+//         const response = await fetch('https://api.mydogspies.com/api/v1/status');
+//         const res = response.json();
+//         currentSite = res.online ? 'online' : 'offline';
+//         currentOnlineStatus = res.online;
+//         console.log('currentSite: ' + currentSite + '| currentOnlineStatus: ' + currentOnlineStatus);
+//     } catch (error) {
+//         console.log(error);
+//     }
+//     return {
+//         props: {currentSite, currentOnlineStatus}, // will be passed to the page component as props
+//     }
+// }
 
 // TODO the styled below should be refactored to proper style for the logged info stripe
 
