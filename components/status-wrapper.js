@@ -14,8 +14,6 @@ export default function StatusWrapper({children, currentSite, currentOnlineStatu
     const isMounted = useRef(true);
 
 
-
-    // TODO move this to preload?
     // async function getSite() {
     //
     //     try {
