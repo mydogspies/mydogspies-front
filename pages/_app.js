@@ -31,6 +31,7 @@ async function getSiteStatus() {
         const status = await res.json();
         return status.online;
     } catch (error) {
+        console.log(error);
         return false;
     }
 }
