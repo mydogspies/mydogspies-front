@@ -10,21 +10,9 @@ export default function StatusWrapper({children, status}) {
     const {user, error, isLoading} = useUser();
     // const [site, setSite] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
-    // const [onlineStatus, setOnlineStatus] = useState(null);
+    const [onlineStatus, setOnlineStatus] = useState(null);
     const isMounted = useRef(true);
 
-
-    // async function getSite() {
-    //
-    //     try {
-    //         const response = await fetch('https://api.mydogspies.com:5011/api/v1/status');
-    //         const res = response.json();
-    //         setSite(res.online ? 'online' : 'offline');
-    //         setOnlineStatus(res.online);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
 
     // only if mounted
     function getUser() {
@@ -35,7 +23,7 @@ export default function StatusWrapper({children, status}) {
 
     useEffect(() => {
         getUser();
-        // getSite();
+        setOnlineStatus(status ? 'online' : 'offline');
         // make sure it unmounts
         return () => {
             isMounted.current = false;
@@ -47,19 +35,19 @@ export default function StatusWrapper({children, status}) {
             <>
                 {status
                     ?
-                    <Logged><div>You are logged in as {user.name} and the site is online</div></Logged>
+                    <Logged><div>You are logged in as {user.name} and the site is {onlineStatus}</div></Logged>
                     :
-                    <Logged><div>You are logged in as {user.name} but the site is offline!</div></Logged>
+                    <Logged><div>You are logged in as {user.name} but the site is {onlineStatus}</div></Logged>
 
                 }
-                {React.cloneElement(children, {siteStatus: true})}
+                {React.cloneElement(children)}
             </>
 
         )
     } else if(status !== null && !user) {
         return (
             <>
-                {React.cloneElement(children, {siteStatus: status})}
+                {React.cloneElement(children)}
             </>
         )
     } else {
@@ -76,25 +64,6 @@ export default function StatusWrapper({children, status}) {
         );
     }
 }
-
-// export async function getStaticProps(context) {
-//
-//     let currentSite;
-//     let currentOnlineStatus;
-//
-//     try {
-//         const response = await fetch('https://api.mydogspies.com/api/v1/status');
-//         const res = response.json();
-//         currentSite = res.online ? 'online' : 'offline';
-//         currentOnlineStatus = res.online;
-//         console.log('currentSite: ' + currentSite + '| currentOnlineStatus: ' + currentOnlineStatus);
-//     } catch (error) {
-//         console.log(error);
-//     }
-//     return {
-//         props: {currentSite, currentOnlineStatus}, // will be passed to the page component as props
-//     }
-// }
 
 // TODO the styled below should be refactored to proper style for the logged info stripe
 

@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import OfflinePage from "../components/site-offline-component/site-offline-component";
 
-export default function Home({siteStatus}) {
+export default function Home({status}) {
 
-    if (siteStatus) {
+    if (status) {
         return (
             <div>
                 <Head>

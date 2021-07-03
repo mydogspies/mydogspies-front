@@ -28,7 +28,7 @@ MyApp.getInitialProps = async (appContext) => {
 async function getSiteStatus() {
     try {
         // const res = await fetch(process.env.DB_API + '/api/v1/status');
-        const res = await fetch('https://api.mydogspies.com/api/v1/status');
+        const res = await fetch(process.env.DB_API + '/api/v1/status');
         const status = await res.json();
         return status.online;
     } catch (error) {
