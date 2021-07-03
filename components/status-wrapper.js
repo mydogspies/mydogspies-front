@@ -5,26 +5,28 @@ import Head from "next/head";
 
 const axios = require('axios');
 
-export default function StatusWrapper({children}) {
+export default function StatusWrapper({children, currentSite, currentOnlineStatus}) {
 
     const {user, error, isLoading} = useUser();
-    const [site, setSite] = useState(null);
+    // const [site, setSite] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
-    const [onlineStatus, setOnlineStatus] = useState(null);
+    // const [onlineStatus, setOnlineStatus] = useState(null);
     const isMounted = useRef(true);
 
-    // TODO move this to preload?
-    async function getSite() {
 
-        try {
-            const response = await fetch('https://api.mydogspies.com:5011/api/v1/status');
-            const res = response.json();
-            setSite(res.online ? 'online' : 'offline');
-            setOnlineStatus(res.online);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+
+    // TODO move this to preload?
+    // async function getSite() {
+    //
+    //     try {
+    //         const response = await fetch('https://api.mydogspies.com:5011/api/v1/status');
+    //         const res = response.json();
+    //         setSite(res.online ? 'online' : 'offline');
+    //         setOnlineStatus(res.online);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     // only if mounted
     function getUser() {
@@ -35,7 +37,7 @@ export default function StatusWrapper({children}) {
 
     useEffect(() => {
         getUser();
-        getSite();
+        // getSite();
         // make sure it unmounts
         return () => {
             isMounted.current = false;
@@ -45,21 +47,21 @@ export default function StatusWrapper({children}) {
     if (user) {
         return (
             <>
-                {onlineStatus
+                {currentOnlineStatus
                     ?
-                    <Logged><div>You are logged in as {user.name} and the site is {site}</div></Logged>
+                    <Logged><div>You are logged in as {user.name} and the site is {currentSite}</div></Logged>
                     :
-                    <Logged><div>You are logged in as {user.name} but the site is {site}!</div></Logged>
+                    <Logged><div>You are logged in as {user.name} but the site is {currentSite}!</div></Logged>
 
                 }
                 {React.cloneElement(children, {siteStatus: true})}
             </>
 
         )
-    } else if(onlineStatus !== null && !user) {
+    } else if(currentOnlineStatus !== null && !user) {
         return (
             <>
-                {React.cloneElement(children, {siteStatus: onlineStatus})}
+                {React.cloneElement(children, {siteStatus: currentOnlineStatus})}
             </>
         )
     } else {
@@ -74,6 +76,24 @@ export default function StatusWrapper({children}) {
                 </main>
             </div>
         );
+    }
+}
+
+export async function getStaticProps(context) {
+
+    let currentSite;
+    let currentOnlineStatus;
+
+    try {
+        const response = await fetch('https://api.mydogspies.com:5011/api/v1/status');
+        const res = response.json();
+        currentSite = res.online ? 'online' : 'offline';
+        currentOnlineStatus = res.online;
+    } catch (error) {
+        console.log(error);
+    }
+    return {
+        props: {currentSite, currentOnlineStatus}, // will be passed to the page component as props
     }
 }
 
