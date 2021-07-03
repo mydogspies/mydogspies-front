@@ -9,7 +9,7 @@ export default function About({siteStatus}) {
             </Head>
 
             <h2>about page</h2>
-            <h5>Status: {siteStatus.toString()}</h5>
+            <h5>Status: {siteStatus}</h5>
 
         </div>
     );

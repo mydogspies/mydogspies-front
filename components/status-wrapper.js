@@ -35,6 +35,7 @@ export default function StatusWrapper({children, currentSite, currentOnlineStatu
 
     useEffect(() => {
         getUser();
+        console.log(currentSite + '|' + currentOnlineStatus);
         // getSite();
         // make sure it unmounts
         return () => {
