@@ -8,11 +8,9 @@ const axios = require('axios');
 export default function StatusWrapper({children, status}) {
 
     const {user, error, isLoading} = useUser();
-    // const [site, setSite] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
-    const [onlineStatus, setOnlineStatus] = useState(null);
-    const isMounted = useRef(true);
 
+    const isMounted = useRef(true);
 
     // only if mounted
     function getUser() {
@@ -22,9 +20,7 @@ export default function StatusWrapper({children, status}) {
     }
 
     useEffect(() => {
-        getUser();
-        setOnlineStatus(status ? 'online' : 'offline');
-        // make sure it unmounts
+        getUser();// make sure it unmounts
         return () => {
             isMounted.current = false;
         }
@@ -38,7 +34,6 @@ export default function StatusWrapper({children, status}) {
                     <Logged><div>You are logged in as {user.name} and the site is online</div></Logged>
                     :
                     <Logged><div>You are logged in as {user.name} but the site is offline!</div></Logged>
-
                 }
                 {React.cloneElement(children)}
             </>

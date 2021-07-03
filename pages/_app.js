@@ -10,7 +10,7 @@ function MyApp({Component, pageProps, status}) {
     return (
         <UserProvider>
 
-          <StatusWrapper>
+          <StatusWrapper status={status}>
             <Component {...pageProps} status={status} />
           </StatusWrapper>
 
