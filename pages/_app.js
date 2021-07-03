@@ -11,7 +11,7 @@ function MyApp({Component, pageProps, status}) {
         <UserProvider>
 
           <StatusWrapper>
-            <Component {...pageProps} status=status />
+            <Component {...pageProps} status={status} />
           </StatusWrapper>
 
         </UserProvider>
