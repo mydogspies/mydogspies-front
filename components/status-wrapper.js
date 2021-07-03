@@ -89,6 +89,7 @@ export async function getStaticProps(context) {
         const res = response.json();
         currentSite = res.online ? 'online' : 'offline';
         currentOnlineStatus = res.online;
+        console.log('currentSite: ' + currentSite + '| currentOnlineStatus: ' + currentOnlineStatus);
     } catch (error) {
         console.log(error);
     }
