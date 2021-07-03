@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-export default function About() {
+export default function About({siteStatus}) {
     return (
         <div>
 
@@ -9,6 +9,7 @@ export default function About() {
             </Head>
 
             <h2>about page</h2>
+            <h5>Status: {siteStatus}</h5>
 
         </div>
     );
