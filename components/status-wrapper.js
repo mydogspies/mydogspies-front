@@ -35,7 +35,6 @@ export default function StatusWrapper({children, currentSite, currentOnlineStatu
 
     useEffect(() => {
         getUser();
-        console.log(currentSite + '|' + currentOnlineStatus);
         // getSite();
         // make sure it unmounts
         return () => {
@@ -84,7 +83,7 @@ export async function getStaticProps(context) {
     let currentOnlineStatus;
 
     try {
-        const response = await fetch('https://api.mydogspies.com:5011/api/v1/status');
+        const response = await fetch('https://api.mydogspies.com/api/v1/status');
         const res = response.json();
         currentSite = res.online ? 'online' : 'offline';
         currentOnlineStatus = res.online;
