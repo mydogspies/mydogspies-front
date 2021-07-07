@@ -116,7 +116,7 @@ const Footer = styled.div`
   @media all and (max-width: 960px) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    top: -24px;
+    top: -27px;
   }
 `;
 
