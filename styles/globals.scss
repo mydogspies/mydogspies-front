@@ -3,20 +3,27 @@
 
 /* --- MAIN --- */
 
+/* GLOBAL FONT DEFAULTS */
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Roboto&display=swap');
 
-
-/* --- ADMIN --- */
-
-/* Under construction */
+/* Global settings */
 body {
-  text-align: center;
-  padding: 40px 0 0 0;
-  width: 35em;
-  margin: 0 auto;
-  font-family: Tahoma, Verdana, Arial, sans-serif;
+  display: flex;
   background-color: #cac27c;
 }
 
+a {
+  text-decoration: none;
+  border-bottom:1px dotted;
+  color: #333333;
+}
+
+
+
+
+
+
+/* --- ADMIN --- */
 
 /* Offline */
 

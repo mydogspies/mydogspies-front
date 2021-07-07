@@ -15,7 +15,7 @@ export default function Home({status}) {
 
     if (status) {
         return (
-            <div>
+            <>
                 <Head>
                     <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
                 </Head>
@@ -23,13 +23,13 @@ export default function Home({status}) {
                     <h1>Welcome to Mydogspies</h1>
                     <p>This is the index page.</p>
                 </main>
-            </div>
+            </>
         );
     } else {
         return (
-            <div>
+            <>
                 <OfflinePage />
-            </div>
+            </>
         )
     }
 }
