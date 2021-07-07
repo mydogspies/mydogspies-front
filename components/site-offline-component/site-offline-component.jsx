@@ -57,11 +57,16 @@ const Grid = styled.div`
   @media all and (max-width: 960px) {
     top: -30px;
     grid-template-columns: 1fr;
+    width: 100%;
   }
 `;
 
 const Logo = styled.img`
   margin: auto;
+
+  @media all and (max-width: 960px) {
+    width: 65%;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -69,7 +74,7 @@ const TextContainer = styled.div`
   padding: 10px 0 0 25px;
 
   @media all and (max-width: 960px) {
-    width: 85%;
+    width: 65%;
     padding: 10px 0 0 0;
   }
 `;
