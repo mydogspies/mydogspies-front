@@ -1,7 +1,17 @@
 import Head from 'next/head';
-import OfflinePage from "../components/site-offline-component/site-offline-component";
+import OfflinePage from '../components/site-offline-component/site-offline-component';
+import {useEffect, useRef, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 export default function Home({status}) {
+
+    // const [token, setToken] = useState();
+    // const data = useSelector(state => state.tokens);
+    // const thisToken = data.currentToken;
+
+    useEffect(() => {
+        // setToken(thisToken);
+    },[]);
 
     if (status) {
         return (
@@ -22,5 +32,15 @@ export default function Home({status}) {
             </div>
         )
     }
-
 }
+
+export async function getStaticProps() {
+
+    console.log('Ima a static thing')
+
+    return {
+        props: {},
+    }
+}
+
+
