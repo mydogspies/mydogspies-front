@@ -1,5 +1,6 @@
-import {useUser} from '@auth0/nextjs-auth0';
-import React, {useEffect, useRef, useState} from 'react';
+import { useSession } from 'next-auth/client'
+
+import React, {useRef, useState} from 'react';
 import styled from "styled-components";
 import Head from "next/head";
 
@@ -7,39 +8,39 @@ const axios = require('axios');
 
 export default function StatusWrapper({children, status}) {
 
-    const {user, error, isLoading} = useUser();
+    const [session, loading] = useSession();
     const [currentUser, setCurrentUser] = useState(null);
 
     const isMounted = useRef(true);
 
     // only if mounted
-    function getUser() {
-        if(isMounted.current) {
-            setCurrentUser(user);
-        }
-    }
+    // function getUser() {
+    //     if(isMounted.current) {
+    //         setCurrentUser(user);
+    //     }
+    // }
 
-    useEffect(() => {
-        getUser();// make sure it unmounts
-        return () => {
-            isMounted.current = false;
-        }
-    }, []);
+    // useEffect(() => {
+    //     getUser();// make sure it unmounts
+    //     return () => {
+    //         isMounted.current = false;
+    //     }
+    // }, []);
 
-    if (user) {
+    if (session) {
         return (
             <>
                 {status
                     ?
-                    <Logged><div>You are logged in as {user.name} and the site is online</div></Logged>
+                    <Logged><div>You are logged in as XXXXXX and the site is online</div></Logged>
                     :
-                    <Logged><div>You are logged in as {user.name} but the site is offline!</div></Logged>
+                    <Logged><div>You are logged in as XXXXXX but the site is offline!</div></Logged>
                 }
                 {React.cloneElement(children)}
             </>
 
         )
-    } else if(status !== null && !user) {
+    } else if(status !== null) {
         return (
             <>
                 {React.cloneElement(children)}

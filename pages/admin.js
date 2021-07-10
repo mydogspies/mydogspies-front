@@ -1,24 +1,24 @@
-import { useUser } from '@auth0/nextjs-auth0';
-import styled from "styled-components";
+import { signIn, signOut, useSession } from 'next-auth/client';
 
 export default function Admin() {
 
-    const { user, error, isLoading } = useUser();
+    const [session, loading] = useSession();
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>{error.message}</div>;
-
-    if (user) {
+    if (session) {
         return (
-            <div>
-                <Test>Welcome {user.name}! <a href="/api/auth/logout">Logout</a></Test>
-            </div>
+            <>
+                <button onClick={signOut}>Sign out</button>
+            </>
         );
+    } else {
+        return (
+            <>
+                <button onClick={signIn}>Sign in</button>
+            </>
+        )
     }
 
-    return <a href="/api/auth/login">Login</a>;
-};
 
-const Test = styled.h1`
-  color: red;
-`;
+
+
+};

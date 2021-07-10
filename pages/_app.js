@@ -1,4 +1,4 @@
-import {UserProvider} from '@auth0/nextjs-auth0';
+import { Provider } from 'next-auth/client';
 import StatusWrapper from '../components/status-wrapper';
 import getAccessToken from '../middleware/backendApi/oktaAccessToken';
 import mydogspiesApiQuery from '../middleware/backendApi/mydogspiesApiQuery';
@@ -6,7 +6,7 @@ import mydogspiesApiQuery from '../middleware/backendApi/mydogspiesApiQuery';
 import {useDispatch} from "react-redux";
 import React, {useEffect} from 'react';
 import {setToken} from '../redux/tokens/tokens.actions';
-import {wrapper} from '../redux/store'
+import {wrapper} from '../redux/store';
 
 import '../styles/globals.scss';
 import App from 'next/app';
@@ -20,22 +20,22 @@ function MyApp({Component, pageProps, status, token}) {
     }, [token]);
 
     return (
-        <UserProvider>
+        <Provider session={pageProps.session}>
           <StatusWrapper status={status}>
             <Component {...pageProps} status={status} />
           </StatusWrapper>
-        </UserProvider>
+        </Provider>
     );
 }
 
-MyApp.getInitialProps = async (appContext) => {
+MyApp.getInitialProps = async (ctx) => {
 
-    const appProps = await App.getInitialProps(appContext);
+    const pageProps = await App.getInitialProps(ctx);
     const url = process.env.DB_API + '/api/v1/status';
     const token = await getAccessToken();
     const result = await mydogspiesApiQuery(url, 'GET', token);
     const status = result.online;
-    return {appProps, status, token};
+    return {...pageProps, status, token};
 };
 
 export default wrapper.withRedux(MyApp);
