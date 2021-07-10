@@ -11,7 +11,7 @@ const options = {
             response_mode: 'fragment',
             scope: 'openid profile email',
             // issuer: 'https://' + process.env.OKTA_DOMAIN + '/oauth2/default',
-            // authorizationUrl: `https://${process.env.OKTA_DOMAIN}/oauth2/default/v1/authorize/`,
+            authorizationUrl: `https://${process.env.OKTA_DOMAIN}/oauth2/default/v1/authorize/`,
             protection: 'pkce',
             debug: true,
         }),
