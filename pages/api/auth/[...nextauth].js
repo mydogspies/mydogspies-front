@@ -7,7 +7,7 @@ const options = {
         Providers.Okta({
             clientId: process.env.OKTA_CLIENT_ID,
             domain: process.env.OKTA_DOMAIN,
-            response_type: 'code',
+            // response_type: 'code',
             response_mode: 'fragment',
             scope: 'openid profile email',
             // issuer: 'https://' + process.env.OKTA_DOMAIN + '/oauth2/default',
