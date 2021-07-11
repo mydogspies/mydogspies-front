@@ -29,6 +29,7 @@ export default function StatusWrapper({children, status}) {
     }, []);
 
     if (user) {
+        const userStatus = true;
         return (
             <>
                 {status
@@ -37,13 +38,13 @@ export default function StatusWrapper({children, status}) {
                     :
                     <Logged><div>You are logged in as {user.nickname} but the site is offline! [<a href='/api/auth/logout'>logout</a>]</div></Logged>
                 }
-                {React.cloneElement(children)}
+                {React.cloneElement(children, {userStatus})}
             </>
 
         )
     } else if(status !== null) {
 
-        const userStatus = !!user;
+        const userStatus = false;
 
         return (
             <>
