@@ -65,6 +65,7 @@ export default function StatusWrapper({children, status}) {
 // TODO the styled below should be refactored to proper style for the logged info stripe
 
 const Logged = styled.div`
+  text-align: center;
   padding: 0 0 0 0;
   margin: 0 0 0 0;
   color: red;
