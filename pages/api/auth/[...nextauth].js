@@ -6,7 +6,7 @@ const options = {
     providers: [
         Providers.Okta({
             // clientId: process.env.OKTA_CLIENT_ID,
-            // domain: process.env.OKTA_DOMAIN,
+            domain: process.env.OKTA_DOMAIN,
             // scope: 'openid profile email',
             // accessTokenUrl: `https://${process.env.OKTA_DOMAIN}/oauth2/default/v1/token`,
             authorizationUrl: `https://${process.env.OKTA_DOMAIN}/oauth2/default/v1/authorize/?response_type=code&state=false`,
