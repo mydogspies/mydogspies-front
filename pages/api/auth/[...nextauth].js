@@ -15,7 +15,7 @@ const options = {
 
             clientId: process.env.OKTA_CLIENT_ID,
             issuer: `https://${process.env.OKTA_DOMAIN}/oauth2/default`,
-            redirectUri: 'https://mydogspies.com/api/auth/callback/okta',
+            // redirectUri: 'https://mydogspies.com/api/auth/callback/okta',
             scope: 'openid profile email',
             protection: 'pkce',
             debug: true,
