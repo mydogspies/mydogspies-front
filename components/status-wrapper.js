@@ -42,9 +42,12 @@ export default function StatusWrapper({children, status}) {
 
         )
     } else if(status !== null) {
+
+        const userStatus = !!user;
+
         return (
             <>
-                {React.cloneElement(children)}
+                {React.cloneElement(children, {userStatus})}
             </>
         )
     } else {
