@@ -106,7 +106,7 @@ const Text = styled.div`
 
 const Footer = styled.div`
   position: relative;
-  top: -10px;
+  top: -20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: 'Roboto', sans-serif;

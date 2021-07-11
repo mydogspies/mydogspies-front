@@ -66,7 +66,5 @@ export default function StatusWrapper({children, status}) {
 
 const Logged = styled.div`
   text-align: center;
-  padding: 0 0 0 0;
-  margin: 0 0 0 0;
   color: red;
 `;
