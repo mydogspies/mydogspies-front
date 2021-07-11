@@ -8,7 +8,7 @@
     "start": "next start -p 3007"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^1.3.0",
+    "@auth0/nextjs-auth0": "^1.4.2",
     "axios": "^0.21.1",
     "babel-plugin-superjson-next": "^0.3.0",
     "next": "^10.2.3",

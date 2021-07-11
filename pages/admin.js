@@ -1,22 +1,21 @@
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { useUser } from '@auth0/nextjs-auth0';
 
 export default function Admin() {
 
-    const [session, loading] = useSession();
+    const { user, error, isLoading } = useUser();
 
-    if (session) {
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>{error.message}</div>;
+
+    if (user) {
         return (
-            <>
-                <button onClick={signOut}>Sign out</button>
-            </>
+            <div>
+                Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+            </div>
         );
-    } else {
-        return (
-            <>
-                <button onClick={signIn}>Sign in</button>
-            </>
-        )
     }
+
+    return <a href="/api/auth/login">Login</a>;
 
 
 

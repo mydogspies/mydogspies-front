@@ -1,4 +1,4 @@
-import { useSession } from 'next-auth/client'
+import { useUser } from '@auth0/nextjs-auth0';
 
 import React, {useRef, useState} from 'react';
 import styled from "styled-components";
@@ -8,7 +8,9 @@ const axios = require('axios');
 
 export default function StatusWrapper({children, status}) {
 
-    const [session, loading] = useSession();
+    const { user, error, isLoading } = useUser();
+
+    // const [session, loading] = useSession();
     const [currentUser, setCurrentUser] = useState(null);
 
     const isMounted = useRef(true);
@@ -27,7 +29,7 @@ export default function StatusWrapper({children, status}) {
     //     }
     // }, []);
 
-    if (session) {
+    if (user) {
         return (
             <>
                 {status
