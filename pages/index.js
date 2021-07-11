@@ -3,8 +3,6 @@ import OfflinePage from '../components/site-offline-component/site-offline-compo
 
 export default function Home({status, userStatus}) {
 
-    console.log(userStatus);
-
     if (status || userStatus) {
         return (
             <>
