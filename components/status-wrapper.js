@@ -33,9 +33,9 @@ export default function StatusWrapper({children, status}) {
             <>
                 {status
                     ?
-                    <Logged><div>You are logged in as {currentUser.name} and the site is online</div></Logged>
+                    <Logged><div>You are logged in as {user.nickname} and the site is online [<a href='/api/auth/logout'>logout</a>]</div></Logged>
                     :
-                    <Logged><div>You are logged in as {currentUser.name} but the site is offline!</div></Logged>
+                    <Logged><div>You are logged in as {user.nickname} but the site is offline! [<a href='/api/auth/logout'>logout</a>]</div></Logged>
                 }
                 {React.cloneElement(children)}
             </>
