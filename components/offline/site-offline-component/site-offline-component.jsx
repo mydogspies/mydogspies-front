@@ -5,46 +5,50 @@ import logo from '../../../public/assets/dog_blue_final.svg';
 const OfflinePage = () => {
 
     return (
-        <>
+        <Container>
 
             <Head>
                 <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
             </Head>
 
-            <Container id='container'>
+            <Content id='container'>
                 <Grid>
                     <Logo src={logo}/>
                     <TextContainer>
-                        <Headline>Welcome to Mydogspies.com</Headline>
-                        <Text>This space will soon become the home for Berlin-based visual designer and software
+                        <Headline className="headline-general">Welcome to Mydogspies.com</Headline>
+                        <Text className="paragraph-general">This space will soon become the home for Berlin-based visual designer and software
                             developer
                             Mydogspies. Still in construction but we hope it will be up end of July.</Text>
                     </TextContainer>
 
                 </Grid>
-            </Container>
+            </Content>
             <Footer>
-                <UrlText>
+                <UrlText className="small-general">
                     Mydogspies.com 2021
                 </UrlText>
-                <LicenseText>
+                <LicenseText className="small-general">
                     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">
                         Creative Commons CC BY-NC-SA 4.0
                     </a>
                 </LicenseText>
             </Footer>
 
-        </>
+        </Container>
     );
 };
 
 /* CSS */
 
 const Container = styled.div`
-  display: flex;
-  height: 98%;
-  justify-content: center;
-  align-items: center;
+
+`;
+
+const Content = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const Grid = styled.div`
@@ -52,7 +56,7 @@ const Grid = styled.div`
   top: -35px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 50%;
+  width: 75%;
 
   @media all and (max-width: 960px) {
     top: -30px;
@@ -80,9 +84,7 @@ const TextContainer = styled.div`
 `;
 
 const Headline = styled.div`
-  font-family: 'Arvo', serif;
   font-weight: bold;
-  font-size: 28px;
   text-align: left;
 
   @media all and (max-width: 960px) {
@@ -93,8 +95,6 @@ const Headline = styled.div`
 
 const Text = styled.div`
   padding: 20px 0 0 15px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 17px;
   text-align: left;
 
   @media all and (max-width: 960px) {
@@ -105,13 +105,12 @@ const Text = styled.div`
 /* Footer */
 
 const Footer = styled.div`
-  position: relative;
-  top: -20px;
+  position: absolute;
+  top: 90%;
+  left: 37%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  text-align: center;
+  // text-align: center;
 
   @media all and (max-width: 960px) {
     grid-template-columns: 1fr;
@@ -122,8 +121,6 @@ const Footer = styled.div`
 
 const UrlText = styled.div`
   padding: 0 5px 0 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
   text-align: right;
   grid-column-start: 1;
   grid-row-start: 1;
@@ -134,8 +131,6 @@ const UrlText = styled.div`
 `;
 
 const LicenseText = styled.div`
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
   text-align: left;
   grid-column-start: 2;
   grid-row-start: 1;
