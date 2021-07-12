@@ -1,4 +1,4 @@
-import Offline from '../components/site-offline-component/site-offline-component';
+import Offline from '../components/offline/site-offline-component/site-offline-component';
 
 export default function SiteOffline() {
     return (

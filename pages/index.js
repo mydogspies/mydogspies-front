@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import OfflinePage from '../components/site-offline-component/site-offline-component';
+import OfflinePage from '../components/offline/site-offline-component/site-offline-component';
 
 export default function Home({status, userStatus}) {
 

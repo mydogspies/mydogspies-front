@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import logo from '../../public/assets/dog_blue_final.svg';
+import logo from '../../../public/assets/dog_blue_final.svg';
 
 const OfflinePage = () => {
 

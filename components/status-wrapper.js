@@ -1,8 +1,10 @@
 import { useUser } from '@auth0/nextjs-auth0';
-
+import Head from "next/head";
 import React, {useEffect, useRef, useState} from 'react';
 import styled from "styled-components";
-import Head from "next/head";
+
+import OfflineHeader from "./offline/offline-logged-header/offline-logged-header";
+
 
 // const axios = require('axios');
 
@@ -32,12 +34,7 @@ export default function StatusWrapper({children, status}) {
         const userStatus = true;
         return (
             <>
-                {status
-                    ?
-                    <Logged><div>You are logged in as {user.nickname} and the site is online [<a href='/api/auth/logout'>logout</a>]</div></Logged>
-                    :
-                    <Logged><div>You are logged in as {user.nickname} but the site is offline! [<a href='/api/auth/logout'>logout</a>]</div></Logged>
-                }
+                <OfflineHeader />
                 {React.cloneElement(children, {userStatus})}
             </>
 
