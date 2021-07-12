@@ -10,7 +10,7 @@ export default function Admin() {
 
     if (user) {
         return (
-            <Container>
+            <Container className="colors-projects">
 
                 <Head>
                     <title>Mydogspies.com - Admin</title>
@@ -27,7 +27,7 @@ export default function Admin() {
         );
     } else {
         return (
-            <Container>
+            <Container className="colors-projects">
 
                 <Head>
                     <title>Mydogspies.com - Admin</title>
@@ -48,6 +48,7 @@ export default function Admin() {
 /* CSS */
 
 const Container = styled.div`
+    height: 100vh;
 `;
 
 const Content = styled.div`

@@ -6,7 +6,7 @@
 /* Global settings */
 
 body {
-  background-color: #cac27c;
+
 }
 
 a {
@@ -15,65 +15,48 @@ a {
   color: #333333;
 }
 
+/* Global color */
+.colors-code {
+
+}
+
+.colors-visual {
+
+}
+
+.colors-projects {
+  background-color: #cac27c;
+}
+
 /* GLOBAL FONT DEFAULTS */
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=PT+Sans&display=swap');
 
-.headline-general {
+.text-headline-general {
   font-family: "Arvo", serif;
-  font-size: 22px;
+  font-size: 26px;
 }
 
-.paragraph-general {
+.text-paragraph-general {
   font-family: "PT Sans", sans-serif;
   font-size: 18px;
 }
 
-.small-general {
+.text-small-general {
   font-family: "PT Sans", sans-serif;
   font-size: 12px;
 }
-
-
-
-
-
-
-
 
 
 /* --- ADMIN --- */
 
 /* Offline */
 
-#offline-logo {
-
-}
-
-#offline-text {
-
-}
-
-@media only screen and (max-width: 1000px) {
-
-  #offline-logo {
-
-  }
-
-  #offline-text {
-
-  }
+.colors-offline {
+  background-color: #cac27c;
 }
 
 @media only screen and (max-width: 800px) {
 
-  #offline-logo {
-
-  }
-
-
-  #offline-text {
-
-  }
 }
 
 
