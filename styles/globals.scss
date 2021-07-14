@@ -41,6 +41,34 @@ apply to. Reuse for various components if possible and do not override. Rather
 copy, rename and use for whatever specific need.
 */
 
+/* -- INDEX PAGE --*/
+/* applies to the specifically index page ONLY */
+.index-page {
+  background-color: $background-color-offline;
+  color: $text-color-offline;
+
+  h2 {
+    font-family: $font-headline;
+    font-size: 26px;
+  }
+
+  h2 strong {
+    font-family: $font-headline;
+    font-size: 75%;
+    opacity: .8;
+  }
+
+  p {
+    font-family: $font-paragraph;
+    font-size: 18px;
+  }
+
+  a {
+    color: $text-color-offline;
+    opacity: .8;
+  }
+}
+
 /* relates to all styling when site is offline*/
 .offline-pages {
   background-color: $background-color-offline;
