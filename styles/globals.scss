@@ -1,62 +1,72 @@
-/* Reset css */
-@use 'reset.css';
+/*
+The globals.css specifies all fonts, tags and colors. Do NOT put layout
+definitions into this file. They belong in-line within each component! Do not
+EVER specify text, tag or color attributes within components. Rather add a new
+definition for specific components below.
+ */
 
-/* --- MAIN --- */
+/* Obligatory imports */
+@use 'reset';
 
-/* Global settings */
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=PT+Sans&display=swap');
 
-body {
+/* Global variables */
+$background-color-code: #ffffff;
+$background-color-project: #cac27c;
+$background-color-visual: #ffffff;
+$background-color-offline: #cac27c;
+$background-color-admin: #cac27c;
 
-}
+$text-color-code: #111111;
+$text-color-project: #111111;
+$text-color-visual: #111111;
+$text-color-offline: #111111;
+$text-color-admin: #111111;
+
+$font-headline: 'Arvo', serif;
+$font-paragraph: 'PT Sans', sans-serif;
+
+/* GLOBAL STYLES */
 
 a {
   text-decoration: none;
   border-bottom:1px dotted;
-  color: #333333;
 }
 
-/* Global color */
-.colors-code {
+/*
+-- COMPONENT DEFINITIONS --
+These classes should be used with the top level div in each component they
+apply to. Reuse for various components if possible and do not override. Rather
+copy, rename and use for whatever specific need.
+*/
 
+/* relates to all styling when site is offline*/
+.offline-pages {
+  background-color: $background-color-offline;
+  color: $text-color-offline;
+
+  h2 {
+    font-family: $font-headline;
+    font-size: 26px;
+  }
+
+  h2 strong {
+    font-family: $font-headline;
+    font-size: 75%;
+    opacity: .8;
+  }
+
+  p {
+    font-family: $font-paragraph;
+    font-size: 18px;
+  }
+
+  a {
+    color: $text-color-offline;
+    opacity: .8;
+  }
 }
 
-.colors-visual {
-
-}
-
-.colors-projects {
-  background-color: #cac27c;
-}
-
-/* GLOBAL FONT DEFAULTS */
-@import url('https://fonts.googleapis.com/css2?family=Arvo&family=PT+Sans&display=swap');
-
-.text-headline-general {
-  font-family: "Arvo", serif;
-  font-size: 26px;
-}
-
-.text-paragraph-general {
-  font-family: "PT Sans", sans-serif;
-  font-size: 18px;
-}
-
-.text-small-general {
-  font-family: "PT Sans", sans-serif;
-  font-size: 12px;
-}
-
-
-/* --- ADMIN --- */
-
-/* Offline */
-
-.colors-offline {
-  background-color: #cac27c;
-}
-
-@media only screen and (max-width: 800px) {
-
-}
 
 

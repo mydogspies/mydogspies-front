@@ -5,27 +5,30 @@ import logo from '../../../public/assets/dog_blue_final.svg';
 const OfflinePage = () => {
 
     return (
-        <Container className="colors-offline">
+        <Container className="offline-pages">
 
             <Head>
                 <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
             </Head>
 
             <Grid>
-                <Logo src={logo}/>
+                <Logo src={logo} alt="Mydogspies.com blue logo"/>
                 <TextContainer>
-                    <Headline className="text-headline-general">Welcome to Mydogspies.com</Headline>
-                    <Text className="text-paragraph-general">This space will soon become the home for Berlin-based visual designer and software
-                        developer
-                        Mydogspies. Still in construction but we hope it will be up end of July.</Text>
+                    <Headline><h2>Welcome to Mydogspies.com</h2></Headline>
+                    <Text>
+                        <p>
+                            This space will soon become the home for Berlin-based visual designer and software
+                            developer Mydogspies. Still in construction but we hope it will be up end of July.
+                        </p>
+                    </Text>
                 </TextContainer>
             </Grid>
 
             <Footer>
-                <UrlText className="text-small-general">
+                <UrlText>
                     Mydogspies.com 2021
                 </UrlText>
-                <LicenseText className="text-small-general">
+                <LicenseText>
                     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode" target="_blank">
                         Creative Commons CC BY-NC-SA 4.0
                     </a>
@@ -38,14 +41,8 @@ const OfflinePage = () => {
 
 /* CSS */
 
-/* Center content */
-
 const Container = styled.div`
   height: 100vh;
-
-  @media all and (max-width: 960px) {
-
-  }
 `;
 
 const Grid = styled.div`
