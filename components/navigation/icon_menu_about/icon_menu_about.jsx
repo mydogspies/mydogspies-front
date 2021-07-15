@@ -1,29 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import MenuSvg from './svg_menu_component';
+import AboutSvg from './svg_about_component';
 import {MenuIconEffects} from '../effects/icon_menu_effects';
 
-const IconMenuNavigate = () => {
+const IconAboutNavigate = () => {
 
     const currentTextColor = '#403d0c';
 
     return (
         <>
             <Icon>
-                <MenuSvg fill={currentTextColor}/>
+                <AboutSvg fill={currentTextColor}/>
             </Icon>
         </>
     )
 }
 
 /* CSS */
-
 const Icon = styled(MenuIconEffects)`
   width: 40px;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  bottom: 20px;
+  left: 20px;
 `;
 
-export default IconMenuNavigate;
+export default IconAboutNavigate;

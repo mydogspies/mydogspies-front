@@ -4,6 +4,9 @@ import React, {useEffect, useRef, useState} from 'react';
 import styled from "styled-components";
 
 import OfflineHeader from "./offline/offline-logged-header/offline-logged-header";
+import IconMenuNavigate from '../components/navigation/icon_menu_navigate/icon_menu_navigate';
+import IconAboutNavigate from "./navigation/icon_menu_about/icon_menu_about";
+import IconHomeNavigate from "./navigation/icone_menu_home/icon_menu_home";
 
 
 // const axios = require('axios');
@@ -34,12 +37,15 @@ export default function StatusWrapper({children, status}) {
         const userStatus = true;
         return (
             <>
+                <IconHomeNavigate />
+                <IconAboutNavigate />
+                <IconMenuNavigate />
                 <OfflineHeader />
                 {React.cloneElement(children, {userStatus})}
             </>
 
         )
-    } else if(status !== null) {
+    } else if(status === false) {
         const userStatus = false;
         return (
             <>
@@ -47,17 +53,13 @@ export default function StatusWrapper({children, status}) {
             </>
         )
     } else {
+        const userStatus = false;
         return (
-            <div>
-                <Head>
-                    <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
-                </Head>
-                <main>
-                    <h1>Welcome to Mydogspies</h1>
-                    <p>We will be back late summer 2021!</p>
-                </main>
-            </div>
-        );
+            <>
+                <IconMenuNavigate />
+                {React.cloneElement(children, {userStatus})}
+            </>
+        )
     }
 }
 

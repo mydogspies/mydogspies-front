@@ -11,28 +11,49 @@ definition for specific components below.
 /* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=PT+Sans&display=swap');
 
+
 /* Global variables */
-$background-color-code: #ffffff;
-$background-color-project: #cac27c;
-$background-color-visual: #ffffff;
-$background-color-offline: #cac27c;
-$background-color-admin: #cac27c;
 
-$text-color-code: #111111;
-$text-color-project: #111111;
-$text-color-visual: #111111;
-$text-color-offline: #111111;
-$text-color-admin: #111111;
+/* AREA COLORS */
+//
+/* INDEX */
+$background-color-index: #c4c4c4;
+$text-color-index: #373621; // 5
+$text-color-index-heading: #3f3c06; // 6
 
+/* CODE */
+$background-color-code: #c4c4c4;
+$text-color-code: #302e13; // 5b
+$text-color-code-heading: #403d0c; // 6b
+/* PROJECT */
+$background-color-project: #c4c4c4;
+$text-color-project: #112421; // 3b
+$text-color-project-heading: #0b423a; // 4b
+/* VISUAL */
+$background-color-visual: #c4c4c4;
+$text-color-visual: #240604; // 1
+$text-color-visual-heading: #440a0a; // 2
+
+/* OFFLINE */
+$background-color-offline: #c4c4c4;
+$text-color-offline: #19302c; // 3a
+$text-color-offline-heading: #05372f; //4a
+/* ADMIN */
+$background-color-admin: #c2c2c2;
+$text-color-admin: #2a2914; // 5a
+$text-color-admin-heading: #322f01; // 6a
+
+/* GLOBAL FONTS */
 $font-headline: 'Arvo', serif;
 $font-paragraph: 'PT Sans', sans-serif;
 
-/* GLOBAL STYLES */
 
+/* GLOBAL STYLES */
 a {
   text-decoration: none;
   border-bottom:1px dotted;
 }
+
 
 /*
 -- COMPONENT DEFINITIONS --
@@ -43,16 +64,14 @@ copy, rename and use for whatever specific need.
 
 /* -- INDEX PAGE --*/
 /* applies to the specifically index page ONLY */
-.index-page {
-  background-color: $background-color-offline;
-  color: $text-color-offline;
+.index {
 
   h2 {
     font-family: $font-headline;
     font-size: 26px;
   }
 
-  h2 strong {
+  h2 span {
     font-family: $font-headline;
     font-size: 75%;
     opacity: .8;
@@ -63,9 +82,60 @@ copy, rename and use for whatever specific need.
     font-size: 18px;
   }
 
-  a {
-    color: $text-color-offline;
-    opacity: .8;
+  &.index-top {
+    background-color: $background-color-index;
+    color: $text-color-index;
+
+    h2, h2 span {
+      color: $text-color-index-heading;
+    }
+
+    a {
+      color: $text-color-index;
+      opacity: .8;
+    }
+  }
+
+  &.index-code {
+    background-color: $background-color-code;
+    color: $text-color-code;
+
+    h2, h2 span {
+      color: $text-color-code-heading;
+    }
+
+    a {
+      color: $text-color-code;
+      opacity: .8;
+    }
+  }
+
+  &.index-visual {
+    background-color: $background-color-visual;
+    color: $text-color-visual;
+
+    h2, h2 span {
+      color: $text-color-visual-heading;
+    }
+
+    a {
+      color: $text-color-visual;
+      opacity: .8;
+    }
+  }
+
+  &.index-project {
+    background-color: $background-color-project;
+    color: $text-color-project;
+
+    h2, h2 span {
+      color: $text-color-project-heading;
+    }
+
+    a {
+      color: $text-color-project;
+      opacity: .8;
+    }
   }
 }
 
@@ -76,11 +146,13 @@ copy, rename and use for whatever specific need.
 
   h2 {
     font-family: $font-headline;
+    color: $text-color-offline-heading;
     font-size: 26px;
   }
 
-  h2 strong {
+  h2 span {
     font-family: $font-headline;
+    color: $text-color-offline-heading;
     font-size: 75%;
     opacity: .8;
   }

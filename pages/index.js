@@ -1,22 +1,26 @@
 import Head from 'next/head';
-import styled from "styled-components";
 
 import OfflinePage from '../components/offline/site-offline-component/site-offline-component';
+import IndexTop from '../components/index/index_top';
+import IndexCode from "../components/index/index_code";
+import IndexVisual from "../components/index/index_visual";
+import IndexProject from "../components/index/index_project";
 
 export default function Home({status, userStatus}) {
 
     if (status || userStatus) {
         return (
-            <Container className="index-page">
+            <>
                 <Head>
                     <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
                 </Head>
-                <Temporary>
-                    <h2>Welcome to Mydogspies</h2>
-                    <p>This is the index page.</p>
-                </Temporary>
-            </Container>
-        );
+                <IndexTop />
+                <IndexCode />
+                <IndexVisual />
+                <IndexProject />
+            </>
+        )
+
     } else {
         return (
             <>
@@ -26,18 +30,6 @@ export default function Home({status, userStatus}) {
     }
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-`;
 
-// TODO temporary - should be removed asap
-const Temporary = styled.div`
-    text-align: center;
-  position: relative;
-  bottom: 3%;
-`;
 
 
