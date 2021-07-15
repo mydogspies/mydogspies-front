@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import styled from 'styled-components';
 
 import HomeSvg from './svg_home_component';
@@ -6,12 +7,13 @@ import {MenuIconEffects} from '../effects/icon_menu_effects';
 
 const IconHomeNavigate = () => {
 
-    const currentTextColor = '#403d0c';
+    const store = useSelector(state => state);
+    const currentIconColor = store.styles.currentIconColor;
 
     return (
         <>
             <Icon>
-                <HomeSvg fill={currentTextColor}/>
+                <HomeSvg fill={currentIconColor}/>
             </Icon>
         </>
     )

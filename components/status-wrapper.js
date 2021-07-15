@@ -1,5 +1,4 @@
 import { useUser } from '@auth0/nextjs-auth0';
-import Head from "next/head";
 import React, {useEffect, useRef, useState} from 'react';
 import styled from "styled-components";
 
@@ -8,15 +7,10 @@ import IconMenuNavigate from '../components/navigation/icon_menu_navigate/icon_m
 import IconAboutNavigate from "./navigation/icon_menu_about/icon_menu_about";
 import IconHomeNavigate from "./navigation/icone_menu_home/icon_menu_home";
 
-
-// const axios = require('axios');
-
 export default function StatusWrapper({children, status}) {
 
     const { user, error, isLoading } = useUser();
-
     const [currentUser, setCurrentUser] = useState(null);
-
     const isMounted = useRef(true);
 
     // only if mounted
@@ -56,6 +50,8 @@ export default function StatusWrapper({children, status}) {
         const userStatus = false;
         return (
             <>
+                <IconMenuNavigate />
+                <IconAboutNavigate />
                 <IconMenuNavigate />
                 {React.cloneElement(children, {userStatus})}
             </>

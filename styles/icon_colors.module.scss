@@ -1,0 +1,14 @@
+$icon-color-index: #3f3c06;
+$icon-color-code: #403d0c;
+$icon-color-project: #0b423a;
+$icon-color-visual: #440a0a;
+$icon-color-admin: #322f01;
+
+/* Exports to app */
+:export {
+  iconColorIndex: $icon-color-index;
+  iconColorCode: $icon-color-code;
+  iconColorVisual: $icon-color-visual;
+  iconColorProject: $icon-color-project;
+  iconColorAdmin: $icon-color-admin;
+}

@@ -1,9 +1,28 @@
 import styled from "styled-components";
+import {useDispatch} from "react-redux";
+import {useInView} from "react-intersection-observer";
+import {useEffect} from "react";
+import {setCurrentIconColor} from "../../redux/styles/styles.action";
+import styles from "../../styles/icon_colors.module.scss";
 
 const IndexVisual = () => {
 
+    const dispatch = useDispatch();
+    const [ref, inView] = useInView({
+        threshold: .7
+    });
+    const css = {
+        icon_color: styles.iconColorVisual
+    }
+
+    useEffect(() => {
+        if (inView) {
+            dispatch(setCurrentIconColor(css.icon_color));
+        }
+    }, [dispatch, inView]);
+
     return (
-        <Container className="index index-visual">
+        <Container ref={ref} className="index index-visual">
             <Temporary>
                 <h2>Visual/3D index page | heading | (1)</h2>
                 <h2><span>This page comes when scrolling down | subheading | (2)</span></h2>

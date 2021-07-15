@@ -1,9 +1,28 @@
-import styled from "styled-components";
+import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import styled from 'styled-components';
+import {useInView} from "react-intersection-observer";
+import {setCurrentIconColor} from "../../redux/styles/styles.action";
+import styles from "../../styles/icon_colors.module.scss";
 
 const IndexCode = () => {
 
+    const dispatch = useDispatch();
+    const [ref, inView] = useInView({
+        threshold: .5
+    });
+    const css = {
+        icon_color: styles.iconColorCode
+    }
+
+    useEffect(() => {
+        if (inView) {
+            dispatch(setCurrentIconColor(css.icon_color));
+        }
+    }, [dispatch, inView]);
+
     return (
-        <Container className="index index-code">
+        <Container ref={ref} className="index index-code">
             <Temporary>
                 <h2>Code index page | heading | (5b) </h2>
                 <h2><span>This page comes by scrolling down | subheading | (6b)</span></h2>

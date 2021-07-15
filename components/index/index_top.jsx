@@ -1,9 +1,29 @@
+import React, {useEffect} from 'react';
 import styled from "styled-components";
+import {useInView} from 'react-intersection-observer';
+import {useDispatch} from 'react-redux';
+
+import {setCurrentIconColor} from "../../redux/styles/styles.action";
+import styles from '../../styles/icon_colors.module.scss';
 
 const IndexTop = () => {
 
+    const dispatch = useDispatch();
+    const [ref, inView] = useInView({
+        threshold: .7
+    });
+    const css = {
+        icon_color: styles.iconColorIndex
+    }
+
+    useEffect(() => {
+        if (inView) {
+            dispatch(setCurrentIconColor(css.icon_color));
+        }
+    }, [dispatch, inView]);
+
     return (
-        <Container className="index index-top">
+        <Container ref={ref} className="index index-top">
             <Temporary>
                 <h2>Main index page | heading | (5)</h2>
                 <h2><span>This page is what we see on initial load | subheading | (6)</span></h2>
