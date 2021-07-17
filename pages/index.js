@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
 import OfflinePage from '../components/offline/site-offline-component/site-offline-component';
-import IndexTop from '../components/index/index_top';
-import IndexCode from "../components/index/index_code";
+import IndexTop from '../components/index/index_top/index_top';
+import IndexCode from "../components/index/index_code/index_code";
 import IndexVisual from "../components/index/index_visual";
 import IndexProject from "../components/index/index_project";
 

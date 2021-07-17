@@ -15,7 +15,7 @@ const OfflineHeader = () => {
 /* CSS */
 
 const Tab = styled.div`
-  position: absolute;
+  position: fixed;
   background-color: cornflowerblue;
   height: 30px;
   width: 75px;

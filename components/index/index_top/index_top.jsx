@@ -1,18 +1,22 @@
 import React, {useEffect} from 'react';
+import styled from "styled-components";
+import {useInView} from 'react-intersection-observer';
 import {useDispatch} from 'react-redux';
-import styled from 'styled-components';
-import {useInView} from "react-intersection-observer";
-import {setCurrentIconColor} from "../../redux/styles/styles.action";
-import styles from "../../styles/icon_colors.module.scss";
 
-const IndexCode = () => {
+import {setCurrentIconColor} from "../../../redux/styles/styles.action";
+import styles from '../../../styles/icon_colors.module.scss';
+import backgroundColors from '../../../styles/svg_background_colors.module.scss';
+import IndexBackgroundSvg from "./svg_index_background";
+
+const IndexTop = () => {
 
     const dispatch = useDispatch();
     const [ref, inView] = useInView({
-        threshold: .5
+        threshold: .7
     });
     const css = {
-        icon_color: styles.iconColorCode
+        icon_color: styles.iconColorIndex,
+        background_color: backgroundColors.backgroundIndex
     }
 
     useEffect(() => {
@@ -22,10 +26,13 @@ const IndexCode = () => {
     }, [dispatch, inView]);
 
     return (
-        <Container ref={ref} className="index index-code">
+        <Container ref={ref} className="index index-top">
+            <Background>
+                <IndexBackgroundSvg background_color={css.background_color}/>
+            </Background>
             <Temporary>
-                <h2>Code index page | heading | (5b) </h2>
-                <h2><span>This page comes by scrolling down | subheading | (6b)</span></h2>
+                <h2>Main index page | heading | (5)</h2>
+                <h2><span>This page is what we see on initial load | subheading | (6)</span></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin ex ornare magna cursus,
                     vel commodo neque tristique. Pellentesque molestie quis ligula ac dignissim. Morbi tincidunt congue
                     dolor sit amet vehicula. Aenean malesuada efficitur augue in lacinia. Nunc in volutpat elit. Etiam
@@ -46,6 +53,16 @@ const Container = styled.div`
   height: 100vh;
 `;
 
+const Background = styled.div`
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+`;
+
 // TODO temporary - should be removed asap
 const Temporary = styled.div`
   margin: 0 auto;
@@ -55,4 +72,4 @@ const Temporary = styled.div`
   bottom: 3%;
 `;
 
-export default IndexCode;
+export default IndexTop;

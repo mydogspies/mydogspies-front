@@ -1,0 +1,15 @@
+$background-color-index: #c2c2c2;
+$background-color-code: #c4c4c4;
+$background-color-project: #c4c4c4;
+$background-color-visual: #c4c4c4;
+$background-color-offline: #c4c4c4;
+$background-color-admin: #c2c2c2;
+
+:export {
+  backgroundIndex: $background-color-index;
+  backgroundCode: $background-color-code;
+  backgroundProject: $background-color-project;
+  backgroundVisual: $background-color-visual;
+  backgroundOffline: $background-color-offline;
+  backgroundAdmin: $background-color-admin;
+}
