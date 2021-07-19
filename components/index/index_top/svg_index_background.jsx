@@ -1,18 +1,50 @@
 import React from 'react';
+import styled from 'styled-components';
+import JpgCode from './coding.jpeg';
 
 const IndexBackgroundSvg = ({background_color}) =>  {
 
+
+
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
-            <g id="index_background">
-                <title>Index Background</title>
-                <path transform="rotate(-1.03503 238.011 575.136)" stroke={background_color} id="svg_2" d="m297.41992,750.57409c-125.80252,21.74064 -259.22423,-15.19443 -259.22423,-141.31416c0,-126.11973 170.75,-253.36206 306.9215,-204.86371c92.62945,77.20714 76.54748,109.32893 89.58942,174.55165c13.04194,65.22272 -11.48417,149.88559 -137.28668,171.62623z" opacity="undefined" stroke-width="10" fill="#6db6ff"/>
-                <path id="svg_4" d="m755.33841,191.42845" opacity="NaN" stroke-width="10" stroke={background_color} fill="#aaffaa"/>
-                <path stroke={background_color} id="svg_1" d="m607.1226,684.28551c-162.69624,-12.85714 -232.67409,-77.85319 -253.97524,-114.2857c-21.30115,-36.43252 14.26716,-501.4285 270.36073,-469.99993c256.09358,31.42857 147.4695,179.28174 147.4695,307.14281c0,127.86107 -1.15876,289.99996 -163.855,277.14282z" opacity="undefined" stroke-width="10" fill="#aaaaff"/>
-                <path stroke={background_color} id="svg_3" d="m223.93512,501.45841c-114.4877,0 -216.34575,15.75509 -207.22274,-189.59556c9.12301,-205.35065 155.29284,-274.72009 359.70738,-274.72009c204.41454,0 162.91096,79.68757 140.75507,242.47595c-22.15589,162.78838 -178.75201,221.8397 -293.23972,221.8397z" opacity="undefined" stroke-width="10" fill="#86f486"/>
+        <SvgElem height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" data-name="index" viewBox="5 0 1030 880">
+
+            <defs>
+                <pattern id="pattern1" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                    <image height="1" width="1" preserveAspectRatio="none" href="/assets/images/coding.jpg" />
+                </pattern>
+            </defs>
+
+            <defs>
+                <pattern id="pattern2" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                    <image height="1" width="1" preserveAspectRatio="none" href="/assets/images/3d.jpg" />
+                </pattern>
+            </defs>
+
+            <defs>
+                <pattern id="pattern3" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                    <image height="1" width="1" preserveAspectRatio="none" href="/assets/images/project.jpg" />
+                </pattern>
+            </defs>
+
+            <g>
+                <title>Index</title>
+                <path id="svg_1" fill="url(#pattern1)"
+                      d="m46.14776,205.20705c57.23499,-89.465 81.22224,-117.85705 161.07224,-161.59705c52.53,-28.78 104.78,-32.92 143.44,-38c13.63,-1.79 46.12,-7 156.38,-1.67c98.69,4.79 147.13,7.38 210.84,17.67c90.71,14.65 136.48,22.52 156.21,49c50.4,67.62 -23.12,191.32 -65.72,263c-27.83,46.83 -46.1,80 -116.35,141c-81.32,63.16 -160.86,85.1 -206.16,94c-25,4.91 -113.71,15.66 -222.62,-2c-98.85,-16 -231.94385,-36.74692 -248.1,-107c-20.245,-103.6546 7.62853,-216.77833 31.00776,-254.40295z"
+                      className="cls-1"/>
+                <path id="svg_2" fill="url(#pattern2)"
+                      d="m848.69,281.27c1.63,-3.74 180.31,0 180.31,0l0,582.34l-562.38,0l-1,-281.16s258.45,-13.4 383.07,-301.18z"
+                      className="cls-2"/>
+                <path id="svg_3" fill="url(#pattern3)"
+                      d="m71.32,533.61a938.7,938.7 0 0 0 167,42a952.7,952.7 0 0 0 213.46,9l0.54,280.21a500.47,500.47 0 0 1 -94.75,12c-53.21,1.6 -215.47,7 -293.07,-92.1c-54.86,-70.11 -28.17,-164.22 -24.43,-179.11a246.19,246.19 0 0 1 31.25,-72z"
+                      className="cls-3"/>
             </g>
-        </svg>
+        </SvgElem>
     )
 }
+
+const SvgElem = styled.svg`
+
+`;
 
 export default IndexBackgroundSvg;

@@ -21,6 +21,7 @@ const IconHomeNavigate = () => {
 
 /* CSS */
 const Icon = styled(MenuIconEffects)`
+  z-index: 4;
   width: 40px;
   position: fixed;
   top: 20px;

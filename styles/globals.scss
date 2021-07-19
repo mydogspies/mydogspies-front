@@ -68,6 +68,11 @@ copy, rename and use for whatever specific need.
 /* applies to the specifically index page ONLY */
 .index {
 
+  h1 {
+    font-family: $font-headline;
+    font-size: 76px;
+  }
+
   h2 {
     font-family: $font-headline;
     font-size: 26px;

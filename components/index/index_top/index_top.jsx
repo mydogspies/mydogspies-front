@@ -27,20 +27,25 @@ const IndexTop = () => {
 
     return (
         <Container ref={ref} className="index index-top">
+
+            <HeadingContainer>
+                <HeadingCode>
+                    <h1>Programming</h1>
+                </HeadingCode>
+
+                <HeadingProject>
+                    <h1>Project Management</h1>
+                </HeadingProject>
+
+                <HeadingVisual>
+                    <h1>3D Visualisation</h1>
+                </HeadingVisual>
+            </HeadingContainer>
+
             <Background>
                 <IndexBackgroundSvg background_color={css.background_color}/>
             </Background>
-            <Temporary>
-                <h2>Main index page | heading | (5)</h2>
-                <h2><span>This page is what we see on initial load | subheading | (6)</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin ex ornare magna cursus,
-                    vel commodo neque tristique. Pellentesque molestie quis ligula ac dignissim. Morbi tincidunt congue
-                    dolor sit amet vehicula. Aenean malesuada efficitur augue in lacinia. Nunc in volutpat elit. Etiam
-                    at blandit tortor. Etiam nec pharetra ligula.</p>
-                <p>
-                    <a href="#">I am a link - but I go nowhere yet!</a>
-                </p>
-            </Temporary>
+
         </Container>
     )
 
@@ -60,16 +65,43 @@ const Background = styled.div`
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  height: 80vh;
+  text-align: center; // centering hack for firefox
 `;
 
-// TODO temporary - should be removed asap
-const Temporary = styled.div`
-  margin: 0 auto;
-  width: 45%;
-  text-align: center;
-  position: relative;
-  bottom: 3%;
+const HeadingContainer = styled.div`
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 `;
+
+const HeadingCode = styled.div`
+  color: white;
+  position: absolute;
+  top: -200px;
+  left: 400px;
+  z-index: 6;
+`;
+
+const HeadingVisual = styled.div`
+  color: white;
+  position: absolute;
+  top: 200px;
+  right: 200px;
+  z-index: 7;
+`;
+
+const HeadingProject = styled.div`
+  color: white;
+  position: absolute;
+  top: 100px;
+  left: 350px;
+  z-index: 8;
+  width: 200px;
+`;
+
 
 export default IndexTop;
