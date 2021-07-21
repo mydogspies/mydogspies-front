@@ -68,11 +68,6 @@ copy, rename and use for whatever specific need.
 /* applies to the specifically index page ONLY */
 .index {
 
-  h1 {
-    font-family: $font-headline;
-    font-size: 76px;
-  }
-
   h2 {
     font-family: $font-headline;
     font-size: 26px;
@@ -89,9 +84,29 @@ copy, rename and use for whatever specific need.
     font-size: 18px;
   }
 
+  // NOTE: Below sub styles are for index-top only!
+
+  &.coding {
+    color: $text-color-code;
+  }
+
+  &.visual {
+    color: $text-color-visual;
+  }
+
+  &.project {
+    color: $text-color-project;
+  }
+
   &.index-top {
     background-color: $background-color-index;
     color: $text-color-index;
+
+    h1 {
+      font-family: $font-headline;
+      font-size: 32px;
+      letter-spacing: 0.15em;
+    }
 
     h2, h2 span {
       color: $text-color-index-heading;

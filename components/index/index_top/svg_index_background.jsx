@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import JpgCode from './coding.jpeg';
 
 const IndexBackgroundSvg = ({background_color}) =>  {
 
-
+    // TODO does not work - just as code recipe
 
     return (
         <SvgElem height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" data-name="index" viewBox="5 0 1030 880">
