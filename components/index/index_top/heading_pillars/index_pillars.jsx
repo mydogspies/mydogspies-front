@@ -18,7 +18,7 @@ const IndexPillars = () => {
     const [project, setProject] = useState(false);
 
     const css = {
-        background_color: styles.backgroundIndex
+        background_color: styles.backgroundIndex,
     }
 
     const handleMouseOver = (event) => {
@@ -86,7 +86,7 @@ const IndexPillars = () => {
 
     return (
         <Container>
-            <ColumnSpacerLeft backgroundcolor={css.background_color}/>
+            <ColumnSpacerLeft backgroundcolor={css.background_color} />
 
             <ColumnCode id="cc"
                         className="index coding"
