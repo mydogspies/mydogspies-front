@@ -25,7 +25,7 @@ const IndexCode = () => {
     }, [dispatch, inView]);
 
     return (
-        <Container ref={ref} className="index index-code">
+        <Container ref={ref} className="index index-code" id="index-code">
             <Temporary>
                 <h2>Code index page | heading | (5b) </h2>
                 <h2><span>This page comes by scrolling down | subheading | (6b)</span></h2>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
+import Link from "next/link";
 import styled from 'styled-components';
 
 import HomeSvg from './svg_home_component';
@@ -13,7 +14,7 @@ const IconHomeNavigate = () => {
     return (
         <>
             <Icon>
-                <HomeSvg fill={currentIconColor}/>
+                <Link href=""><HomeSvg fill={currentIconColor}/></Link>
             </Icon>
         </>
     )

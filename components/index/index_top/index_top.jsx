@@ -27,7 +27,7 @@ const IndexTop = () => {
     }, [dispatch, inView]);
 
     return (
-        <Container ref={ref} className="index index-top">
+        <Container ref={ref} className="index index-top" id="index-top">
 
             <IndexPillars />
 

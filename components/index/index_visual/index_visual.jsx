@@ -2,17 +2,17 @@ import styled from "styled-components";
 import {useDispatch} from "react-redux";
 import {useInView} from "react-intersection-observer";
 import {useEffect} from "react";
-import {setCurrentIconColor} from "../../redux/styles/styles.action";
-import styles from "../../styles/icon_colors.module.scss";
+import {setCurrentIconColor} from "../../../redux/styles/styles.action";
+import styles from "../../../styles/icon_colors.module.scss";
 
-const IndexProject = () => {
+const IndexVisual = () => {
 
     const dispatch = useDispatch();
     const [ref, inView] = useInView({
         threshold: .7
     });
     const css = {
-        icon_color: styles.iconColorProject
+        icon_color: styles.iconColorVisual
     }
 
     useEffect(() => {
@@ -22,10 +22,10 @@ const IndexProject = () => {
     }, [dispatch, inView]);
 
     return (
-        <Container ref={ref} className="index index-project">
+        <Container ref={ref} className="index index-visual" id="index-visual">
             <Temporary>
-                <h2>Project index page | heading | (3b)</h2>
-                <h2><span>This page comes when scrolling down | subheading | (4b)</span></h2>
+                <h2>Visual/3D index page | heading | (1)</h2>
+                <h2><span>This page comes when scrolling down | subheading | (2)</span></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin ex ornare magna cursus,
                     vel commodo neque tristique. Pellentesque molestie quis ligula ac dignissim. Morbi tincidunt congue
                     dolor sit amet vehicula. Aenean malesuada efficitur augue in lacinia. Nunc in volutpat elit. Etiam
@@ -56,4 +56,4 @@ const Temporary = styled.div`
 `;
 
 
-export default IndexProject;
+export default IndexVisual;
