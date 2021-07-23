@@ -3,6 +3,9 @@ import {useDispatch} from 'react-redux';
 import styled from 'styled-components';
 import {useInView} from "react-intersection-observer";
 
+const Scroll   = require('react-scroll');
+const ScrollWrapper  = Scroll.Element;
+
 import {setCurrentIconColor} from "../../../redux/styles/styles.action";
 import styles from "../../../styles/icon_colors.module.scss";
 
@@ -25,39 +28,32 @@ const IndexCode = () => {
     }, [dispatch, inView]);
 
     return (
-        <Container ref={ref} className="index index-code" id="index-code">
-            <Temporary>
-                <h2>Code index page | heading | (5b) </h2>
-                <h2><span>This page comes by scrolling down | subheading | (6b)</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin ex ornare magna cursus,
-                    vel commodo neque tristique. Pellentesque molestie quis ligula ac dignissim. Morbi tincidunt congue
-                    dolor sit amet vehicula. Aenean malesuada efficitur augue in lacinia. Nunc in volutpat elit. Etiam
-                    at blandit tortor. Etiam nec pharetra ligula.</p>
-                <p>
-                    <a href="#">I am a link - but I go nowhere yet!</a>
-                </p>
-            </Temporary>
-        </Container>
+        <ScrollWrapper name="code">
+            <ContainerCode ref={ref} className="index index-code" id="index-code">
+                <CodeLeft />
+                <CodeRight />
+            </ContainerCode>
+        </ScrollWrapper>
     )
 
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+const ContainerCode = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
   height: 100vh;
 `;
 
-
-
-// TODO temporary - should be removed asap
-const Temporary = styled.div`
-  margin: 0 auto;
-  width: 45%;
-  text-align: center;
-  position: relative;
-  bottom: 3%;
+const CodeLeft = styled.div`
+  grid-column-start: 2;
+  background-color: white;
 `;
+
+const CodeRight = styled.div`
+  grid-column-start: 3;
+  background-color: greenyellow;
+`;
+
+
 
 export default IndexCode;

@@ -2,6 +2,9 @@ import {useState} from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
+const Scroll   = require('react-scroll');
+const scroller = Scroll.scroller;
+
 import styles from '../../../../styles/svg_background_colors.module.scss';
 
 import PillarsProgramming from './index_pillars_programming';
@@ -19,6 +22,7 @@ const IndexPillars = () => {
 
     const css = {
         background_color: styles.backgroundIndex,
+        pillarWidth: {cc: '33.33%', cv: '33.33%', cp: '33.33%'}
     }
 
     const handleMouseOver = (event) => {
@@ -27,7 +31,7 @@ const IndexPillars = () => {
         switch (id) {
             case 'cc':
                 if(!mouseOver) {
-                    event.target.parentElement.style.gridTemplateColumns = '0.9fr 0.1fr 4fr 0.25fr 0.25fr 0.1fr 0.9fr';
+                    changeWidths(['90%', '5%', '5%']);
                     document.body.style.cursor = "pointer";
                     setCode(true);
                     setMouseOver(true);
@@ -35,7 +39,7 @@ const IndexPillars = () => {
                 break;
             case 'cv':
                 if(!mouseOver) {
-                    event.target.parentElement.style.gridTemplateColumns = '0.9fr 0.1fr 0.25fr 4fr 0.25fr 0.1fr 0.9fr';
+                    changeWidths(['5%', '90%', '5%']);
                     document.body.style.cursor = "pointer";
                     setVisual(true);
                     setMouseOver(true);
@@ -43,7 +47,7 @@ const IndexPillars = () => {
                 break;
             case 'cp':
                 if(!mouseOver) {
-                    event.target.parentElement.style.gridTemplateColumns = '0.9fr 0.1fr 0.25fr 0.25fr 4fr 0.1fr 0.9fr';
+                    changeWidths(['5%', '5%', '90%']);
                     document.body.style.cursor = "pointer";
                     setProject(true);
                     setMouseOver(true);
@@ -54,9 +58,15 @@ const IndexPillars = () => {
         }
     }
 
-    const handleMouseOut = (event) => {
+    const changeWidths = (widthArray) => {
+        document.getElementById('cc').style.flexBasis = widthArray[0];
+        document.getElementById('cv').style.flexBasis = widthArray[1];
+        document.getElementById('cp').style.flexBasis = widthArray[2];
+    }
+
+    const handleMouseOut = () => {
         setMouseOver(false);
-        event.target.parentElement.style.gridTemplateColumns = '0.9fr 0.1fr 1.5fr 1.5fr 1.5fr 0.1fr 0.9fr';
+        changeWidths(['33.33%', '33.33%', '33.33%']);
         document.body.style.cursor = "default";
         setCode(false);
         setVisual(false);
@@ -68,16 +78,24 @@ const IndexPillars = () => {
 
         switch (id) {
             case 'cc':
-                event.preventDefault();
-                router.push('/#index-code');
+                // event.preventDefault();
+                // router.push('/#index-code');
+                scroller.scrollTo('code', {
+                    duration: 1000,
+                    smooth: true
+                });
                 break;
             case 'cv':
-                event.preventDefault();
-                router.push('/#index-visual');
+                scroller.scrollTo('visual', {
+                    duration: 1000,
+                    smooth: true
+                });
                 break;
             case 'cp':
-                event.preventDefault();
-                router.push('/#index-project');
+                scroller.scrollTo('project', {
+                    duration: 1000,
+                    smooth: true
+                });
                 break;
             default:
                 break;
@@ -86,45 +104,47 @@ const IndexPillars = () => {
 
     return (
         <Container>
-            <ColumnSpacerLeft backgroundcolor={css.background_color} />
 
-            <ColumnCode id="cc"
-                        className="index coding"
-                        onMouseOver={handleMouseOver}
-                        onMouseOut={handleMouseOut}
-                        onClick={handleOnClick}>
-                {code ? (
-                    <PillarsProgramming />
-                ) : (
-                    <VerticalText><h1>Programming</h1></VerticalText>
-                )}
-            </ColumnCode>
+            <ContainerPillars>
 
-            <ColumnVisual id="cv"
-                          className="index visual"
-                          onMouseOver={handleMouseOver}
-                          onMouseOut={handleMouseOut}
-                          onClick={handleOnClick}>
-                {visual ? (
-                    <PillarsVisualisation />
-                ) : (
-                    <VerticalText><h1>3D Visualisation</h1></VerticalText>
-                )}
-            </ColumnVisual>
+                <ColumnCode id="cc" width={css.pillarWidth.cc}
+                            className="index coding"
+                            onMouseOver={handleMouseOver}
+                            onMouseOut={handleMouseOut}
+                            onClick={handleOnClick}>
+                    {code ? (
+                        <PillarsProgramming />
+                    ) : (
+                        <VerticalText><h1>Programming</h1></VerticalText>
+                    )}
+                </ColumnCode>
 
-            <ColumnProject id="cp"
-                           className="index project"
-                           onMouseOver={handleMouseOver}
-                           onMouseOut={handleMouseOut}
-                           onClick={handleOnClick}>
-                {project ? (
-                    <PillarsProject />
-                ) : (
-                    <VerticalText><h1>Project Management</h1></VerticalText>
-                )}
-            </ColumnProject>
+                <ColumnVisual id="cv" width={css.pillarWidth.cv}
+                              className="index visual"
+                              onMouseOver={handleMouseOver}
+                              onMouseOut={handleMouseOut}
+                              onClick={handleOnClick}>
+                    {visual ? (
+                        <PillarsVisualisation />
+                    ) : (
+                        <VerticalText><h1>3D Visualisation</h1></VerticalText>
+                    )}
+                </ColumnVisual>
 
-            <ColumnSpacerRight/>
+                <ColumnProject id="cp" width={css.pillarWidth.cp}
+                               className="index project"
+                               onMouseOver={handleMouseOver}
+                               onMouseOut={handleMouseOut}
+                               onClick={handleOnClick}>
+                    {project ? (
+                        <PillarsProject />
+                    ) : (
+                        <VerticalText><h1>Project Management</h1></VerticalText>
+                    )}
+                </ColumnProject>
+
+            </ContainerPillars>
+
         </Container>
     );
 
@@ -132,20 +152,13 @@ const IndexPillars = () => {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 0.9fr 0.1fr 1.5fr 1.5fr 1.5fr 0.1fr 0.9fr;
+  grid-template-columns: 1fr 5fr 1fr;
   height: 100vh;
 `;
 
-// Spacer is a fix for some erratic onMouseEnter firing when entering from the left
-// Notice we pass current background color as a props via the return above
-const ColumnSpacerLeft = styled.div`
+const ContainerPillars = styled.div`
+  display: flex;
   grid-column-start: 2;
-  background-color: ${props => props.backgroundcolor};
-`;
-
-const ColumnSpacerRight = styled.div`
-  grid-column-start: 6;
-  background-color: ${props => props.backgroundcolor};
 `;
 
 // Defines all three text columns and by wrapping in a div, fixes some odd grid resizing issues
@@ -157,17 +170,20 @@ const VerticalText = styled.div`
 `;
 
 const ColumnCode = styled.div`
-  grid-column-start: 3;
+  flex-basis: ${props => props.width};
+  transition: flex-basis 0.9s;
   background-color: #bae7a9;
 `;
 
 const ColumnVisual = styled.div`
-  grid-column-start: 4;
+  flex-basis: ${props => props.width};
+  transition: flex-basis 0.9s;
   background-color: #c8b7d4;
 `;
 
 const ColumnProject = styled.div`
-  grid-column-start: 5;
+  flex-basis: ${props => props.width};
+  transition: flex-basis 0.9s;
   background-color: #b1d4d7;
 `;
 

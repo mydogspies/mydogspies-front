@@ -5,6 +5,7 @@ import IndexTop from '../components/index/index_top/index_top';
 import IndexCode from "../components/index/index_code/index_code";
 import IndexVisual from "../components/index/index_visual/index_visual";
 import IndexProject from "../components/index/index_project/index_project";
+import styled from "styled-components";
 
 export default function Home({status, userStatus}) {
 
@@ -14,10 +15,13 @@ export default function Home({status, userStatus}) {
                 <Head>
                     <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
                 </Head>
-                <IndexTop />
-                <IndexCode />
-                <IndexVisual />
-                <IndexProject />
+                <ParentContainer id="parent-container">
+                    <IndexTop />
+                    <IndexCode />
+                    <IndexVisual />
+                    <IndexProject />
+                </ParentContainer>
+
             </>
         )
 
@@ -29,6 +33,10 @@ export default function Home({status, userStatus}) {
         )
     }
 }
+
+const ParentContainer = styled.div`
+
+`;
 
 
 
