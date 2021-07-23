@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 const Scroll   = require('react-scroll');
 const scroller = Scroll.scroller;
 
-import styles from '../../../../styles/svg_background_colors.module.scss';
+import backgroundColors from '../../../../styles/svg_background_colors.module.scss';
+import shapeColors from '../../../../styles/shape_colors.module.scss';
 
 import PillarsProgramming from './index_pillars_programming';
 import PillarsVisualisation from './index_pillars_visualisation';
@@ -21,8 +22,13 @@ const IndexPillars = () => {
     const [project, setProject] = useState(false);
 
     const css = {
-        background_color: styles.backgroundIndex,
-        pillarWidth: {cc: '33.33%', cv: '33.33%', cp: '33.33%'}
+        background_color: backgroundColors.backgroundIndex,
+        pillarWidth: {cc: '33.33%', cv: '33.33%', cp: '33.33%'},
+        shapeColors: {
+            ccColor: shapeColors.shapesColorCode,
+            cvColor: shapeColors.shapesColorVisual,
+            cpColor: shapeColors.shapesColorProject
+        }
     }
 
     const handleMouseOver = (event) => {
@@ -107,7 +113,9 @@ const IndexPillars = () => {
 
             <ContainerPillars>
 
-                <ColumnCode id="cc" width={css.pillarWidth.cc}
+                <ColumnCode id="cc"
+                            width={css.pillarWidth.cc}
+                            shapeColor={css.shapeColors.ccColor}
                             className="index coding"
                             onMouseOver={handleMouseOver}
                             onMouseOut={handleMouseOut}
@@ -119,7 +127,9 @@ const IndexPillars = () => {
                     )}
                 </ColumnCode>
 
-                <ColumnVisual id="cv" width={css.pillarWidth.cv}
+                <ColumnVisual id="cv"
+                              width={css.pillarWidth.cv}
+                              shapeColor={css.shapeColors.cvColor}
                               className="index visual"
                               onMouseOver={handleMouseOver}
                               onMouseOut={handleMouseOut}
@@ -131,7 +141,9 @@ const IndexPillars = () => {
                     )}
                 </ColumnVisual>
 
-                <ColumnProject id="cp" width={css.pillarWidth.cp}
+                <ColumnProject id="cp"
+                               width={css.pillarWidth.cp}
+                               shapeColor={css.shapeColors.cpColor}
                                className="index project"
                                onMouseOver={handleMouseOver}
                                onMouseOut={handleMouseOut}
@@ -172,19 +184,19 @@ const VerticalText = styled.div`
 const ColumnCode = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
-  background-color: #bae7a9;
+  background-color: ${props => props.shapeColor};
 `;
 
 const ColumnVisual = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
-  background-color: #c8b7d4;
+  background-color: ${props => props.shapeColor};
 `;
 
 const ColumnProject = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
-  background-color: #b1d4d7;
+  background-color: ${props => props.shapeColor};
 `;
 
 export default IndexPillars;

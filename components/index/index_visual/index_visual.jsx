@@ -7,7 +7,8 @@ const Scroll   = require('react-scroll');
 const ScrollWrapper  = Scroll.Element;
 
 import {setCurrentIconColor} from "../../../redux/styles/styles.action";
-import styles from "../../../styles/icon_colors.module.scss";
+import backgroundColors from "../../../styles/icon_colors.module.scss";
+import shapeColors from '../../../styles/shape_colors.module.scss';
 
 const IndexVisual = () => {
 
@@ -16,7 +17,10 @@ const IndexVisual = () => {
         threshold: .7
     });
     const css = {
-        icon_color: styles.iconColorVisual
+        icon_color: backgroundColors.iconColorVisual,
+        shapeColors: {
+            cvColor: shapeColors.shapesColorVisual
+        }
     }
 
     useEffect(() => {
@@ -28,7 +32,7 @@ const IndexVisual = () => {
     return (
         <ScrollWrapper name="visual">
             <ContainerVisual ref={ref} className="index index-code" id="index-code">
-                <VisualLeft />
+                <VisualLeft shapeColor={css.shapeColors.cvColor} />
                 <VisualRight />
             </ContainerVisual>
         </ScrollWrapper>
@@ -45,7 +49,7 @@ const ContainerVisual = styled.div`
 
 const VisualLeft = styled.div`
   grid-column-start: 2;
-  background-color: darkorchid;
+  background-color: ${props => props.shapeColor};
 `;
 
 const VisualRight = styled.div`

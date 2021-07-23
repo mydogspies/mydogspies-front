@@ -7,7 +7,8 @@ const Scroll   = require('react-scroll');
 const ScrollWrapper  = Scroll.Element;
 
 import {setCurrentIconColor} from "../../../redux/styles/styles.action";
-import styles from "../../../styles/icon_colors.module.scss";
+import backgroundColors from "../../../styles/icon_colors.module.scss";
+import shapeColors from '../../../styles/shape_colors.module.scss';
 
 const IndexProject = () => {
 
@@ -16,7 +17,10 @@ const IndexProject = () => {
         threshold: .7
     });
     const css = {
-        icon_color: styles.iconColorProject
+        icon_color: backgroundColors.iconColorProject,
+        shapeColors: {
+            cpColor: shapeColors.shapesColorProject
+        }
     }
 
     useEffect(() => {
@@ -29,7 +33,7 @@ const IndexProject = () => {
         <ScrollWrapper name="project">
             <ContainerProject ref={ref} className="index index-code" id="index-code">
                 <ProjectLeft />
-                <ProjectRight />
+                <ProjectRight shapeColor={css.shapeColors.cpColor} />
             </ContainerProject>
         </ScrollWrapper>
 
@@ -50,8 +54,8 @@ const ProjectLeft = styled.div`
 
 const ProjectRight = styled.div`
   grid-column-start: 3;
-  background-color: cornflowerblue;
+  background-color: ${props => props.shapeColor};
+\` ;
 `;
-
 
 export default IndexProject;

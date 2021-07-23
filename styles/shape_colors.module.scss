@@ -1,0 +1,10 @@
+$background-shapes-code: #bae7a9;
+$background-shapes-visual: #c8b7d4;
+$background-shapes-project: #b1d4d7;
+
+/* Exports to app */
+:export {
+    shapesColorCode: $background-shapes-code;
+    shapesColorVisual: $background-shapes-visual;
+    shapesColorProject: $background-shapes-project;
+}
