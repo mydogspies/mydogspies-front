@@ -1,5 +1,5 @@
 #content libraries
-/remote
+/public/assets/remote
 
 # dependencies
 /node_modules
