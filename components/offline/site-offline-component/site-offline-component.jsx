@@ -12,7 +12,7 @@ const OfflinePage = () => {
             </Head>
 
             <Grid>
-                <Logo src={logo} alt="Mydogspies.com blue logo"/>
+                <Logo src={logo.src} alt="Mydogspies.com blue logo"/>
                 <TextContainer>
                     <Headline><h2>Welcome to Mydogspies.com</h2></Headline>
                     <Text>
