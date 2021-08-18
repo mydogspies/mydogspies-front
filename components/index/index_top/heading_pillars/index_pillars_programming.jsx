@@ -1,12 +1,18 @@
 
+import styled from "styled-components";
+
 const PillarsProgramming = () => {
 
     return (
-        <div>
+        <PillarContainer>
             This is programming content
-        </div>
+        </PillarContainer>
     )
 
 }
 
 export default PillarsProgramming;
+
+const PillarContainer = styled.div`
+ 
+`;

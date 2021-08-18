@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import styled from 'styled-components';
+import styled , { css } from 'styled-components';
 import { useRouter } from 'next/router';
 
 const Scroll   = require('react-scroll');
@@ -11,6 +11,8 @@ import shapeColors from '../../../../styles/shape_colors.module.scss';
 import PillarsProgramming from './index_pillars_programming';
 import PillarsVisualisation from './index_pillars_visualisation';
 import PillarsProject from './index_pillars_project';
+
+import topCodeImage from '../../../../public/assets/remote/images/index/coding_screen_1.jpg';
 
 const IndexPillars = () => {
 
@@ -77,6 +79,7 @@ const IndexPillars = () => {
         setCode(false);
         setVisual(false);
         setProject(false);
+
     }
 
     const handleOnClick = (event) => {
@@ -116,14 +119,18 @@ const IndexPillars = () => {
                 <ColumnCode id="cc"
                             width={css.pillarWidth.cc}
                             shapeColor={css.shapeColors.ccColor}
+                            backgroundImage={topCodeImage.src}
                             className="index coding"
                             onMouseOver={handleMouseOver}
                             onMouseOut={handleMouseOut}
-                            onClick={handleOnClick}>
+                            onClick={handleOnClick}
+                            active={code}>
                     {code ? (
                         <PillarsProgramming />
                     ) : (
-                        <VerticalText><h1>Programming</h1></VerticalText>
+                        <VerticalText>
+                            <h1>Programming</h1>
+                        </VerticalText>
                     )}
                 </ColumnCode>
 
@@ -133,11 +140,14 @@ const IndexPillars = () => {
                               className="index visual"
                               onMouseOver={handleMouseOver}
                               onMouseOut={handleMouseOut}
-                              onClick={handleOnClick}>
+                              onClick={handleOnClick}
+                              active={visual}>
                     {visual ? (
                         <PillarsVisualisation />
                     ) : (
-                        <VerticalText><h1>3D Visualisation</h1></VerticalText>
+                        <VerticalText>
+                            <h1>3D Visualisation</h1>
+                        </VerticalText>
                     )}
                 </ColumnVisual>
 
@@ -147,11 +157,14 @@ const IndexPillars = () => {
                                className="index project"
                                onMouseOver={handleMouseOver}
                                onMouseOut={handleMouseOut}
-                               onClick={handleOnClick}>
+                               onClick={handleOnClick}
+                               active={project}>
                     {project ? (
                         <PillarsProject />
                     ) : (
-                        <VerticalText><h1>Project Management</h1></VerticalText>
+                        <VerticalText>
+                            <h1>Project Management</h1>
+                        </VerticalText>
                     )}
                 </ColumnProject>
 
@@ -185,6 +198,26 @@ const ColumnCode = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
+
+  @keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+      opacity: 0;
+    }
+    to {
+      background-position: -40px 0;
+      opacity: 1;
+    }
+  }
+
+  // on mouseover content
+  ${props => props.active && css`
+    // background-image: linear-gradient(to top,  rgba(186, 231, 169, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
+    background-image: linear-gradient(to top,  rgba(34, 34, 34, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
+    animation: animatedBackground 1.5s ease-out;
+    background-position: -40px 0;
+  `}
+  
 `;
 
 const ColumnVisual = styled.div`
