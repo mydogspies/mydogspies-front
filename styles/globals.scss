@@ -70,10 +70,6 @@ copy, rename and use for whatever specific need.
 /* applies to the specifically index page ONLY */
 .index {
 
-  h3 {
-
-  }
-
   h2 {
     font-family: $font-headline;
     font-size: 26px;
@@ -94,6 +90,17 @@ copy, rename and use for whatever specific need.
 
   &.coding {
     color: $text-color-code;
+
+    .smaller {
+      font-family: $font-paragraph;
+      font-size: 14px;
+    }
+
+    .bigger {
+      font-family: $font-paragraph;
+      font-size: 23px;
+    }
+
   }
 
   &.visual {
