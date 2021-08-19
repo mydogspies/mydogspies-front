@@ -7,6 +7,7 @@ definition for specific components below.
 
 /* Obligatory imports */
 @use 'reset';
+@use 'global_shadows';
 
 /* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=PT+Sans&display=swap');
@@ -68,6 +69,10 @@ copy, rename and use for whatever specific need.
 /* -- INDEX PAGE --*/
 /* applies to the specifically index page ONLY */
 .index {
+
+  h3 {
+
+  }
 
   h2 {
     font-family: $font-headline;

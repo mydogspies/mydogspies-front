@@ -13,7 +13,7 @@ const IconHomeNavigate = () => {
     return (
         <>
             <Icon>
-                <HomeSvg fill={currentIconColor}/>
+                <HomeSvg fill={currentIconColor} />
             </Icon>
         </>
     )

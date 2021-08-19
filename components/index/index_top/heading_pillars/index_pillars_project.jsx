@@ -1,3 +1,4 @@
+import styled from "styled-components";
 
 const PillarsProject = () => {
 
@@ -8,6 +9,10 @@ const PillarsProject = () => {
     )
 
 }
+
+const ColumnProject = styled.div`
+  
+`;
 
 export default PillarsProject;
 

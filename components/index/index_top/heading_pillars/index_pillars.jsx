@@ -120,7 +120,7 @@ const IndexPillars = () => {
                             width={css.pillarWidth.cc}
                             shapeColor={css.shapeColors.ccColor}
                             backgroundImage={topCodeImage.src}
-                            className="index coding"
+                            className="index coding global-box-shadow"
                             onMouseOver={handleMouseOver}
                             onMouseOut={handleMouseOut}
                             onClick={handleOnClick}
@@ -137,7 +137,7 @@ const IndexPillars = () => {
                 <ColumnVisual id="cv"
                               width={css.pillarWidth.cv}
                               shapeColor={css.shapeColors.cvColor}
-                              className="index visual"
+                              className="index visual global-box-shadow"
                               onMouseOver={handleMouseOver}
                               onMouseOut={handleMouseOut}
                               onClick={handleOnClick}
@@ -154,7 +154,7 @@ const IndexPillars = () => {
                 <ColumnProject id="cp"
                                width={css.pillarWidth.cp}
                                shapeColor={css.shapeColors.cpColor}
-                               className="index project"
+                               className="index project global-box-shadow"
                                onMouseOver={handleMouseOver}
                                onMouseOut={handleMouseOut}
                                onClick={handleOnClick}
@@ -198,7 +198,11 @@ const ColumnCode = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
+  border-radius: 5px 0 0 0;
+  // border-left: 5px solid #c8b7d4;
 
+  // on mouseover content below
+  //
   @keyframes animatedBackground {
     from {
       background-position: 0 0;
@@ -209,8 +213,7 @@ const ColumnCode = styled.div`
       opacity: 1;
     }
   }
-
-  // on mouseover content
+  
   ${props => props.active && css`
     // background-image: linear-gradient(to top,  rgba(186, 231, 169, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
     background-image: linear-gradient(to top,  rgba(34, 34, 34, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
@@ -230,6 +233,7 @@ const ColumnProject = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
+  border-radius: 0 5px 0 0;
 `;
 
 export default IndexPillars;
