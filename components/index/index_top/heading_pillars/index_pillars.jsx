@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import styled , { css } from 'styled-components';
-import { useRouter } from 'next/router';
+import styled, {css} from 'styled-components';
+import {useRouter} from 'next/router';
 
-const Scroll   = require('react-scroll');
+const Scroll = require('react-scroll');
 const scroller = Scroll.scroller;
 
 import backgroundColors from '../../../../styles/svg_background_colors.module.scss';
@@ -13,6 +13,8 @@ import PillarsVisualisation from './index_pillars_visualisation';
 import PillarsProject from './index_pillars_project';
 
 import topCodeImage from '../../../../public/assets/remote/images/index/coding_screen_1.jpg';
+import topProjectImage from '../../../../public/assets/remote/images/index/cds.jpg';
+import topVisualImage from '../../../../public/assets/remote/images/index/chouse.jpg';
 
 const IndexPillars = () => {
 
@@ -38,7 +40,7 @@ const IndexPillars = () => {
 
         switch (id) {
             case 'cc':
-                if(!mouseOver) {
+                if (!mouseOver) {
                     changeWidths(['90%', '5%', '5%']);
                     document.body.style.cursor = "pointer";
                     setCode(true);
@@ -46,7 +48,7 @@ const IndexPillars = () => {
                 }
                 break;
             case 'cv':
-                if(!mouseOver) {
+                if (!mouseOver) {
                     changeWidths(['5%', '90%', '5%']);
                     document.body.style.cursor = "pointer";
                     setVisual(true);
@@ -54,7 +56,7 @@ const IndexPillars = () => {
                 }
                 break;
             case 'cp':
-                if(!mouseOver) {
+                if (!mouseOver) {
                     changeWidths(['5%', '5%', '90%']);
                     document.body.style.cursor = "pointer";
                     setProject(true);
@@ -126,7 +128,7 @@ const IndexPillars = () => {
                             onClick={handleOnClick}
                             active={code}>
                     {code ? (
-                        <PillarsProgramming />
+                        <PillarsProgramming/>
                     ) : (
                         <VerticalText>
                             <h1>Programming</h1>
@@ -137,13 +139,14 @@ const IndexPillars = () => {
                 <ColumnVisual id="cv"
                               width={css.pillarWidth.cv}
                               shapeColor={css.shapeColors.cvColor}
+                              backgroundImage={topVisualImage.src}
                               className="index visual global-box-shadow"
                               onMouseOver={handleMouseOver}
                               onMouseOut={handleMouseOut}
                               onClick={handleOnClick}
                               active={visual}>
                     {visual ? (
-                        <PillarsVisualisation />
+                        <PillarsVisualisation/>
                     ) : (
                         <VerticalText>
                             <h1>3D Visualisation</h1>
@@ -154,13 +157,14 @@ const IndexPillars = () => {
                 <ColumnProject id="cp"
                                width={css.pillarWidth.cp}
                                shapeColor={css.shapeColors.cpColor}
+                               backgroundImage={topProjectImage.src}
                                className="index project global-box-shadow"
                                onMouseOver={handleMouseOver}
                                onMouseOut={handleMouseOut}
                                onClick={handleOnClick}
                                active={project}>
                     {project ? (
-                        <PillarsProject />
+                        <PillarsProject/>
                     ) : (
                         <VerticalText>
                             <h1>Project Management</h1>
@@ -186,6 +190,7 @@ const ContainerPillars = styled.div`
   grid-column-start: 2;
 `;
 
+
 // Defines all three text columns and by wrapping in a div, fixes some odd grid resizing issues
 const VerticalText = styled.div`
   writing-mode: vertical-lr;
@@ -199,34 +204,60 @@ const ColumnCode = styled.div`
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
   border-radius: 5px 0 0 0;
-  // border-left: 5px solid #c8b7d4;
 
   // on mouseover content below
   //
-  @keyframes animatedBackground {
+  @keyframes animatedCodeBackgroundPos {
     from {
       background-position: 0 0;
-      opacity: 0;
     }
     to {
       background-position: -40px 0;
-      opacity: 1;
     }
   }
   
+  @keyframes animatedCodeBackgroundOpacity {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   ${props => props.active && css`
-    // background-image: linear-gradient(to top,  rgba(186, 231, 169, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    background-image: linear-gradient(to top,  rgba(34, 34, 34, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    animation: animatedBackground 1.5s ease-out;
+    background-image: linear-gradient(to top, rgba(34, 34, 34, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
+    animation: animatedCodeBackgroundPos 3.5s ease-out, animatedCodeBackgroundOpacity 2s ease-out;
+
     background-position: -40px 0;
   `}
-  
+
 `;
 
 const ColumnVisual = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
+
+  // on mouseover content below
+  //
+  @keyframes animatedVisualBackground {
+    from {
+      background-position: -175px 0;
+      opacity: 0;
+    }
+    to {
+      background-position: -270px 0;
+      opacity: 1;
+    }
+  }
+
+  ${props => props.active && css`
+    background-image: linear-gradient(to top, rgba(200, 182, 211, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
+    animation: animatedVisualBackground 3.5s ease-out;
+    background-size: cover;
+    background-position: -270px 0;
+  `}
 `;
 
 const ColumnProject = styled.div`
@@ -234,6 +265,26 @@ const ColumnProject = styled.div`
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
   border-radius: 0 5px 0 0;
+
+  // on mouseover content below
+  //
+  @keyframes animatedProjectBackground {
+    from {
+      background-position: 40px 0;
+      opacity: 0;
+    }
+    to {
+      background-position: -40px 0;
+      opacity: 1;
+    }
+  }
+
+  ${props => props.active && css`
+    background-image: linear-gradient(to top, rgba(182, 214, 215, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
+    animation: animatedProjectBackground 3.5s ease-out;
+    background-size: cover;
+    background-position: -40px 0;
+  `}
 `;
 
 export default IndexPillars;
