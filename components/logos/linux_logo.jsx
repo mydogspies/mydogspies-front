@@ -1,9 +1,9 @@
 import React from "react";
 
-const LinuxLogoSvg = () =>  {
+const LinuxLogoSvg = ({classes}) =>  {
 
     return (
-        <svg className="global-svg-icon-shadow" version="1.1" id="circle_of_friends__x5F__orange"
+        <svg className={classes} version="1.1" id="circle_of_friends__x5F__orange"
              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 425.197 425.197" enable-background="new 0 0 425.197 425.197" >
 <g>
 	<path fill="#E95420" d="M354.331,212.595c0,78.279-63.45,141.735-141.729,141.735c-78.279,0-141.735-63.456-141.735-141.735

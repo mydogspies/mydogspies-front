@@ -1,9 +1,9 @@
 import React from "react";
 
-const IntellijLogoSvg = () => {
+const IntellijLogoSvg = ({classes}) => {
 
     return (
-        <svg className="global-svg-icon-shadow" id="intellij_logo" data-name="intellij_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+        <svg className={classes} id="intellij_logo" data-name="intellij_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
             <defs>
                 <linearGradient id="linear-gradient" x1="0.8" y1="31.9" x2="33.3" y2="31.9"
                                 gradientTransform="matrix(1, 0, 0, -1, 0, 72)" gradientUnits="userSpaceOnUse">

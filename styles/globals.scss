@@ -23,26 +23,26 @@ $text-color-index: #373621; // 5
 $text-color-index-heading: #3f3c06; // 6
 
 /* CODE */
-$background-color-code: #c3c3c3;
+$background-color-code: #444444;
 $text-color-code: #302e13; // 5b
 $text-color-code-heading: #403d0c; // 6b
 
 /* PROJECT */
-$background-color-project: #c3c3c3;
+$background-color-project: #444444;
 $text-color-project: #112421; // 3b
 $text-color-project-heading: #0b423a; // 4b
 
 /* VISUAL */
-$background-color-visual: #c3c3c3;
+$background-color-visual: #444444;
 $text-color-visual: #240604; // 1
 $text-color-visual-heading: #440a0a; // 2
 
 /* OFFLINE */
-$background-color-offline: #c3c3c3;
+$background-color-offline: #444444;
 $text-color-offline: #19302c; // 3a
 $text-color-offline-heading: #05372f; //4a
 /* ADMIN */
-$background-color-admin: #c3c3c3;
+$background-color-admin: #444444;
 $text-color-admin: #2a2914; // 5a
 $text-color-admin-heading: #322f01; // 6a
 
@@ -92,17 +92,17 @@ copy, rename and use for whatever specific need.
 
     .smaller {
       font-family: $font-paragraph;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .bigger {
       font-family: $font-paragraph;
-      font-size: 23px;
+      font-size: 20px;
     }
 
     .header {
       font-family: $font-headline;
-      font-size: 90px;
+      font-size: 110px;
       color: #cccccc;
     }
 
@@ -132,6 +132,7 @@ copy, rename and use for whatever specific need.
       font-size: 32px;
       letter-spacing: 0.15em;
       color: white;
+      filter: drop-shadow(-1px 1px 1px rgba(5, 5, 5, .1))
     }
 
     h2, h2 span {

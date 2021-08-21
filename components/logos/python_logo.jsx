@@ -1,9 +1,9 @@
 import React from "react";
 
-const PythonLogoSvg = () =>  {
+const PythonLogoSvg = ({classes}) =>  {
 
     return (
-        <svg className="global-svg-icon-shadow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="python_logo">
+        <svg className={classes} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="python_logo">
             <defs>
                 <linearGradient id="A" x1="811.527" y1="574.895" x2="665.255" y2="573.732" gradientUnits="userSpaceOnUse">
                     <stop offset="0" stop-color="#366a96"/>

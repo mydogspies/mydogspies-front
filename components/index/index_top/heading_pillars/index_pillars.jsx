@@ -196,7 +196,7 @@ const VerticalText = styled.div`
   writing-mode: vertical-lr;
   text-orientation: sideways;
   text-align: left;
-  padding: 5% 0 0 5%;
+  padding: 22px 0 0 11px;
 `;
 
 const ColumnCode = styled.div`

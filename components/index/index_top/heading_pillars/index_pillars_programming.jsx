@@ -26,19 +26,17 @@ const PillarsProgramming = () => {
                             on push... Have to plan to add the plan to add an issue in the issue tracker!"</p>
                     </div>
                     <DogGreen>
-                        <DogGreenSvg />
+                        <DogGreenSvg classes="global-svg-icon-shadow"/>
                     </DogGreen>
                 </ContentBoxTwo>
 
-{/*                <ContentBoxThree className="global-box-shadow">
+                <ContentBoxThree className="global-box-shadow">
                     <div>
-                        <p className="smaller">"Coding is to problem solving what the written word is to a novel. C++ is
-                            the the book of law,
-                            verbose and rigid, Python has elegance and depth like a Jonathan Franzen novel while
-                            Javascript can
-                            be fluffy, quirky and a highly entertaining read."</p>
+                        <p className="smaller">"Coding is like a novel. C++ is like a book of law;
+                            old, stuffy and rigid. Java is the lengthy verbose science report. Python has elegance and depth like the writings of Jonathan Franzen.
+                            Javascript is the quirky, chaotic but highly entertaining art piece in the sunday edition of The Guardian."</p>
                     </div>
-                </ContentBoxThree>*/}
+                </ContentBoxThree>
 
                 <Signature>
                     <h1 className="signature global-text-shadow">quotes by mydogspies</h1>
@@ -83,15 +81,16 @@ const ContentContainer = styled.div`
 const Header = styled.div`
   pointer-events: none;
   position: relative;
-  top: -200px;
-  left: -50px;
-  transform: rotate(1deg);
+  top: -122px;
+  left: 57px;
+  transform: rotate(2deg);
 `;
 
 const Signature = styled.div`
   pointer-events: none;
   position: relative;
-  top: 45px;
+  top: 21px;
+  left: 155px;
   transform: rotate(2deg);
 `;
 
@@ -101,14 +100,14 @@ const ContentBoxOne = styled.div`
 
   @keyframes boxOneMovement {
     from {
-      top: -135px;
-      left: 30px;
+      top: -123px;
+      left: 45px;
       transform: rotate(1deg);
     }
     to {
       top: -120px;
-      left: 0;
-      transform: rotate(3deg);
+      left: 50px;
+      transform: rotate(0);
     }
   }
   
@@ -119,7 +118,7 @@ const ContentBoxOne = styled.div`
   width: 520px;
   position: relative;
   top: -120px;
-  transform: rotate(3deg);
+  left: 50px;
   transform-origin: center;
   animation: boxOneMovement 0.8s ease-out;
 `;
@@ -128,7 +127,7 @@ const ContentBoxTwo = styled.div`
 
   @keyframes boxTwoMovement {
     from {
-      transform: rotate(1deg);
+      transform: rotate(0deg);
     }
     to {
       transform: rotate(-1deg);
@@ -141,42 +140,39 @@ const ContentBoxTwo = styled.div`
   padding: 25px;
   width: 520px;
   position: relative;
-  top: -50px;
+  top: 100px;
   left: 100px;
   transform: rotate(-1deg);
   transform-origin: center;
   animation: boxTwoMovement 0.5s ease-out;
 `;
 
-// const ContentBoxThree = styled.div`
-//
-//   @keyframes boxThreeMovement {
-//     from {
-//       top: 50px;
-//       transform: rotate(1deg);
-//     }
-//     to {
-//       top: 30px;
-//       transform: rotate(1.5deg);
-//     }
-//   }
-//
-//   pointer-events: none;
-//   background-color: rgba(255, 255, 255, 0.8);
-//   border-radius: 10px;
-//   padding: 25px;
-//   width: 750px;
-//   position: relative;
-//   top: 30px;
-//   left: 0;
-//   transform: rotate(1.5deg);
-//   transform-origin: center;
-//   animation: boxThreeMovement 1s ease-out;
-// `;
+ const ContentBoxThree = styled.div`
+
+   @keyframes boxThreeMovement {
+     from {
+       left: 10px;
+     }
+     to {
+       left: 0;
+     }
+   }
+
+   pointer-events: none;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-radius: 10px;
+   padding: 25px;
+   width: 750px;
+   position: relative;
+   top: -215px;
+   left: 0;
+   transform: rotate(1.5deg);
+   transform-origin: center;
+   animation: boxThreeMovement 0.8s ease-out;
+ `;
 
 // LOGO STYLES //
 //
-
 const DogGreen = styled.div`
 
   @keyframes dogLogoAnim {
@@ -197,144 +193,4 @@ const DogGreen = styled.div`
   top: 25px;
   transform: rotate(5deg);
   animation: dogLogoAnim 0.7s ease-out;
-`;
-
-const JavaLogo = styled.div`
-
-  @keyframes javaLogoMovement {
-    from {
-      top: -30px;
-      left: -35px;
-      transform: rotate(1deg);
-    }
-    to {
-      top: -60px;
-      left: -60px;
-      transform: rotate(-4deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: -60px;
-  left: -60px;
-  width: 100px;
-  transform: rotate(-4deg);
-  animation: javaLogoMovement 1s ease-out;
-`;
-
-const PythonLogo = styled.div`
-
-  @keyframes pythonLogoMovement {
-    from {
-      top: 56px;
-      left: 346px;
-      transform: rotate(-2deg);
-    }
-    to {
-      top: 70px;
-      left: 350px;
-      transform: rotate(-4deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: 70px;
-  left: 350px;
-  width: 55px;
-  transform: rotate(-4deg);
-  animation: pythonLogoMovement 1s ease-out;
-`;
-
-const ReactLogo = styled.div`
-
-  @keyframes reactLogoMovement {
-    from {
-      top: 115px;
-      left: 275px;
-      transform: rotate(-15deg);
-    }
-    to {
-      top: 125px;
-      left: 255px;
-      transform: rotate(4deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: 125px;
-  left: 255px;
-  width: 150px;
-  transform: rotate(4deg);
-  animation: reactLogoMovement 0.75s ease-out;
-`;
-
-const JSLogo = styled.div`
-
-  @keyframes jsLogoMovement {
-    from {
-      top: -40px;
-      left: 500px;
-      transform: rotate(-3deg);
-    }
-    to {
-      top: -20px;
-      left: 485px;
-      transform: rotate(-6deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: -20px;
-  left: 485px;
-  width: 45px;
-  transform: rotate(-6deg);
-  animation: jsLogoMovement 0.8s ease-out;
-`;
-
-const IntellijLogo = styled.div`
-
-  @keyframes intellijLogoMovement {
-    from {
-      top: 15px;
-      left: 440px;
-      transform: rotate(36deg);
-    }
-    to {
-      top: 25px;
-      left: 435px;
-      transform: rotate(6deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: 25px;
-  left: 435px;
-  width: 45px;
-  transform: rotate(6deg);
-  animation: intellijLogoMovement 0.8s ease-out;
-`;
-
-const LinuxLogo = styled.div`
-
-  @keyframes LinuxLogoMovement {
-    from {
-      transform: rotate(6deg);
-    }
-    to {
-      transform: rotate(-2deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: 65px;
-  left: 130px;
-  width: 120px;
-  transform: rotate(-2deg);
-  animation: LinuxLogoMovement 1.5s ease-out;
 `;
