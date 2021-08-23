@@ -116,6 +116,12 @@ copy, rename and use for whatever specific need.
 
   &.visual {
     color: $text-color-visual;
+
+    .header {
+      font-family: $font-headline;
+      font-size: 55px;
+      color: #ffffff;
+    }
   }
 
   &.project {

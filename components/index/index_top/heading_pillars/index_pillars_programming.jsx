@@ -5,13 +5,13 @@ import DogGreenSvg from "../../../logos/dog_green";
 const PillarsProgramming = () => {
 
     return (
-        <PillarContainer>
+        <PillarContainerCoding>
 
-            <ContentContainer>
+            <ContentContainerCoding>
 
-                <Header>
+                <HeaderCoding>
                     <h1 className="header global-text-shadow">Coding</h1>
-                </Header>
+                </HeaderCoding>
 
                 <ContentBoxOne className="global-box-shadow">
                     <div>
@@ -38,13 +38,13 @@ const PillarsProgramming = () => {
                     </div>
                 </ContentBoxThree>
 
-                <Signature>
+                <SignatureCoding>
                     <h1 className="signature global-text-shadow">quotes by mydogspies</h1>
-                </Signature>
+                </SignatureCoding>
 
-            </ContentContainer>
+            </ContentContainerCoding>
 
-        </PillarContainer>
+        </PillarContainerCoding>
     )
 
 }
@@ -53,11 +53,11 @@ export default PillarsProgramming;
 
 // GENERAL STYLES //
 //
-const PillarContainer = styled.div`
+const PillarContainerCoding = styled.div`
   pointer-events: none;
 `;
 
-const ContentContainer = styled.div`
+const ContentContainerCoding = styled.div`
   pointer-events: none;
   position: absolute;
   top: 55%;
@@ -78,7 +78,7 @@ const ContentContainer = styled.div`
   }
 `;
 
-const Header = styled.div`
+const HeaderCoding = styled.div`
   pointer-events: none;
   position: relative;
   top: -122px;
@@ -86,7 +86,7 @@ const Header = styled.div`
   transform: rotate(2deg);
 `;
 
-const Signature = styled.div`
+const SignatureCoding = styled.div`
   pointer-events: none;
   position: relative;
   top: 21px;
