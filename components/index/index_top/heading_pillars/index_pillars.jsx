@@ -209,7 +209,7 @@ const ColumnCode = styled.div`
   //
   @keyframes animatedCodeBackgroundPos {
     from {
-      background-position: 0 0;
+      background-position: -20px 0;
     }
     to {
       background-position: -40px 0;
@@ -227,7 +227,7 @@ const ColumnCode = styled.div`
 
   ${props => props.active && css`
     background-image: linear-gradient(to top, rgba(34, 34, 34, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    animation: animatedCodeBackgroundPos 3.5s ease-out, animatedCodeBackgroundOpacity 2s ease-out;
+    animation: animatedCodeBackgroundPos 1.4s ease-out, animatedCodeBackgroundOpacity 2s ease-out;
 
     background-position: -40px 0;
   `}
@@ -243,7 +243,7 @@ const ColumnVisual = styled.div`
   //
   @keyframes animatedVisualBackground {
     from {
-      background-position: -175px 0;
+      background-position: -235px 0;
       opacity: 0;
     }
     to {
@@ -251,10 +251,10 @@ const ColumnVisual = styled.div`
       opacity: 1;
     }
   }
-
+  
   ${props => props.active && css`
     background-image: linear-gradient(to top, rgba(200, 182, 211, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    animation: animatedVisualBackground 3.5s ease-out;
+    animation: animatedVisualBackground 2s ease-out;
     background-size: cover;
     background-position: -270px 0;
   `}
@@ -270,7 +270,7 @@ const ColumnProject = styled.div`
   //
   @keyframes animatedProjectBackground {
     from {
-      background-position: 40px 0;
+      background-position: 0px 0;
       opacity: 0;
     }
     to {
@@ -281,7 +281,7 @@ const ColumnProject = styled.div`
 
   ${props => props.active && css`
     background-image: linear-gradient(to top, rgba(182, 214, 215, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    animation: animatedProjectBackground 3.5s ease-out;
+    animation: animatedProjectBackground 2s ease-out;
     background-size: cover;
     background-position: -40px 0;
   `}
