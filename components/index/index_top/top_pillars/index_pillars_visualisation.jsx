@@ -92,9 +92,9 @@ const PillarContainerVisual = styled.div`
   }
 
   background-image: linear-gradient(to top, rgba(200, 182, 211, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-  animation: animatedVisualBackground 1s ease-out;
-  // background-size: cover;
-  background-size: 140%;
+  // animation: animatedVisualBackground 1s ease-out;
+  background-size: cover;
+  // background-size: 140%;
   background-position: -205px 0;
 
   @media only screen and (max-height: 1000px) {

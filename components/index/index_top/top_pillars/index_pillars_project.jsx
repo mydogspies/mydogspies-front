@@ -26,19 +26,19 @@ const PillarContainerProject = styled.div`
 
   @keyframes animatedProjectBackground {
     from {
-      background-position: -35px 0;
+      // background-position: -35px 0;
       opacity: 0;
     }
     to {
-      background-position: -65px 0;
+      // background-position: -65px 0;
       opacity: 1;
     }
   }
 
   background-image: linear-gradient(to top, rgba(182, 214, 215, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-  animation: animatedProjectBackground 1s ease-out;
-  // background-size: cover;
-  background-size: 120%;
+  // animation: animatedProjectBackground 1s ease-out;
+  background-size: cover;
+  // background-size: 120%;
   background-position: -65px 0;
 
   @media only screen and (max-height: 1000px) {
