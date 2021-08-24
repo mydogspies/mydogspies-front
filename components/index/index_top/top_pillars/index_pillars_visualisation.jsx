@@ -66,11 +66,6 @@ const PillarsVisualisation = () => {
                     <DogPurpleSvg/>
                 </DogPurple>
 
-                <BottomText>
-                    <p className="top extra">In the background;</p><p className="top extra">CoffeeHouse | an original
-                    trade fair design for a US-based coffeehouse.</p>
-                </BottomText>
-
             </ContentContainerVisual>
         </PillarContainerVisual>
     )
@@ -87,19 +82,29 @@ const PillarContainerVisual = styled.div`
 
   @keyframes animatedVisualBackground {
     from {
-      background-position: -235px 0;
+      background-position: -190px 0;
       opacity: 0;
     }
     to {
-      background-position: -270px 0;
+      background-position: -205px 0;
       opacity: 1;
     }
   }
 
   background-image: linear-gradient(to top, rgba(200, 182, 211, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-  animation: animatedVisualBackground 2s ease-out;
-  background-size: cover;
-  background-position: -270px 0;
+  animation: animatedVisualBackground 1s ease-out;
+  // background-size: cover;
+  background-size: 140%;
+  background-position: -205px 0;
+
+  @media only screen and (max-height: 1000px) {
+
+  }
+
+  @media only screen and (max-height: 700px) {
+
+  }
+}
 `;
 
 const ContentContainerVisual = styled.div`
@@ -108,8 +113,7 @@ const ContentContainerVisual = styled.div`
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-
+  
   @media only screen and (max-height: 1000px) {
     position: absolute;
     transform: translate(-50%, -50%) scale(0.75, 0.75); // scale MUST come AFTER translate or this will not work
@@ -263,18 +267,6 @@ const MoodFilmOne = styled.img`
   width: 325px;
   border-radius: 10px;
   transform: rotate(-1deg);
-`;
-
-const BottomText = styled.div`
-  pointer-events: none;
-  position: absolute;
-  top: 812px;
-  left: -87px;
-  width: 245px;
-  padding: 8px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  transform: rotate(1deg);
 `;
 
 // LOGO STYLES //
