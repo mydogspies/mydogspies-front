@@ -86,7 +86,6 @@ const PillarContainerVisual = styled.div`
 const ContentContainerVisual = styled.div`
   pointer-events: none;
   position: absolute;
-  transform-origin: center;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -117,24 +116,10 @@ const HeaderVisual = styled.div`
 //
 const PicTreeBox = styled.div`
 
-@keyframe picTreeBoxAnim {
-  from {
-    top: 0;
-    left: 300px;
-  }
-
-  to {
-    top: -19px;
-    left: 257px;
-  }
-}
-
   pointer-events: none;
   position: relative;
   top: -19px;
   left: 257px;
-  transform-origin: center;
-  animation: picTreeBoxAnim 2s ease-out;
 `;
 
 const PicTreeTextBox = styled.div`
