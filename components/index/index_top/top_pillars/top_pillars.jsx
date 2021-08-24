@@ -16,7 +16,7 @@ import topCodeImage from '../../../../public/assets/remote/images/index/coding_s
 import topProjectImage from '../../../../public/assets/remote/images/index/cds.jpg';
 import topVisualImage from '../../../../public/assets/remote/images/index/chouse.jpg';
 
-const IndexPillars = () => {
+const TopPillars = () => {
 
     const router = useRouter();
 
@@ -43,6 +43,7 @@ const IndexPillars = () => {
                 if (!mouseOver) {
                     changeWidths(['90%', '5%', '5%']);
                     document.body.style.cursor = "pointer";
+                    document.getElementById('cc').style.opacity = "0";
                     setCode(true);
                     setMouseOver(true);
                 }
@@ -51,6 +52,7 @@ const IndexPillars = () => {
                 if (!mouseOver) {
                     changeWidths(['5%', '90%', '5%']);
                     document.body.style.cursor = "pointer";
+                    document.getElementById('cv').style.opacity = "0";
                     setVisual(true);
                     setMouseOver(true);
                 }
@@ -59,6 +61,7 @@ const IndexPillars = () => {
                 if (!mouseOver) {
                     changeWidths(['5%', '5%', '90%']);
                     document.body.style.cursor = "pointer";
+                    document.getElementById('cp').style.opacity = "0";
                     setProject(true);
                     setMouseOver(true);
                 }
@@ -78,10 +81,12 @@ const IndexPillars = () => {
         setMouseOver(false);
         changeWidths(['33.33%', '33.33%', '33.33%']);
         document.body.style.cursor = "default";
+        document.getElementById('cc').style.opacity = "1";
+        document.getElementById('cv').style.opacity = "1";
+        document.getElementById('cp').style.opacity = "1";
         setCode(false);
         setVisual(false);
         setProject(false);
-
     }
 
     const handleOnClick = (event) => {
@@ -114,23 +119,10 @@ const IndexPillars = () => {
     }
 
     return (
+
+
+
         <Container>
-
-            <ContainerContent>
-
-                {code ? (
-                    <PillarsProgramming/>
-                ) : null}
-
-                {visual ? (
-                    <PillarsVisualisation/>
-                ) : null}
-
-                {project ? (
-                    <PillarsProject/>
-                ) : null}
-
-            </ContainerContent>
 
             <ContainerPillars>
 
@@ -138,7 +130,7 @@ const IndexPillars = () => {
                             width={css.pillarWidth.cc}
                             shapeColor={css.shapeColors.ccColor}
                             backgroundImage={topCodeImage.src}
-                            className="index coding global-box-shadow"
+                            className="global-box-shadow"
                             onMouseOver={handleMouseOver}
                             onMouseOut={handleMouseOut}
                             onClick={handleOnClick}
@@ -152,7 +144,7 @@ const IndexPillars = () => {
                               width={css.pillarWidth.cv}
                               shapeColor={css.shapeColors.cvColor}
                               backgroundImage={topVisualImage.src}
-                              className="index visual global-box-shadow"
+                              className="global-box-shadow"
                               onMouseOver={handleMouseOver}
                               onMouseOut={handleMouseOut}
                               onClick={handleOnClick}
@@ -166,7 +158,7 @@ const IndexPillars = () => {
                                width={css.pillarWidth.cp}
                                shapeColor={css.shapeColors.cpColor}
                                backgroundImage={topProjectImage.src}
-                               className="index project global-box-shadow"
+                               className="global-box-shadow"
                                onMouseOver={handleMouseOver}
                                onMouseOut={handleMouseOut}
                                onClick={handleOnClick}
@@ -178,28 +170,47 @@ const IndexPillars = () => {
 
             </ContainerPillars>
 
+            <BackgroundContent>
+                {code ? (
+                    <PillarsProgramming/>
+                ) : null}
+                {visual ? (
+                    <PillarsVisualisation/>
+                ) : null}
+
+                {project ? (
+                    <PillarsProject/>
+                ) : null}
+            </BackgroundContent>
+
         </Container>
     );
-
 }
 
 const Container = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   height: 100vh;
 `;
 
 const ContainerPillars = styled.div`
-  display: flex;
-  grid-column-start: 2;
-`;
-
-const ContainerContent = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
+  display: flex;
+  z-index: 1;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  width: 100%;
+  height: 100vh;
 `;
 
+const BackgroundContent = styled.div`
+  position: absolute;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  width: 100%;
+  height: 100vh;
+`;
 
 // Defines all three text columns and by wrapping in a div, fixes some odd grid resizing issues
 const VerticalText = styled.div`
@@ -214,59 +225,12 @@ const ColumnCode = styled.div`
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
   border-radius: 5px 0 0 0;
-
-  // on mouseover content below
-  //
-  @keyframes animatedCodeBackgroundPos {
-    from {
-      background-position: -20px 0;
-    }
-    to {
-      background-position: -40px 0;
-    }
-  }
-  
-  @keyframes animatedCodeBackgroundOpacity {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  ${props => props.active && css`
-    background-image: linear-gradient(to top, rgba(34, 34, 34, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    animation: animatedCodeBackgroundPos 1.4s ease-out, animatedCodeBackgroundOpacity 2s ease-out;
-
-    background-position: -40px 0;
-  `}
 `;
 
 const ColumnVisual = styled.div`
   flex-basis: ${props => props.width};
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
-
-  // on mouseover content below
-  //
-  @keyframes animatedVisualBackground {
-    from {
-      background-position: -235px 0;
-      opacity: 0;
-    }
-    to {
-      background-position: -270px 0;
-      opacity: 1;
-    }
-  }
-  
-  ${props => props.active && css`
-    background-image: linear-gradient(to top, rgba(200, 182, 211, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    animation: animatedVisualBackground 2s ease-out;
-    background-size: cover;
-    background-position: -270px 0;
-  `}
 `;
 
 const ColumnProject = styled.div`
@@ -274,26 +238,6 @@ const ColumnProject = styled.div`
   transition: flex-basis 0.9s;
   background-color: ${props => props.shapeColor};
   border-radius: 0 5px 0 0;
-
-  // on mouseover content below
-  //
-  @keyframes animatedProjectBackground {
-    from {
-      background-position: 0px 0;
-      opacity: 0;
-    }
-    to {
-      background-position: -40px 0;
-      opacity: 1;
-    }
-  }
-
-  ${props => props.active && css`
-    background-image: linear-gradient(to top, rgba(182, 214, 215, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-    animation: animatedProjectBackground 2s ease-out;
-    background-size: cover;
-    background-position: -40px 0;
-  `}
 `;
 
-export default IndexPillars;
+export default TopPillars;

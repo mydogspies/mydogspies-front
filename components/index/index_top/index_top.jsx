@@ -7,7 +7,7 @@ import {setCurrentIconColor} from "../../../redux/styles/styles.action";
 import styles from '../../../styles/icon_colors.module.scss';
 import backgroundColors from '../../../styles/svg_background_colors.module.scss';
 
-import IndexPillars from "./heading_pillars/index_pillars";
+import TopPillars from "./top_pillars/top_pillars";
 
 const IndexTop = () => {
 
@@ -29,7 +29,7 @@ const IndexTop = () => {
     return (
         <Container ref={ref} className="index index-top" id="index-top">
 
-            <IndexPillars />
+            <TopPillars />
 
         </Container>
     )
