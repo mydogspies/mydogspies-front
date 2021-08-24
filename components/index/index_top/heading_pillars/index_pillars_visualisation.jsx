@@ -22,20 +22,12 @@ const PillarsVisualisation = () => {
                                 alt="Picture Tree - 3D visualisation of the image tree video screens"
                                 className="global-box-shadow"/>
                     <PicTreeTextBox>
-                        <p className="bigger">PictureTree</p>
-                        <p>Original design and 3D visualisation</p>
+                        <p className="top">"Such a simple idea but fun in its technical challenges!"</p>
                     </PicTreeTextBox>
+                    <PicTreeTextBoxTwo>
+                        <p className="top smaller">PictureTree | Original design using Maya + Arnold</p>
+                    </PicTreeTextBoxTwo>
                 </PicTreeBox>
-
-                <MoodFilmBox>
-                    <MoodFilmOne src={moodFilmOneImage.src}
-                                 alt="Moods Film - part of the Moods art photo project"
-                                 className="global-box-shadow"/>
-                    <MoodFilmTextBox>
-                        <p className="bigger">MOODS photo series & art video</p>
-                        <p>Original ideas, direction, lighting and editing</p>
-                    </MoodFilmTextBox>
-                </MoodFilmBox>
 
                 <HenkaBox>
                     <HenkaOne src={henkaOneImage.src}
@@ -45,15 +37,37 @@ const PillarsVisualisation = () => {
                               alt="One of the Henka symbols sprayed on the wall - preview for the Henka wall illustration series"
                               className="global-box-shadow"/>
                     <HenkaTextBox>
-                        <p className="bigger">Henka street art project</p>
-                    <p>Simulating spray paints and mixed media digitally </p>
+                        <p className="top">"Designing previews of spray paints and mural mixed media work can be a bit
+                            of challenge in the digital domain.
+                            With 'Henka' I found some interesting ways of simulating exactly that; to the right is the
+                            result on the wall."</p>
                     </HenkaTextBox>
+                    <HenkaTextBoxTwo>
+                        <p className="top smaller">Henka | Original design using Clip Studio Paint + mixed media</p>
+                    </HenkaTextBoxTwo>
                 </HenkaBox>
 
+                <MoodFilmBox>
+                    <MoodFilmOne src={moodFilmOneImage.src}
+                                 alt="Moods Film - part of the Moods art photo project"
+                                 className="global-box-shadow"/>
+                    <MoodFilmTextBox>
+                        <p className="top">"The 'MOODS' videos came about as sort of an extension of the photo series,
+                            while exploring local backyards and passages."</p>
+                    </MoodFilmTextBox>
+                    <MoodFilmTextBoxTwo>
+                        <p className="top smaller">MOODS videos | Video & Fine Art Photo series</p>
+                    </MoodFilmTextBoxTwo>
+                </MoodFilmBox>
+
                 <DogPurple>
-                    <DogPurpleSvg />
+                    <DogPurpleSvg/>
                 </DogPurple>
 
+                <BottomText>
+                    <p className="top extra">In the background;</p><p className="top extra">CoffeeHouse | an original
+                    trade fair design for a US-based coffeehouse.</p>
+                </BottomText>
 
             </ContentContainerVisual>
         </PillarContainerVisual>
@@ -72,9 +86,11 @@ const PillarContainerVisual = styled.div`
 const ContentContainerVisual = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 50%;
+  transform-origin: center;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 
   @media only screen and (max-height: 1000px) {
     position: absolute;
@@ -92,104 +108,178 @@ const ContentContainerVisual = styled.div`
 const HeaderVisual = styled.div`
   pointer-events: none;
   position: relative;
-  // transform: rotate(2deg);
+  top: -53px;
+  left: 45px;
+  transform: rotate(1deg);
 `;
 
 // PIC TREE
 //
 const PicTreeBox = styled.div`
+
+@keyframe picTreeBoxAnim {
+  from {
+    top: 0;
+    left: 300px;
+  }
+
+  to {
+    top: -19px;
+    left: 257px;
+  }
+}
+
   pointer-events: none;
-  display: block;
   position: relative;
+  top: -19px;
+  left: 257px;
+  transform-origin: center;
+  animation: picTreeBoxAnim 2s ease-out;
 `;
 
 const PicTreeTextBox = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 350px;
+  width: 401px;
+  top: 261px;
+  left: 62px;
   border-radius: 10px;
-  background-color: rgba(1, 1, 1, 0.8);
+  padding: 8px;
+  background-color: rgba(1, 1, 1, 0.6);
+  transform: rotate(1deg);
+`;
+
+const PicTreeTextBoxTwo = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 315px;
+  top: 218px;
+  left: 126px;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: rgba(1, 1, 1, 0.7);
+  transform: rotate(-1deg);
 `;
 
 const PicTreeOne = styled.img`
   pointer-events: none;
-  display: block;
-  position: relative;
-  width: 550px;
-  border-radius: 10px;
-`;
-
-// MOOD FILM
-//
-const MoodFilmBox = styled.div`
-  pointer-events: none;
-  display: block;
-  position: relative;
-`;
-
-const MoodFilmTextBox = styled.div`
-  pointer-events: none;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 350px;
+  width: 500px;
   border-radius: 10px;
-  background-color: rgba(1, 1, 1, 0.8);
-`;
-
-const MoodFilmOne = styled.img`
-  pointer-events: none;
-  display: block;
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 300px;
-  border-radius: 10px;
-  // transform: rotate(2deg);
+  transform: rotate(-1deg);
 `;
 
 // HENKA SYMBOL
 //
 const HenkaBox = styled.div`
   pointer-events: none;
-  display: block;
   position: relative;
+  top: 296px;
+  left: -112px;
+  transform: rotate(1deg);
 `;
 
 const HenkaTextBox = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 350px;
+  top: 202px;
+  left: -59px;
+  padding: 8px;
   border-radius: 10px;
-  background-color: rgba(1, 1, 1, 0.8);
+  background-color: rgba(1, 1, 1, 0.6);
+  transform: rotate(-2deg);
+`;
+
+const HenkaTextBoxTwo = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 391px;
+  top: 10px;
+  left: -20px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: rgba(1, 1, 1, 0.6);
 `;
 
 const HenkaOne = styled.img`
   pointer-events: none;
-  display: block;
-  position: relative;
-  width: 400px;
+  position: absolute;
+  width: 425px;
   border-radius: 10px;
-  // transform: rotate(2deg);
+  transform: rotate(2deg);
 `;
 
 const HenkaTwo = styled.img`
   pointer-events: none;
-  display: block;
-  position: relative;
+  position: absolute;
+  top: 100px;
+  left: 308px;
   width: 100px;
+  border-radius: 5px;
+`;
+
+// MOOD FILM
+//
+const MoodFilmBox = styled.div`
+  pointer-events: none;
+  position: relative;
+  top: 407px;
+  left: 342px;
+  transform: rotate(-1deg);
+`;
+
+const MoodFilmTextBox = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 350px;
+  top: 270px;
+  left: -100px;
+  padding: 8px;
   border-radius: 10px;
-  // transform: rotate(2deg);
+  background-color: rgba(1, 1, 1, 0.7);
+  transform: rotate(3deg);
+`;
+
+const MoodFilmTextBoxTwo = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 293px;
+  top: 15px;
+  left: 50px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: rgba(1, 1, 1, 0.7);
+  transform: rotate(-2deg);
+`;
+
+const MoodFilmOne = styled.img`
+  pointer-events: none;
+  position: absolute;
+  width: 325px;
+  border-radius: 10px;
+  transform: rotate(-1deg);
+`;
+
+const BottomText = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 812px;
+  left: -87px;
+  width: 245px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: rotate(1deg);
 `;
 
 // LOGO STYLES //
 //
 const DogPurple = styled.div`
   pointer-events: none;
-  position: absolute;
-  width: 100px;
+  position: relative;
+  width: 120px;
+  top: 96px;
+  left: 50px;
+  transform: rotate(-2deg);
 `;

@@ -38,11 +38,11 @@ $text-color-visual: #240604; // 1
 $text-color-visual-heading: #440a0a; // 2
 
 /* OFFLINE */
-$background-color-offline: #444444;
+$background-color-offline: #eeeeee;
 $text-color-offline: #19302c; // 3a
 $text-color-offline-heading: #05372f; //4a
 /* ADMIN */
-$background-color-admin: #444444;
+$background-color-admin: #eeeeee;
 $text-color-admin: #2a2914; // 5a
 $text-color-admin-heading: #322f01; // 6a
 
@@ -125,14 +125,22 @@ copy, rename and use for whatever specific need.
 
     p {
       font-family: $font-paragraph;
-      font-size: 18px;
-      color: #eeeeee;
+      font-size: 16px;
 
-      &.bigger {
-        font-size: 19px;
-        font-weight: bold;
+      &.top {
         color: #eeeeee;
+
+        &.smaller {
+          font-size: 14px;
+        }
+
+        &.extra {
+          font-size: 16px;
+          color: $text-color-visual;
+        }
       }
+
+
     }
 
 
