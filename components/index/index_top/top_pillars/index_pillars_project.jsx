@@ -36,9 +36,9 @@ const PillarContainerProject = styled.div`
   }
 
   background-image: linear-gradient(to top, rgba(182, 214, 215, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-  // animation: animatedProjectBackground 1s ease-out;
+  animation: animatedProjectBackground 2s ease-out;
   background-size: cover;
-  // background-size: 120%;
+  // background-size: 120%; // TODO fix sizing
   background-position: -65px 0;
 
   @media only screen and (max-height: 1000px) {

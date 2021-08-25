@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import {useRouter} from 'next/router';
 
 const Scroll = require('react-scroll');
@@ -12,9 +12,6 @@ import PillarsProgramming from './index_pillars_programming';
 import PillarsVisualisation from './index_pillars_visualisation';
 import PillarsProject from './index_pillars_project';
 
-import topCodeImage from '../../../../public/assets/remote/images/index/coding_screen_1.jpg';
-import topProjectImage from '../../../../public/assets/remote/images/index/cds.jpg';
-import topVisualImage from '../../../../public/assets/remote/images/index/chouse.jpg';
 
 const TopPillars = () => {
 
@@ -120,8 +117,6 @@ const TopPillars = () => {
 
     return (
 
-
-
         <Container>
 
             <ContainerPillars>
@@ -129,7 +124,6 @@ const TopPillars = () => {
                 <ColumnCode id="cc"
                             width={css.pillarWidth.cc}
                             shapeColor={css.shapeColors.ccColor}
-                            backgroundImage={topCodeImage.src}
                             className="global-box-shadow"
                             onMouseOver={handleMouseOver}
                             onMouseOut={handleMouseOut}
@@ -143,7 +137,6 @@ const TopPillars = () => {
                 <ColumnVisual id="cv"
                               width={css.pillarWidth.cv}
                               shapeColor={css.shapeColors.cvColor}
-                              backgroundImage={topVisualImage.src}
                               className="global-box-shadow"
                               onMouseOver={handleMouseOver}
                               onMouseOut={handleMouseOut}
@@ -157,7 +150,6 @@ const TopPillars = () => {
                 <ColumnProject id="cp"
                                width={css.pillarWidth.cp}
                                shapeColor={css.shapeColors.cpColor}
-                               backgroundImage={topProjectImage.src}
                                className="global-box-shadow"
                                onMouseOver={handleMouseOver}
                                onMouseOut={handleMouseOut}
