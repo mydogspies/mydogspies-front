@@ -1,7 +1,7 @@
 /*
 The globals.css specifies all fonts, tags and colors. Do NOT put layout
 definitions into this file. They belong in-line within each component! Do not
-EVER specify text, tag or color attributes within components. Rather add a new
+specify text, tag or color attributes within components. Rather add a new
 definition for specific components below.
  */
 
@@ -55,6 +55,11 @@ $font-paragraph: 'PT Sans', sans-serif;
 a {
   text-decoration: none;
   border-bottom:1px dotted;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -139,15 +144,15 @@ copy, rename and use for whatever specific need.
           color: $text-color-visual;
         }
       }
-
-
     }
-
-
   }
 
   &.project {
     color: $text-color-project;
+
+    span {
+      font-weight: bold;
+    }
   }
 
   &.index-top {

@@ -56,10 +56,10 @@ const PillarContainerCoding = styled.div`
   
   @keyframes animatedCodeBackgroundPos {
     from {
-      background-position: -20px 0;
+      background-position: 20% 50%;
     }
     to {
-      background-position: -40px 0;
+      background-position: 25% 50%;
     }
   }
 
@@ -73,8 +73,9 @@ const PillarContainerCoding = styled.div`
   }
   
   background-image: linear-gradient(to top, rgba(34, 34, 34, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-  animation: animatedCodeBackgroundPos 1.4s ease-out, animatedCodeBackgroundOpacity 2s ease-out;
-  background-position: -40px 0;
+  animation: animatedCodeBackgroundPos 0.9s ease-out, animatedCodeBackgroundOpacity 2s ease-out;
+  background-size: cover;
+  background-position: 25% 50%;
 `;
 
 const ContentContainerCoding = styled.div`
@@ -197,8 +198,8 @@ const DogGreen = styled.div`
 
   @keyframes dogLogoAnim {
     from {
-      left: -120px;
-      top: 45px;
+      left: -135px;
+      top: 30px;
     }
     to {
       left: -140px;

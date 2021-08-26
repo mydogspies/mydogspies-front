@@ -99,7 +99,7 @@ const PillarContainerVisual = styled.div`
   }
 
   background-image: linear-gradient(to top, rgba(200, 182, 211, 1), rgba(1, 1, 1, 0)), url(${props => props.backgroundImage});
-  animation: visualBackgroundOpacity 2s ease-out, visualBackgroundPos 1.1s ease-out;
+  animation: visualBackgroundOpacity 2.4s ease-out, visualBackgroundPos 1.1s ease-out;
   background-size: cover;
   background-position: 35% 50%;
 
@@ -142,12 +142,10 @@ const HeaderVisual = styled.div`
 
   @keyframes headerPosition {
     from {
-      left: -25px;
-      transform: rotate(-1deg);
+      left: -40px;
     }
     to {
       left: -35px;
-      transform: rotate(-2deg);
     }
   }
 
