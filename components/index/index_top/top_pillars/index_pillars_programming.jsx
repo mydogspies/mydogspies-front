@@ -81,7 +81,7 @@ const PillarContainerCoding = styled.div`
 const ContentContainerCoding = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform-origin: center;
   transform: translate(-50%, -50%);

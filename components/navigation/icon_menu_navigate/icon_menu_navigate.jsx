@@ -4,11 +4,24 @@ import styled from 'styled-components';
 
 import MenuSvg from './icon_menu_svg';
 import {MenuIconEffects} from '../effects/icon_menu_effects';
+import shapeColors from "../../../styles/shape_colors.module.scss";
 
-const IconMenuNavigate = () => {
+const IconMenuNavigate = ({fillOverride}) => {
 
     const store = useSelector(state => state);
-    const currentIconColor = store.styles.currentIconColor;
+
+    // get css background colors
+    //
+    const css = {
+        shapeColors: {
+            ccColor: shapeColors.shapesColorCode,
+            cvColor: shapeColors.shapesColorVisual,
+            cpColor: shapeColors.shapesColorProject
+        }
+    }
+
+    let currentIconColor = store.styles.currentIconColor;
+    if (fillOverride) {currentIconColor = css.shapeColors.cpColor}
 
     return (
         <>

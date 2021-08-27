@@ -1,13 +1,26 @@
 import {useSelector} from "react-redux";
 import styled from 'styled-components';
 
-import AboutSvg from './svg_about_component';
+import AboutSvg from './icon_about_svg';
 import {MenuIconEffects} from '../effects/icon_menu_effects';
+import shapeColors from "../../../styles/shape_colors.module.scss";
 
-const IconAboutNavigate = () => {
+const IconAboutNavigate = ({fillOverride}) => {
 
     const store = useSelector(state => state);
-    const currentIconColor = store.styles.currentIconColor;
+
+    // get css background colors
+    //
+    const css = {
+        shapeColors: {
+            ccColor: shapeColors.shapesColorCode,
+            cvColor: shapeColors.shapesColorVisual,
+            cpColor: shapeColors.shapesColorProject
+        }
+    }
+
+    let currentIconColor = store.styles.currentIconColor;
+    if (fillOverride) {currentIconColor = css.shapeColors.ccColor}
 
     return (
         <>
