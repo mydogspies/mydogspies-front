@@ -12,12 +12,12 @@ const FlagUsaSvg = () => {
                     <g id="s9">
                         <g id="s5">
                             <g id="s4">
-                                <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
-                                <use xlinkHref="#s" y="420"/>
-                                <use xlinkHref="#s" y="840"/>
-                                <use xlinkHref="#s" y="1260"/>
+                                <path id="hello" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
+                                <use xlinkHref="#hello" y="420"/>
+                                <use xlinkHref="#hello" y="840"/>
+                                <use xlinkHref="#hello" y="1260"/>
                             </g>
-                            <use xlinkHref="#s" y="1680"/>
+                            <use xlinkHref="#hello" y="1680"/>
                         </g>
                         <use xlinkHref="#s4" x="247" y="210"/>
                     </g>

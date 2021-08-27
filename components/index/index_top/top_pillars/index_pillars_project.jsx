@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 
 import topProjectImage from '../../../../public/assets/remote/images/index/cds.jpg';
+
 import FlagMexicoSvg from "../../../clipart/flag_mexico";
 import FlagUsaSvg from "../../../clipart/flag_usa";
 import FlagGermanySvg from "../../../clipart/flag_germany";
 import FlagSpainSvg from "../../../clipart/flag_spain";
 import FlagUzbekistanSvg from "../../../clipart/flag_uzbekistan";
 import FlagChinaSvg from "../../../clipart/flag_china";
+import FlagUkSvg from "../../../clipart/flag_uk";
+import FlagFranceSvg from "../../../clipart/flag_france";
+import FlagAustriaSvg from "../../../clipart/flag_austria";
+import FlagSwissSvg from "../../../clipart/flag_switzerland";
+import FlagBrazilSvg from "../../../clipart/flag_brazil";
+import FlagUkraineSvg from "../../../clipart/flag_ukraine";
 
 const PillarsProject = () => {
 
@@ -14,31 +21,61 @@ const PillarsProject = () => {
         <PillarContainerProject backgroundImage={topProjectImage.src}>
             <ContentContainerProject className="index project">
 
-                <AudioDesignBox>
-                    <p><span>Audio & systems design</span> | Some stuff I will put here cause there must be a freaking subject to everything</p>
+                <HeaderProject>
+                    <h1>Project locations all over the globe</h1>
+                </HeaderProject>
+
+                    <ProdManTextBox>
+                        <p><span>Production management</span> | Large scale corporate events and  international meetings</p>
+                        <FlagSpain>
+                            <FlagSpainSvg />
+                        </FlagSpain>
+                        <FlagAustria>
+                            <FlagAustriaSvg />
+                        </FlagAustria>
+                        <FlagUk>
+                            <FlagUkSvg />
+                        </FlagUk>
+                        <FlagSwitzerland>
+                            <FlagSwissSvg />
+                        </FlagSwitzerland>
+                        <FlagFrance>
+                            <FlagFranceSvg />
+                        </FlagFrance>
+                        <FlagUkraine>
+                            <FlagUkraineSvg />
+                        </FlagUkraine>
+                    </ProdManTextBox>
+
+                <QuoteBoxOne>
+                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere interesting"</p>
+                </QuoteBoxOne>
+
+                <TouringTextBox>
+                    <p><span>Audio-visual projects & international touring</span> | Audio & systems design, staffing, logistics and project planning</p>
                     <FlagMexico>
                         <FlagMexicoSvg />
                     </FlagMexico>
-                    <FlagUsa>
-                        <FlagUsaSvg />
-                    </FlagUsa>
-                    <FlagGermany>
-                        <FlagGermanySvg />
-                    </FlagGermany>
-                    <FlagChina>
-                        <FlagChinaSvg />
-                    </FlagChina>
-                </AudioDesignBox>
-
-                <ProductionManagementBox>
-                    <p><span>Production Management</span> | More nonsense shit I have to come up with to make it all believable</p>
-                    <FlagSpain>
-                        <FlagSpainSvg />
-                    </FlagSpain>
                     <FlagUzbekistan>
                         <FlagUzbekistanSvg />
                     </FlagUzbekistan>
-                </ProductionManagementBox>
+                    <FlagChina>
+                        <FlagChinaSvg />
+                    </FlagChina>
+                    <FlagGermany>
+                        <FlagGermanySvg />
+                    </FlagGermany>
+                    <FlagUsa>
+                        <FlagUsaSvg />
+                    </FlagUsa>
+                    <FlagBrazil>
+                        <FlagBrazilSvg />
+                    </FlagBrazil>
+                </TouringTextBox>
+
+                <QuoteBoxTwo>
+                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere interesting"</p>
+                </QuoteBoxTwo>
 
             </ContentContainerProject>
         </PillarContainerProject>
@@ -88,6 +125,8 @@ const PillarContainerProject = styled.div`
 }
 `;
 
+// GENERAL
+//
 const ContentContainerProject = styled.div`
   pointer-events: none;
   position: absolute;
@@ -109,55 +148,147 @@ const ContentContainerProject = styled.div`
   }
 `;
 
-const AudioDesignBox = styled.div`
+const HeaderProject = styled.div`
   pointer-events: none;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  padding: 25px;
-  width: 520px;
+  position: relative;
+  top: -53px;
+  left: -35px;
 `;
 
-const ProductionManagementBox = styled.div`
-  pointer-events: none;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  padding: 25px;
-  width: 520px;
-`;
 
-// ICONS
+// PRODUCTION MANAGEMENT
 //
-const FlagMexico = styled.div`
+const ProdManTextBox = styled.div`
   pointer-events: none;
-  width: 100px;
-`;
-
-const FlagUsa = styled.div`
-  pointer-events: none;
-  width: 100px;
-`;
-
-const FlagGermany = styled.div`
-  pointer-events: none;
-  width: 100px;
-`;
-
-const FlagChina = styled.div`
-  pointer-events: none;
-  width: 100px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+  width: 520px;
 `;
 
 const FlagSpain = styled.div`
   pointer-events: none;
-  width: 100px;
+  position: absolute;
+  top: 50px;
+  left: 205px;
+  width: 60px;
+`;
+
+const FlagAustria = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 50px;
+  left: 375px;
+  width: 60px;
+`;
+
+const FlagSwitzerland = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 50px;
+  left: 455px;
+  width: 45px;
+`;
+
+const FlagUk = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 50px;
+  left: 285px;
+  width: 65px;
+`;
+
+const FlagFrance = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 50px;
+  left: 520px;
+  width: 60px;
+`;
+
+const FlagUkraine = styled.div`
+  pointer-events: none;
+  position: absolute;
+  top: 50px;
+  left: 590px;
+  width: 60px;
+`;
+
+// PRODUCTION MANAGEMENT
+//
+const TouringTextBox = styled.div`
+  pointer-events: none;
+  position: relative;
+  top: 100px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+  width: 520px;
+`;
+
+const FlagMexico = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 60px;
 `;
 
 const FlagUzbekistan = styled.div`
   pointer-events: none;
-  width: 100px;
+  position: absolute;
+  left: 100px;
+  width: 70px;
 `;
 
+const FlagChina = styled.div`
+  pointer-events: none;
+  position: absolute;
+  left: 200px;
+  width: 60px;
+`;
 
+const FlagGermany = styled.div`
+  pointer-events: none;
+  position: absolute;
+  left: 280px;
+  width: 60px;
+`;
+
+const FlagUsa = styled.div`
+  pointer-events: none;
+  position: absolute;
+  left: 370px;
+  width: 60px;
+`;
+
+const FlagBrazil = styled.div`
+  pointer-events: none;
+  position: absolute;
+  left: 440px;
+  width: 60px;
+`;
+
+// QUOTES
+//
+const QuoteBoxOne = styled.div`
+  pointer-events: none;
+  position: relative;
+  top: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+  width: 520px;
+`;
+
+const QuoteBoxTwo = styled.div`
+  pointer-events: none;
+  position: relative;
+  top: 150px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+  width: 520px;
+`;
 
 
 
