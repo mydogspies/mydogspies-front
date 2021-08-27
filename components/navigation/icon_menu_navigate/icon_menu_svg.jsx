@@ -12,7 +12,6 @@ const MenuSvg = ({fill}) =>  {
                   transform="translate(-45.35 -55.67)"/>
         </svg>
     )
-
 }
 
 export default MenuSvg;

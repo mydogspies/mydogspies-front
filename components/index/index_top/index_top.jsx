@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {useInView} from 'react-intersection-observer';
 import {useDispatch} from 'react-redux';
-
 import {setCurrentIconColor} from "../../../redux/styles/styles.action";
+
 import styles from '../../../styles/icon_colors.module.scss';
 import backgroundColors from '../../../styles/svg_background_colors.module.scss';
 
@@ -33,7 +33,6 @@ const IndexTop = () => {
 
         </Container>
     )
-
 }
 
 const Container = styled.div`

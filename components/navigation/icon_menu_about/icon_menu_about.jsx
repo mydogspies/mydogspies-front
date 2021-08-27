@@ -20,7 +20,7 @@ const IconAboutNavigate = () => {
 
 /* CSS */
 const Icon = styled(MenuIconEffects)`
-  z-index: 3;
+  z-index: 12;
   width: 40px;
   position: fixed;
   bottom: 20px;
