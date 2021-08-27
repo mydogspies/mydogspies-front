@@ -143,7 +143,7 @@ const TopPillars = () => {
                               onClick={handleOnClick}
                               active={visual}>
                     <VerticalText>
-                        <h1>3D Visualisation</h1>
+                        <h1>Visual Design</h1>
                     </VerticalText>
                 </ColumnVisual>
 

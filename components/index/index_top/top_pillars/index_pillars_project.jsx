@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import topProjectImage from '../../../../public/assets/remote/images/index/cds.jpg';
+import DogBlueSvg from "../../../logos/dog_blue";
 
 import FlagMexicoSvg from "../../../clipart/flag_mexico";
 import FlagUsaSvg from "../../../clipart/flag_usa";
@@ -22,7 +23,7 @@ const PillarsProject = () => {
             <ContentContainerProject className="index project">
 
                 <HeaderProject>
-                    <h1>Project locations all over the globe</h1>
+                    <h1 className="header global-text-shadow">Projects</h1>
                 </HeaderProject>
 
                     <ProdManTextBox>
@@ -76,6 +77,14 @@ const PillarsProject = () => {
                 <QuoteBoxTwo>
                     <p>"So many interesting things to quite that I have to fill this box with to sound anywhere interesting"</p>
                 </QuoteBoxTwo>
+
+                <DogBlue>
+                    <DogBlueSvg />
+                </DogBlue>
+
+                <FooterProject>
+                    <h2 className="footer">in locations all over the globe</h2>
+                </FooterProject>
 
             </ContentContainerProject>
         </PillarContainerProject>
@@ -153,6 +162,11 @@ const HeaderProject = styled.div`
   position: relative;
   top: -53px;
   left: -35px;
+`;
+
+const FooterProject = styled.div`
+  pointer-events: none;
+  position: relative;
 `;
 
 
@@ -288,6 +302,16 @@ const QuoteBoxTwo = styled.div`
   border-radius: 10px;
   padding: 10px;
   width: 520px;
+`;
+
+// LOGOS
+//
+const DogBlue = styled.div`
+  pointer-events: none;
+  position: relative;
+  width: 120px;
+  top: 96px;
+  left: 50px;
 `;
 
 

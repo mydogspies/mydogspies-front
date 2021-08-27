@@ -38,9 +38,9 @@ const PillarsProgramming = () => {
                     </div>
                 </ContentBoxThree>
 
-                <SignatureCoding>
-                    <h1 className="signature global-text-shadow">quotes by mydogspies</h1>
-                </SignatureCoding>
+                <FooterCoding>
+                    <h1 className="footer global-text-shadow">quotes by mydogspies</h1>
+                </FooterCoding>
 
             </ContentContainerCoding>
         </PillarContainerCoding>
@@ -107,7 +107,7 @@ const HeaderCoding = styled.div`
   transform: rotate(2deg);
 `;
 
-const SignatureCoding = styled.div`
+const FooterCoding = styled.div`
   pointer-events: none;
   position: relative;
   top: 21px;

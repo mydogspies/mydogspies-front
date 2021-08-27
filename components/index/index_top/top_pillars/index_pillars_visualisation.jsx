@@ -16,7 +16,7 @@ const PillarsVisualisation = () => {
             <ContentContainerVisual className="index visual">
 
                 <HeaderVisual>
-                    <h1 className="header global-text-shadow">3D/Imagery/Video</h1>
+                    <h1 className="header global-text-shadow">Visual Design</h1>
                 </HeaderVisual>
 
                 <PicTreeBox>
@@ -41,8 +41,8 @@ const PillarsVisualisation = () => {
                     <HenkaTextBox>
                         <p className="top">"Designing previews of spray paints and mural mixed media work can be a bit
                             of challenge in the digital domain.
-                            With 'Henka' I found some interesting ways of simulating exactly that; to the right is the
-                            result on the wall."</p>
+                            With 'Henka' I found some interesting ways of simulating exactly that" (To the right is the
+                            result on the wall.)</p>
                     </HenkaTextBox>
                     <HenkaTextBoxTwo>
                         <p className="top smaller">Henka | Original design using Clip Studio Paint + mixed media</p>
@@ -136,7 +136,7 @@ const ContentContainerVisual = styled.div`
 const HeaderVisual = styled.div`
   pointer-events: none;
   position: relative;
-  top: -53px;
+  top: -40px;
   left: -35px;
   transform: rotate(-2deg);
 
@@ -158,27 +158,28 @@ const PicTreeBox = styled.div`
 
   pointer-events: none;
   position: relative;
-  top: -19px;
-  left: 257px;
+  top: 0;
+  left: 125px;
+  transform: rotate(2deg);
 `;
 
 const PicTreeTextBox = styled.div`
   pointer-events: none;
   position: absolute;
   width: 401px;
-  top: 261px;
+  top: 280px;
   left: 62px;
   border-radius: 10px;
   padding: 8px;
-  background-color: rgba(1, 1, 1, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   transform: rotate(1deg);
 
   @keyframes picTreeTextBoxPos {
     from {
-      top: 265px;
+      top: 275px;
     }
     to {
-      top: 261px;
+      top: 280px;
     }
   }
 
@@ -189,12 +190,11 @@ const PicTreeTextBoxTwo = styled.div`
   pointer-events: none;
   position: absolute;
   width: 315px;
-  top: 218px;
+  top: 236px;
   left: 126px;
   border-radius: 10px;
   padding: 8px;
-  background-color: rgba(1, 1, 1, 0.7);
-  transform: rotate(-1deg);
+  background-color: rgba(255, 255, 255, 0.8);
 
   @keyframes picTreeTextBoxTwoPos {
     from {
@@ -211,6 +211,7 @@ const PicTreeTextBoxTwo = styled.div`
 const PicTreeOne = styled.img`
   pointer-events: none;
   position: absolute;
+  top: -10px;
   width: 500px;
   border-radius: 10px;
   transform: rotate(-1deg);
@@ -232,7 +233,7 @@ const PicTreeOne = styled.img`
 const HenkaBox = styled.div`
   pointer-events: none;
   position: relative;
-  top: 296px;
+  top: 355px;
   left: -112px;
   transform: rotate(1deg);
 `;
@@ -241,11 +242,11 @@ const HenkaTextBox = styled.div`
   pointer-events: none;
   position: absolute;
   width: 340px;
-  top: 202px;
+  top: 220px;
   left: -59px;
   padding: 8px;
   border-radius: 10px;
-  background-color: rgba(1, 1, 1, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   transform: rotate(-2deg);
 
   @keyframes henkaTextBoxPos {
@@ -264,11 +265,11 @@ const HenkaTextBoxTwo = styled.div`
   pointer-events: none;
   position: absolute;
   width: 391px;
-  top: 10px;
-  left: -20px;
+  top: -10px;
+  left: -50px;
   padding: 8px;
   border-radius: 10px;
-  background-color: rgba(1, 1, 1, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
 `;
 
 const HenkaOne = styled.img`
@@ -293,8 +294,8 @@ const HenkaTwo = styled.img`
 const MoodFilmBox = styled.div`
   pointer-events: none;
   position: relative;
-  top: 425px;
-  left: 342px;
+  top: 405px;
+  left: 367px;
   transform: rotate(-2deg);
 `;
 
@@ -302,11 +303,11 @@ const MoodFilmTextBox = styled.div`
   pointer-events: none;
   position: absolute;
   width: 335px;
-  top: 270px;
+  top: 275px;
   left: -100px;
   padding: 8px;
   border-radius: 10px;
-  background-color: rgba(1, 1, 1, 0.7);
+  background-color: rgba(255, 255, 255, 0.85);
   transform: rotate(3deg);
 
   @keyframes moodTextBoxPos {
@@ -325,11 +326,11 @@ const MoodFilmTextBoxTwo = styled.div`
   pointer-events: none;
   position: absolute;
   width: 293px;
-  top: -10px;
+  top: -15px;
   left: 50px;
   padding: 8px;
   border-radius: 8px;
-  background-color: rgba(1, 1, 1, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   transform: rotate(4deg);
 
   @keyframes moodTextBoxTwoPos {
@@ -363,18 +364,18 @@ const DogPurple = styled.div`
   position: relative;
   width: 120px;
   top: 96px;
-  left: 50px;
+  left: -57px;
   transform: rotate(-2deg);
 
   @keyframes dogAnim {
     from {
       top: 94px;
-      left: 48px;
+      left: -67px;
       transform: rotate(-3deg);
     }
     to {
       top: 96px;
-      left: 50px;
+      left: -57px;
       transform: rotate(-2deg);
     }
   }

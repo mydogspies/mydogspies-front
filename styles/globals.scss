@@ -90,7 +90,26 @@ copy, rename and use for whatever specific need.
     font-size: 18px;
   }
 
-  // NOTE: Below sub styles are for index-top only!
+  //
+  // These styles are for the top-index pillars container itself - NOT the content within pillars
+  //
+
+  &.index-top {
+    background-color: $background-color-index;
+
+    // this h1 tag is for the vertical text on the pillars
+    h1 {
+      font-family: $font-headline;
+      font-size: 32px;
+      letter-spacing: 0.15em;
+      color: white;
+      filter: drop-shadow(-1px 1px 1px rgba(5, 5, 5, .1))
+    }
+  }
+
+  //
+  // Below styles apply to the individual pillar CONTENT
+  //
 
   &.coding {
     color: $text-color-code;
@@ -111,7 +130,7 @@ copy, rename and use for whatever specific need.
       color: #cccccc;
     }
 
-    .signature {
+    .footer {
       font-family: $font-headline;
       font-size: 36px;
       color: #cccccc;
@@ -124,7 +143,7 @@ copy, rename and use for whatever specific need.
 
     .header {
       font-family: $font-headline;
-      font-size: 55px;
+      font-size: 68px;
       color: #ffffff;
     }
 
@@ -133,7 +152,6 @@ copy, rename and use for whatever specific need.
       font-size: 16px;
 
       &.top {
-        color: #eeeeee;
 
         &.smaller {
           font-size: 14px;
@@ -153,30 +171,24 @@ copy, rename and use for whatever specific need.
     span {
       font-weight: bold;
     }
-  }
 
-  &.index-top {
-    background-color: $background-color-index;
-    // color: $text-color-index;
-
-
-    h1 {
+    .header {
       font-family: $font-headline;
-      font-size: 32px;
-      letter-spacing: 0.15em;
-      color: white;
-      filter: drop-shadow(-1px 1px 1px rgba(5, 5, 5, .1))
+      letter-spacing: 0.08em;
+      font-size: 101px;
+      color: #eeeeee;
     }
 
-    h2, h2 span {
-      color: $text-color-index-heading;
-    }
-
-    a {
-      color: $text-color-index;
-      opacity: .8;
+    .footer {
+      font-family: $font-headline;
+      font-size: 36px;
+      color: #eeeeee;
     }
   }
+
+  //
+  // The below styles apply to each section below the pillars (below top-index container)
+  //
 
   &.index-code {
     background-color: $background-color-code;
