@@ -1,5 +1,6 @@
 import {useUser} from '@auth0/nextjs-auth0';
 import React, {useEffect, useRef, useState} from 'react';
+import Link from "next/link";
 import styled from 'styled-components';
 
 import OfflineHeader from './offline/offline-logged-header/offline-logged-header';
@@ -77,7 +78,14 @@ export default function StatusWrapper({children, status}) {
                         <AboutOverlay addClass="global-box-shadow"/>
                     </AboutContainer>
                 ) : null}
-                <IconHomeNavigate/>
+
+
+                <Link href="/">
+                    <a>
+                        <IconHomeNavigate/>
+                    </a>
+                </Link>
+
                 <div onClick={handleAboutClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
                 <div onClick={handleMenuClick}><IconMenuNavigate fillOverride={menuFill}/></div>
                 <OfflineHeader/>

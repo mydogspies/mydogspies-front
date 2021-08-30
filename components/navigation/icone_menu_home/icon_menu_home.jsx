@@ -1,9 +1,9 @@
-import React from 'react';
 import {useSelector} from 'react-redux';
 import styled from 'styled-components';
 
 import HomeSvg from './svg_home_component';
 import {MenuIconEffects} from '../effects/icon_menu_effects';
+import {Link} from "react-router-dom";
 
 const IconHomeNavigate = () => {
 
@@ -12,9 +12,9 @@ const IconHomeNavigate = () => {
 
     return (
         <>
-            <Icon>
-                <HomeSvg fill={currentIconColor} />
-            </Icon>
+                <Icon>
+                    <HomeSvg fill={currentIconColor} />
+                </Icon>
         </>
     )
 }

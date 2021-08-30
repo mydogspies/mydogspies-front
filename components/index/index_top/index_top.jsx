@@ -23,8 +23,10 @@ const IndexTop = () => {
     useEffect(() => {
         if (inView) {
             dispatch(setCurrentIconColor(css.icon_color));
+            window.location = '#index-top';
         }
     }, [dispatch, inView]);
+
 
     return (
         <Container ref={ref} className="index index-top" id="index-top">

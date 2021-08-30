@@ -18,7 +18,7 @@ const OfflinePage = () => {
                     <Text>
                         <p>
                             This space will soon become the home for Berlin-based visual designer and software
-                            developer Mydogspies. Still in construction but we hope it will be up end of July.
+                            developer Mydogspies. Site will be up end first week September.
                         </p>
                     </Text>
                 </TextContainer>
