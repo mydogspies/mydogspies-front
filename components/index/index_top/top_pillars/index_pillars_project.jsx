@@ -257,7 +257,7 @@ const TouringTextBox = styled.div`
 const TouringFlags = styled.div`
   position: absolute;
   display: grid;
-  grid-template-columns: 1.15fr 1.33fr 1fr 1fr 1.25fr 1fr;
+  grid-template-columns: 1.15fr 1.33fr 1fr 1fr 1.2fr 0.99fr;
   top: 497px;
   left: 65px;
   width: 200px;
@@ -302,7 +302,7 @@ const FlagBrazil = styled.div`
   pointer-events: none;
   grid-column-start: 6;
   grid-row-start: 1;
-  padding: 0 5px 0 0;
+  padding: 1px 5px 0 0;
 `;
 
 // QUOTES

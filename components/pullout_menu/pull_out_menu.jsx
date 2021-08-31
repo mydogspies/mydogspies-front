@@ -15,15 +15,7 @@ const PullOutMenu = ({addClass}) => {
 
     return (
             <MenuContainer backgroundColor={css.shapeColors.cpColor} className={addClass}>
-                <MenuLinkText>
-                    <h1>Home</h1>
-                </MenuLinkText>
-                <MenuLinkText>
-                    <h1>About</h1>
-                </MenuLinkText>
-                <MenuLinkText>
-                    <h1>Github</h1>
-                </MenuLinkText>
+
             </MenuContainer>
     )
 }
@@ -36,8 +28,4 @@ const MenuContainer = styled.div`
   width: 300px;
   border-radius: 10px 0 0 10px;
   background-color: ${props => props.backgroundColor}
-`;
-
-const MenuLinkText = styled.div`
-
 `;

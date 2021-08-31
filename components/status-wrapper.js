@@ -114,18 +114,27 @@ export default function StatusWrapper({children, status}) {
             <>
                 {panelOpen ? (
                     <MenuContainer>
-                        <PullOutMenu/>
+                        <PullOutMenu addClass="global-box-shadow"/>
                     </MenuContainer>
                 ) : null}
+
                 {aboutOpen ? (
                     <AboutContainer>
-                        <AboutOverlay />
+                        <AboutClose className="about-overlay">
+                            <a href="#" onClick={handleAboutClick} target="_self"><p className="about-close global-text-shadow">close</p></a>
+                        </AboutClose>
+                        <AboutOverlay addClass="global-box-shadow"/>
                     </AboutContainer>
                 ) : null}
-                <IconHomeNavigate/>
+
+                <Link href="/">
+                    <a>
+                        <IconHomeNavigate/>
+                    </a>
+                </Link>
+
                 <div onClick={handleAboutClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
                 <div onClick={handleMenuClick}><IconMenuNavigate fillOverride={menuFill}/></div>
-                <IconMenuNavigate/>
                 {React.cloneElement(children, {userStatus})}
             </>
         )
