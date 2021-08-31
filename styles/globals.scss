@@ -172,10 +172,15 @@ copy, rename and use for whatever specific need.
       font-weight: bold;
     }
 
+    p.smaller {
+        font-size: 10px;
+      }
+
+
     .header {
       font-family: $font-headline;
       letter-spacing: 0.08em;
-      font-size: 101px;
+      font-size: 92px;
       color: #eeeeee;
     }
 
@@ -231,6 +236,39 @@ copy, rename and use for whatever specific need.
       opacity: .8;
     }
   }
+}
+
+/* -- ABOUT OVERLAY -- */
+/* Applies only to the overlay when using the "about" icon/menu item */
+.about-overlay {
+
+  h1 {
+    font-family: $font-headline;
+    font-size: 45px;
+    color: #efefef;
+
+    &.about-signature {
+      font-size: 21px;
+      color: #ffffff;
+    }
+  }
+
+  p {
+    font-family: $font-paragraph;
+    font-size: 15px;
+
+    &.about-footer {
+      font-size: 11px;
+      color: #ffffff;
+    }
+
+    &.about-close {
+      font-size: 17px;
+      color: #ffffff;
+    }
+  }
+
+
 }
 
 /* relates to all styling when site is offline*/

@@ -73,12 +73,15 @@ export default function StatusWrapper({children, status}) {
                         <PullOutMenu addClass="global-box-shadow"/>
                     </MenuContainer>
                 ) : null}
+
                 {aboutOpen ? (
                     <AboutContainer>
+                        <AboutClose className="about-overlay">
+                            <a href="#" onClick={handleAboutClick} target="_self"><p className="about-close global-text-shadow">close</p></a>
+                        </AboutClose>
                         <AboutOverlay addClass="global-box-shadow"/>
                     </AboutContainer>
                 ) : null}
-
 
                 <Link href="/">
                     <a>
@@ -116,7 +119,7 @@ export default function StatusWrapper({children, status}) {
                 ) : null}
                 {aboutOpen ? (
                     <AboutContainer>
-                        <AboutOverlay/>
+                        <AboutOverlay />
                     </AboutContainer>
                 ) : null}
                 <IconHomeNavigate/>
@@ -164,5 +167,12 @@ const AboutContainer = styled.div`
   }
   
   animation: openOverlay .32s cubic-bezier(0, 0, 0.5, 1.0);
+`;
+
+const AboutClose = styled.div`
+  z-index: 1;
+    position: absolute;
+  right: 28px;
+  top: 10px;
 `;
 

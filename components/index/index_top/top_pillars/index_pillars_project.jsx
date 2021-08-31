@@ -26,60 +26,68 @@ const PillarsProject = () => {
                     <h1 className="header global-text-shadow">Projects</h1>
                 </HeaderProject>
 
-                    <ProdManTextBox>
-                        <p><span>Production management</span> | Large scale corporate events and  international meetings</p>
-                        <FlagSpain>
-                            <FlagSpainSvg />
-                        </FlagSpain>
-                        <FlagAustria>
-                            <FlagAustriaSvg />
-                        </FlagAustria>
-                        <FlagUk>
-                            <FlagUkSvg />
-                        </FlagUk>
-                        <FlagSwitzerland>
-                            <FlagSwissSvg />
-                        </FlagSwitzerland>
-                        <FlagFrance>
-                            <FlagFranceSvg />
-                        </FlagFrance>
-                        <FlagUkraine>
-                            <FlagUkraineSvg />
-                        </FlagUkraine>
-                    </ProdManTextBox>
+                <ProdManTextBox>
+                    <p><span>Production management</span> | Large scale corporate events and international meetings</p>
+                </ProdManTextBox>
+                <ProdManFlags>
+                    <FlagSpain>
+                        <FlagSpainSvg/>
+                    </FlagSpain>
+                    <FlagAustria>
+                        <FlagAustriaSvg/>
+                    </FlagAustria>
+                    <FlagUk>
+                        <FlagUkSvg/>
+                    </FlagUk>
+                    <FlagSwitzerland>
+                        <FlagSwissSvg/>
+                    </FlagSwitzerland>
+                    <FlagFrance>
+                        <FlagFranceSvg/>
+                    </FlagFrance>
+                    <FlagUkraine>
+                        <FlagUkraineSvg/>
+                    </FlagUkraine>
+                </ProdManFlags>
 
                 <QuoteBoxOne>
-                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere interesting"</p>
+                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere
+                        interesting"</p>
                 </QuoteBoxOne>
 
                 <TouringTextBox>
-                    <p><span>Audio-visual projects & international touring</span> | Audio & systems design, staffing, logistics and project planning</p>
+                    <p><span>Audio-visual projects & international touring</span> | Audio & systems design, staffing,
+                        logistics and project planning</p>
+
+                </TouringTextBox>
+                <TouringFlags>
                     <FlagMexico>
-                        <FlagMexicoSvg />
+                        <FlagMexicoSvg/>
                     </FlagMexico>
                     <FlagUzbekistan>
-                        <FlagUzbekistanSvg />
+                        <FlagUzbekistanSvg/>
                     </FlagUzbekistan>
                     <FlagChina>
-                        <FlagChinaSvg />
+                        <FlagChinaSvg/>
                     </FlagChina>
                     <FlagGermany>
-                        <FlagGermanySvg />
+                        <FlagGermanySvg/>
                     </FlagGermany>
                     <FlagUsa>
-                        <FlagUsaSvg />
+                        <FlagUsaSvg/>
                     </FlagUsa>
                     <FlagBrazil>
-                        <FlagBrazilSvg />
+                        <FlagBrazilSvg/>
                     </FlagBrazil>
-                </TouringTextBox>
+                </TouringFlags>
 
                 <QuoteBoxTwo>
-                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere interesting"</p>
+                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere
+                        interesting"</p>
                 </QuoteBoxTwo>
 
                 <DogBlue>
-                    <DogBlueSvg />
+                    <DogBlueSvg/>
                 </DogBlue>
 
                 <FooterProject>
@@ -139,8 +147,8 @@ const PillarContainerProject = styled.div`
 const ContentContainerProject = styled.div`
   pointer-events: none;
   position: absolute;
-  top:50%;
-  left: 50%;
+  top: 40%;
+  left: 57%;
   transform: translate(-50%, -50%);
 
 
@@ -160,13 +168,15 @@ const ContentContainerProject = styled.div`
 const HeaderProject = styled.div`
   pointer-events: none;
   position: relative;
-  top: -53px;
-  left: -35px;
+  top: -12px;
+  left: -10px;
 `;
 
 const FooterProject = styled.div`
   pointer-events: none;
   position: relative;
+  top: 175px;
+  left: 50px;
 `;
 
 
@@ -177,59 +187,62 @@ const ProdManTextBox = styled.div`
   position: relative;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
-  padding: 10px;
-  width: 520px;
+  padding: 11px 17px 35px 20px;
+  width: 380px;
+  left: -50px;
+`;
+
+const ProdManFlags = styled.div`
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1.29fr 1fr 0.68fr 1fr 1fr;
+  top: 218px;
+  width: 200px;
 `;
 
 const FlagSpain = styled.div`
   pointer-events: none;
-  position: absolute;
-  top: 50px;
-  left: 205px;
-  width: 60px;
-`;
-
-const FlagAustria = styled.div`
-  pointer-events: none;
-  position: absolute;
-  top: 50px;
-  left: 375px;
-  width: 60px;
-`;
-
-const FlagSwitzerland = styled.div`
-  pointer-events: none;
-  position: absolute;
-  top: 50px;
-  left: 455px;
-  width: 45px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 const FlagUk = styled.div`
   pointer-events: none;
-  position: absolute;
-  top: 50px;
-  left: 285px;
-  width: 65px;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
+`;
+
+const FlagAustria = styled.div`
+  pointer-events: none;
+  grid-column-start: 3;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
+`;
+
+const FlagSwitzerland = styled.div`
+  pointer-events: none;
+  grid-column-start: 4;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 const FlagFrance = styled.div`
   pointer-events: none;
-  position: absolute;
-  top: 50px;
-  left: 520px;
-  width: 60px;
+  grid-column-start: 5;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 const FlagUkraine = styled.div`
   pointer-events: none;
-  position: absolute;
-  top: 50px;
-  left: 590px;
-  width: 60px;
+  grid-column-start: 6;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
-// PRODUCTION MANAGEMENT
+// AUDIO-VISUAL
 //
 const TouringTextBox = styled.div`
   pointer-events: none;
@@ -237,49 +250,59 @@ const TouringTextBox = styled.div`
   top: 100px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
-  padding: 10px;
-  width: 520px;
+  padding: 11px 17px 35px 20px;
+  width: 462px;
+`;
+
+const TouringFlags = styled.div`
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1.15fr 1.33fr 1fr 1fr 1.25fr 1fr;
+  top: 497px;
+  left: 65px;
+  width: 200px;
 `;
 
 const FlagMexico = styled.div`
   pointer-events: none;
-  position: absolute;
-  width: 60px;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 const FlagUzbekistan = styled.div`
   pointer-events: none;
-  position: absolute;
-  left: 100px;
-  width: 70px;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;;
 `;
 
 const FlagChina = styled.div`
   pointer-events: none;
-  position: absolute;
-  left: 200px;
-  width: 60px;
+  grid-column-start: 3;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 const FlagGermany = styled.div`
   pointer-events: none;
-  position: absolute;
-  left: 280px;
-  width: 60px;
+  grid-column-start: 4;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 const FlagUsa = styled.div`
   pointer-events: none;
-  position: absolute;
-  left: 370px;
-  width: 60px;
+  grid-column-start: 5;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 const FlagBrazil = styled.div`
   pointer-events: none;
-  position: absolute;
-  left: 440px;
-  width: 60px;
+  grid-column-start: 6;
+  grid-row-start: 1;
+  padding: 0 5px 0 0;
 `;
 
 // QUOTES
@@ -308,10 +331,10 @@ const QuoteBoxTwo = styled.div`
 //
 const DogBlue = styled.div`
   pointer-events: none;
-  position: relative;
+  position: absolute;
   width: 120px;
-  top: 96px;
-  left: 50px;
+  top: 400px;
+  left: -200px;
 `;
 
 
