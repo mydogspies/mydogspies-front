@@ -1,9 +1,10 @@
-import {useUser} from '@auth0/nextjs-auth0';
 import React, {useEffect, useRef, useState} from 'react';
 import Link from "next/link";
 import styled from 'styled-components';
 
+// TODO to be used with a new auth and logged users
 import OfflineHeader from './offline/offline-logged-header/offline-logged-header';
+
 import IconMenuNavigate from '../components/navigation/icon_menu_navigate/icon_menu_navigate';
 import IconAboutNavigate from './navigation/icon_menu_about/icon_menu_about';
 import IconHomeNavigate from './navigation/icone_menu_home/icon_menu_home';
@@ -13,19 +14,15 @@ import AboutOverlay from './about/about_overlay';
 
 export default function StatusWrapper({children, status}) {
 
-    // user related states
-    const {user, error, isLoading} = useUser();
-    const [currentUser, setCurrentUser] = useState(null);
-    const isMounted = useRef(true);
 
-    // pull out menu and about overlay related states
-    const [panelOpen, setPanelOpen] = useState(false);
-    const [aboutOpen, setAboutOpen] = useState(false);
-    const [menuFill, setMenuFill] = useState(false);
-    const [aboutFill, setAboutFill] = useState(false);
+    // TODO commented out code stays until we decide on new auth logic
+    // user related states
+    /*const {user, error, isLoading} = useUser();
+    const [currentUser, setCurrentUser] = useState(null);
+    const isMounted = useRef(true);*/
 
     // only if mounted
-    function getUser() {
+    /*function getUser() {
         if (isMounted.current) {
             setCurrentUser(user);
         }
@@ -36,7 +33,13 @@ export default function StatusWrapper({children, status}) {
         return () => {
             isMounted.current = false;
         }
-    }, []);
+    }, []);*/
+
+    // pull out menu and about overlay related states
+    const [panelOpen, setPanelOpen] = useState(false);
+    const [aboutOpen, setAboutOpen] = useState(false);
+    const [menuFill, setMenuFill] = useState(false);
+    const [aboutFill, setAboutFill] = useState(false);
 
     // handle navigation icons
     //
@@ -60,56 +63,19 @@ export default function StatusWrapper({children, status}) {
         }
     }
 
-    // render component code below only
-    //
+    // TODO passing userStatus for now just as a passive flag until new auth implemented
+    const userStatus = false;
 
-    // if a dev user is logged in
-    if (user) {
-        const userStatus = true;
-        return (
-            <>
-                {panelOpen ? (
-                    <MenuContainer>
-                        <PullOutMenu addClass="global-box-shadow"/>
-                    </MenuContainer>
-                ) : null}
-
-                {aboutOpen ? (
-                    <AboutContainer>
-                        <AboutClose className="about-overlay">
-                            <a href="#" onClick={handleAboutClick} target="_self"><p className="about-close global-text-shadow">close</p></a>
-                        </AboutClose>
-                        <AboutOverlay addClass="global-box-shadow"/>
-                    </AboutContainer>
-                ) : null}
-
-                <Link href="/">
-                    <a>
-                        <IconHomeNavigate/>
-                    </a>
-                </Link>
-
-                <div onClick={handleAboutClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
-                <div onClick={handleMenuClick}><IconMenuNavigate fillOverride={menuFill}/></div>
-                <OfflineHeader/>
-                {React.cloneElement(children, {userStatus})}
-            </>
-        )
-
-        // if site is offline and no users logged in
-    } else if (status === false) {
+    /* site OFFLINE - then pass on and let each page below decide what to do */
+    if (status === false) {
         const userStatus = false;
         return (
             <>
                 {React.cloneElement(children, {userStatus})}
             </>
         )
-
-        // TODO clean up the re-occurring code for site logged in and normal site
-
     } else {
-        // normal site
-        const userStatus = false;
+        /* site ONLINE - add navigation logic and pass on */
         return (
             <>
                 {panelOpen ? (
@@ -121,7 +87,8 @@ export default function StatusWrapper({children, status}) {
                 {aboutOpen ? (
                     <AboutContainer>
                         <AboutClose className="about-overlay">
-                            <a href="#" onClick={handleAboutClick} target="_self"><p className="about-close global-text-shadow">close</p></a>
+                            <a href="#" onClick={handleAboutClick} target="_self"><p
+                                className="about-close global-text-shadow">close</p></a>
                         </AboutClose>
                         <AboutOverlay addClass="global-box-shadow"/>
                     </AboutContainer>
@@ -146,7 +113,7 @@ const MenuContainer = styled.div`
   z-index: 2;
   top: 100px;
   right: 0;
-  
+
   @keyframes openPanel {
     from {
       right: -300px;
@@ -155,7 +122,7 @@ const MenuContainer = styled.div`
       right: 0;
     }
   }
-  
+
   animation: openPanel .32s cubic-bezier(0, 0, 0.5, 1.0);
 `;
 
@@ -165,7 +132,7 @@ const AboutContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
+
   @keyframes openOverlay {
     from {
       opacity: 0;
@@ -174,14 +141,13 @@ const AboutContainer = styled.div`
       opacity: 1;
     }
   }
-  
+
   animation: openOverlay .32s cubic-bezier(0, 0, 0.5, 1.0);
 `;
 
 const AboutClose = styled.div`
   z-index: 1;
-    position: absolute;
+  position: absolute;
   right: 28px;
   top: 10px;
 `;
-

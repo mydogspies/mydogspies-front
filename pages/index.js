@@ -21,7 +21,6 @@ export default function Home({status, userStatus}) {
                     <IndexVisual />
                     <IndexProject />
                 </ParentContainer>
-
             </>
         )
 

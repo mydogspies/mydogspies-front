@@ -5,7 +5,10 @@ import styled from "styled-components";
 
 export default function Admin() {
 
-    const {user, error, isLoading} = useUser();
+    // const {user, error, isLoading} = useUser();
+
+    //TODO user set to FALSE until new auth logic in place - see status-wrapper.js
+    const user = false;
 
     if (user) {
         return (
@@ -26,7 +29,26 @@ export default function Admin() {
         );
     } else {
         return (
+
             <Container className="colors-projects">
+
+                <Head>
+                    <title>Mydogspies.com - Admin</title>
+                </Head>
+
+                <Content>
+                    <Headline className="headline-general">Welcome to the Mydogspies collaboration area</Headline>
+                    <AreaLinks className="paragraph-general">
+                        This area is currently in development
+                    </AreaLinks>
+                    <LinkBack><a href="/" target="_top">Back to index page</a></LinkBack>
+                </Content>
+
+            </Container>
+
+
+            // TODO login logic disabled until new auth logic in place
+            /*<Container className="colors-projects">
 
                 <Head>
                     <title>Mydogspies.com - Admin</title>
@@ -39,7 +61,7 @@ export default function Admin() {
                     </AreaLinks>
                 </Content>
 
-            </Container>
+            </Container>*/
         )
     }
 };
@@ -59,6 +81,11 @@ const AreaLinks = styled.div`
 `;
 
 const Headline = styled.div`
+  padding: 20px 0 0 0;
+  text-align: center;
+`;
+
+const LinkBack = styled.div`
   padding: 20px 0 0 0;
   text-align: center;
 `;
