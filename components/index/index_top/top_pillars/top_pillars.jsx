@@ -180,6 +180,7 @@ const TopPillars = () => {
 }
 
 const Container = styled.div`
+  z-index: 2;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
@@ -189,7 +190,7 @@ const Container = styled.div`
 const ContainerPillars = styled.div`
   position: absolute;
   display: flex;
-  z-index: 1;
+  z-index: 3;
   grid-column-start: 2;
   grid-column-end: 2;
   width: 100%;

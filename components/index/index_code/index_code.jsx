@@ -10,8 +10,7 @@ import {setCurrentIconColor} from "../../../redux/styles/styles.action";
 import backgroundColors from "../../../styles/icon_colors.module.scss";
 import shapeColors from '../../../styles/shape_colors.module.scss';
 
-import ReactLogoSvg from "../../logos/react_logo";
-import JavaLogoSvg from "../../logos/java_logo";
+import DogGreenSvg from "../../logos/dog_green";
 
 const IndexCode = () => {
 
@@ -37,25 +36,18 @@ const IndexCode = () => {
             <ContainerCode ref={ref} className="index index-code" id="index-code">
 
                 <CodeLeft>
-
+                    <TempCodeTextBox>
+                        <h1>CODING</h1>
+                        <p>This area is still in development. Meanwhile feel free to visit my <a href="https://github.com/mydogspies" target="_blank">Github</a>.</p>
+                        <p>Upcoming content here will be video and blogs relating to programming, devops and things IT in general.</p>
+                    </TempCodeTextBox>
+                    <DogGreenLogo>
+                        <DogGreenSvg />
+                    </DogGreenLogo>
                 </CodeLeft>
 
-                <CodeRight shapeColor={css.shapeColors.ccColor}>
 
-                    <LogoContainer>
-                        <ReactLogo>
-                            <ReactLogoSvg />
-                        </ReactLogo>
-                        <ReactLogoText>
-                            <h3>React | CRA | NextJS</h3>
-                        </ReactLogoText>
-                        <JavaLogo>
-                            <JavaLogoSvg />
-                        </JavaLogo>
-                        <JavaLogoText>
-                            <h3>Java | Spring</h3>
-                        </JavaLogoText>
-                    </LogoContainer>
+                <CodeRight shapeColor={css.shapeColors.ccColor}>
 
                 </CodeRight>
 
@@ -73,134 +65,41 @@ const ContainerCode = styled.div`
   height: 100vh;
 `;
 
+/* LEFT CONTENT */
 const CodeLeft = styled.div`
+  position: relative;
   grid-column-start: 2;
   background-color: white;
 `;
 
+// TODO the below styles are TEMP ONLY; remove any TAG-related formatting from here asap
+const TempCodeTextBox = styled.div`
+  position: relative;
+  width: 75%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  p {
+    padding: 0 0 10px 0;
+  }
+  h1 {
+    font-size: 55px;
+    padding: 0 0 15px 0;
+  }
+`;
+
+const DogGreenLogo = styled.div`
+  position: relative;
+  width: 100px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+/* RIGHT CONTENT */
 const CodeRight = styled.div`
   grid-column-start: 3;
   background-color: ${props => props.shapeColor};
 `;
 
-const LogoContainer = styled.div`
-    height: 100vh;
-`;
-
-// LOGO STYLES //
-//
-
-// JAVA logo
-const JavaLogo = styled.div`
-  position: absolute;
-  width: 100px;
-`;
-
-const JavaLogoText = styled.div`
-
-`;
-
-const PythonLogo = styled.div`
-
-  @keyframes pythonLogoMovement {
-    from {
-      top: 56px;
-      left: 346px;
-      transform: rotate(-2deg);
-    }
-    to {
-      top: 70px;
-      left: 350px;
-      transform: rotate(-4deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: 70px;
-  left: 350px;
-  width: 55px;
-  transform: rotate(-4deg);
-  animation: pythonLogoMovement 1s ease-out;
-`;
-
-// REACT logo
-const ReactLogo = styled.div`
-  position: absolute;
-  width: 150px;
-`;
-
-const ReactLogoText = styled.div`
-  position: absolute;
-  h3 {
-    color: white;
-  }
-`;
-
-const JSLogo = styled.div`
-
-  @keyframes jsLogoMovement {
-    from {
-      top: -40px;
-      left: 500px;
-      transform: rotate(-3deg);
-    }
-    to {
-      top: -20px;
-      left: 485px;
-      transform: rotate(-6deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: -20px;
-  left: 485px;
-  width: 45px;
-  transform: rotate(-6deg);
-  animation: jsLogoMovement 0.8s ease-out;
-`;
-
-const IntellijLogo = styled.div`
-
-  @keyframes intellijLogoMovement {
-    from {
-      top: 15px;
-      left: 440px;
-      transform: rotate(36deg);
-    }
-    to {
-      top: 25px;
-      left: 435px;
-      transform: rotate(6deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: 25px;
-  left: 435px;
-  width: 45px;
-  transform: rotate(6deg);
-  animation: intellijLogoMovement 0.8s ease-out;
-`;
-
-const LinuxLogo = styled.div`
-
-  @keyframes LinuxLogoMovement {
-    from {
-      transform: rotate(6deg);
-    }
-    to {
-      transform: rotate(-2deg);
-    }
-  }
-
-  pointer-events: none;
-  position: absolute;
-  top: 65px;
-  left: 130px;
-  width: 120px;
-  transform: rotate(-2deg);
-  animation: LinuxLogoMovement 1.5s ease-out;
-`;

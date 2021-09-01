@@ -10,6 +10,8 @@ import {setCurrentIconColor} from "../../../redux/styles/styles.action";
 import backgroundColors from "../../../styles/icon_colors.module.scss";
 import shapeColors from '../../../styles/shape_colors.module.scss';
 
+import DogPurpleSvg from "../../logos/dog_purple";
+
 const IndexVisual = () => {
 
     const dispatch = useDispatch();
@@ -32,8 +34,22 @@ const IndexVisual = () => {
     return (
         <ScrollWrapper name="visual">
             <ContainerVisual ref={ref} className="index index-code" id="index-code">
-                <VisualLeft shapeColor={css.shapeColors.cvColor} />
-                <VisualRight />
+
+                <VisualLeft shapeColor={css.shapeColors.cvColor}>
+
+                </VisualLeft>
+
+                <VisualRight>
+                    <TempVisualTextBox>
+                        <h1>VISUAL DESIGN</h1>
+                        <p>This area is still in development. Some 3D stuff you can already find on my <a href="https://www.artstation.com/mydogspies" target="_blank">Artstation profile</a>.</p>
+                        <p>A lot more projects and a visual design blog is on its way!</p>
+                    </TempVisualTextBox>
+                    <DogPurpleLogo>
+                        <DogPurpleSvg />
+                    </DogPurpleLogo>
+                </VisualRight>
+
             </ContainerVisual>
         </ScrollWrapper>
 
@@ -41,23 +57,48 @@ const IndexVisual = () => {
 
 }
 
+export default IndexVisual;
+
 const ContainerVisual = styled.div`
   display: grid;
   grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
   height: 100vh;
 `;
 
+/* LEFT CONTENT */
 const VisualLeft = styled.div`
   grid-column-start: 2;
   background-color: ${props => props.shapeColor};
 `;
 
+/* RIGHT CONTENT */
 const VisualRight = styled.div`
+  position: relative;
   grid-column-start: 3;
   background-color: white;
 `;
 
+// TODO the below styles are TEMP ONLY; remove any TAG-related formatting from here asap
+const TempVisualTextBox = styled.div`
+  position: relative;
+  width: 75%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  p {
+    padding: 0 0 10px 0;
+  }
+  h1 {
+    font-size: 55px;
+    padding: 0 0 15px 0;
+  }
+`;
 
-
-
-export default IndexVisual;
+const DogPurpleLogo = styled.div`
+  position: relative;
+  width: 100px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;

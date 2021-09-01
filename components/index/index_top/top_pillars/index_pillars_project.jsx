@@ -51,8 +51,8 @@ const PillarsProject = () => {
                 </ProdManFlags>
 
                 <QuoteBoxOne>
-                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere
-                        interesting"</p>
+                    <p>"It's amazing but also frightening to realize that a major music festival produces waste and uses up
+                        resources daily equivalent of an entire small to mid-sized UK town."</p>
                 </QuoteBoxOne>
 
                 <TouringTextBox>
@@ -82,8 +82,9 @@ const PillarsProject = () => {
                 </TouringFlags>
 
                 <QuoteBoxTwo>
-                    <p>"So many interesting things to quite that I have to fill this box with to sound anywhere
-                        interesting"</p>
+                    <p>"The age old joke of the band's front person mentioning the wrong town when welcoming the audience
+                        is not a myth at all! Spinal Tap is far closer
+                        to reality than many think..."</p>
                 </QuoteBoxTwo>
 
                 <DogBlue>
@@ -168,15 +169,17 @@ const ContentContainerProject = styled.div`
 const HeaderProject = styled.div`
   pointer-events: none;
   position: relative;
-  top: -12px;
+  top: -25px;
   left: -10px;
+  transform: rotate(1deg);
 `;
 
 const FooterProject = styled.div`
   pointer-events: none;
   position: relative;
-  top: 175px;
+  top: 170px;
   left: 50px;
+  transform: rotate(1deg);
 `;
 
 
@@ -195,7 +198,7 @@ const ProdManTextBox = styled.div`
 const ProdManFlags = styled.div`
   position: absolute;
   display: grid;
-  grid-template-columns: 1fr 1.29fr 1fr 0.68fr 1fr 1fr;
+  grid-template-columns: 1fr 1.29fr 1fr 0.7fr 1fr 1fr;
   top: 218px;
   width: 200px;
 `;
@@ -252,13 +255,14 @@ const TouringTextBox = styled.div`
   border-radius: 10px;
   padding: 11px 17px 35px 20px;
   width: 462px;
+  transform: rotate(-1deg);
 `;
 
 const TouringFlags = styled.div`
-  position: absolute;
+  position: relative;
   display: grid;
   grid-template-columns: 1.15fr 1.33fr 1fr 1fr 1.2fr 0.99fr;
-  top: 497px;
+  top: 70px;
   left: 65px;
   width: 200px;
 `;
@@ -311,6 +315,7 @@ const QuoteBoxOne = styled.div`
   pointer-events: none;
   position: relative;
   top: 50px;
+  left: 45px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   padding: 10px;
@@ -320,7 +325,8 @@ const QuoteBoxOne = styled.div`
 const QuoteBoxTwo = styled.div`
   pointer-events: none;
   position: relative;
-  top: 150px;
+  top: 125px;
+  left: -40px;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   padding: 10px;
@@ -332,9 +338,10 @@ const QuoteBoxTwo = styled.div`
 const DogBlue = styled.div`
   pointer-events: none;
   position: absolute;
-  width: 120px;
-  top: 400px;
-  left: -200px;
+  width: 90px;
+  top: 340px;
+  left: -100px;
+  transform: rotate(3deg);
 `;
 
 

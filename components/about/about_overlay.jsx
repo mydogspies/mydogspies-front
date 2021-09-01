@@ -3,7 +3,6 @@ import shapeColors from '../../styles/shape_colors.module.scss';
 
 import LicenseFooter from '../license_footer/license_footer';
 
-import DogGreenSvg from "../logos/dog_green";
 import {useEffect, useState} from "react";
 
 const AboutOverlay = ({addClass}) => {
@@ -95,9 +94,6 @@ const AboutOverlay = ({addClass}) => {
                 <AboutSignature>
                     <h1 className="about-signature global-text-shadow">Mydogspies aka Peter A. Mankowski, Berlin 2021</h1>
                 </AboutSignature>
-                <DogGreen>
-                    <DogGreenSvg className="global-box-shadow"/>
-                </DogGreen>
 
             </AboutOverlayContainer>
 
@@ -203,13 +199,4 @@ const AboutFooter = styled.div`
   right: 100px;
 `;
 
-// LOGO STYLES //
-//
-const DogGreen = styled.div`
-  position: absolute;
-  width: 75px;
-  top: 395px;
-  left: 465px;
-  transform: rotate(6deg);
-`;
 

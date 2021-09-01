@@ -70,7 +70,9 @@ apply to. Reuse for various components if possible and do not override. Rather
 copy, rename and use for whatever specific need.
 */
 
+/*                 */
 /* -- INDEX PAGE --*/
+/*                 */
 /* applies to the specifically index page ONLY */
 .index {
 
@@ -180,7 +182,7 @@ copy, rename and use for whatever specific need.
     .header {
       font-family: $font-headline;
       letter-spacing: 0.08em;
-      font-size: 92px;
+      font-size: 96px;
       color: #eeeeee;
     }
 
@@ -270,14 +272,29 @@ copy, rename and use for whatever specific need.
 }
 
 /* PULLOUT MENU */
+/* Applies only to the pull-out when using the "navigate" icon/menu item */
 .pull-out-menu {
 
   h1 {
     color: #eeeeee;
   }
+
+  p {
+    font-family: $font-paragraph;
+    font-size: 15px;
+
+    &.menu-close {
+      font-size: 17px;
+      color: #ffffff;
+    }
+  }
 }
 
-/* relates to all styling when site is offline*/
+
+/*                 */
+/* -- OFFLINE STATE --*/
+/*                 */
+/* relates to all styling when site is offline */
 .offline-pages {
   background-color: $background-color-offline;
   color: $text-color-offline;

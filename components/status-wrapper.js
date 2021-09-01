@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
-import Link from "next/link";
 import styled from 'styled-components';
+
+import shapeColors from '/styles/shape_colors.module.scss';
 
 // TODO to be used with a new auth and logged users
 import OfflineHeader from './offline/offline-logged-header/offline-logged-header';
@@ -9,11 +10,18 @@ import IconMenuNavigate from '../components/navigation/icon_menu_navigate/icon_m
 import IconAboutNavigate from './navigation/icon_menu_about/icon_menu_about';
 import IconHomeNavigate from './navigation/icone_menu_home/icon_menu_home';
 
-import PullOutMenu from './pullout_menu/pull_out_menu';
 import AboutOverlay from './about/about_overlay';
 
 export default function StatusWrapper({children, status}) {
 
+    // get css background colors
+    const css = {
+        shapeColors: {
+            ccColor: shapeColors.shapesColorCode,
+            cvColor: shapeColors.shapesColorVisual,
+            cpColor: shapeColors.shapesColorProject
+        }
+    }
 
     // TODO commented out code stays until we decide on new auth logic
     // user related states
@@ -43,7 +51,7 @@ export default function StatusWrapper({children, status}) {
 
     // handle navigation icons
     //
-    function handleMenuClick() {
+    function handleMenuCloseClick() {
         if (panelOpen) {
             setPanelOpen(false);
             setMenuFill(null);
@@ -53,7 +61,7 @@ export default function StatusWrapper({children, status}) {
         }
     }
 
-    function handleAboutClick() {
+    function handleAboutCloseClick() {
         if (aboutOpen) {
             setAboutOpen(false);
             setAboutFill(null);
@@ -79,41 +87,50 @@ export default function StatusWrapper({children, status}) {
         return (
             <>
                 {panelOpen ? (
-                    <MenuContainer>
-                        <PullOutMenu addClass="global-box-shadow"/>
+                    <MenuContainer backgroundColor={css.shapeColors.cpColor} addClass="global-box-shadow">
+                        <MenuItemLink>
+                            <h1>About</h1>
+                        </MenuItemLink>
+                        <MenuClose className="pull-out-menu">
+                            <a href="#" onClick={handleMenuCloseClick} target="_self">
+                                <p className="menu-close global-text-shadow">close</p>
+                            </a>
+                        </MenuClose>
                     </MenuContainer>
                 ) : null}
 
                 {aboutOpen ? (
                     <AboutContainer>
                         <AboutClose className="about-overlay">
-                            <a href="#" onClick={handleAboutClick} target="_self"><p
+                            <a href="#" onClick={handleAboutCloseClick} target="_self"><p
                                 className="about-close global-text-shadow">close</p></a>
                         </AboutClose>
                         <AboutOverlay addClass="global-box-shadow"/>
                     </AboutContainer>
                 ) : null}
 
-                <Link href="/">
-                    <a>
-                        <IconHomeNavigate/>
-                    </a>
-                </Link>
+                <a href="/"><IconHomeNavigate/></a>
 
-                <div onClick={handleAboutClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
-                <div onClick={handleMenuClick}><IconMenuNavigate fillOverride={menuFill}/></div>
+                <div onClick={handleAboutCloseClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
+                <div onClick={handleMenuCloseClick}><IconMenuNavigate fillOverride={menuFill}/></div>
                 {React.cloneElement(children, {userStatus})}
             </>
         )
     }
 }
 
+/* PULL OUT MENU */
 const MenuContainer = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   top: 100px;
   right: 0;
-
+  opacity: 0.95;
+  height: 76vh;
+  width: 300px;
+  border-radius: 10px 0 0 10px;
+  background-color: ${props => props.backgroundColor};
+  
   @keyframes openPanel {
     from {
       right: -300px;
@@ -126,9 +143,22 @@ const MenuContainer = styled.div`
   animation: openPanel .32s cubic-bezier(0, 0, 0.5, 1.0);
 `;
 
+const MenuClose = styled.div`
+  z-index: 21;
+  position: absolute;
+  left: 28px;
+  top: 10px;
+`;
+
+const MenuItemLink = styled.div`
+  z-index: 22;
+  position: relative;
+`;
+
+/* ABOUT OVERLAY */
 const AboutContainer = styled.div`
   position: fixed;
-  z-index: 3;
+  z-index: 10;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -146,7 +176,7 @@ const AboutContainer = styled.div`
 `;
 
 const AboutClose = styled.div`
-  z-index: 1;
+  z-index: 11;
   position: absolute;
   right: 28px;
   top: 10px;
