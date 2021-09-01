@@ -89,7 +89,7 @@ export default function StatusWrapper({children, status}) {
                 {panelOpen ? (
                     <MenuContainer backgroundColor={css.shapeColors.cpColor} addClass="global-box-shadow">
                         <MenuItemLink>
-                            <h1>About</h1>
+
                         </MenuItemLink>
                         <MenuClose className="pull-out-menu">
                             <a href="#" onClick={handleMenuCloseClick} target="_self">
