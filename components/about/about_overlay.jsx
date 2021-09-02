@@ -1,14 +1,30 @@
 import styled from 'styled-components';
+import useDimensions from "react-cool-dimensions";
 import shapeColors from '../../styles/shape_colors.module.scss';
 
 import LicenseFooter from '../license_footer/license_footer';
 
-import {useEffect, useState} from "react";
-
 const AboutOverlay = ({addClass}) => {
 
-    const [scaleHeight, setScaleHeight] = useState(1);
-    const [scaleWidth, setScaleWidth] = useState(1);
+    /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
+    in order to find out the size of the about overlay window. This hook uses ResizeObserver
+    to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
+    and plug it into the styled component via AboutOverlayContainer.
+     */
+    const { observe, unobserve, width, height, entry } = useDimensions({
+        onResize: ({ observe, unobserve, width, height, entry }) => {
+            unobserve(); // To stop observing the current target element
+            observe(); // To re-start observing the current target element
+        },
+    });
+
+    const scaleH = () => {
+        return height / 925;
+    }
+
+    const scaleW = () => {
+        return width / 1427;
+    }
 
     // get css background colors
     //
@@ -20,25 +36,15 @@ const AboutOverlay = ({addClass}) => {
         }
     }
 
-    const updateDimensions = () => {
-        let scaleX = window.innerWidth / 1920;
-        let scaleY = window.innerHeight / 1080;
-        setScaleHeight(scaleX);
-        setScaleWidth(scaleY);
-    };
-
-    useEffect(() => {
-        window.addEventListener("resize", updateDimensions);
-        return () => window.removeEventListener("resize", updateDimensions);
-    }, []);
-
     return (
-        <AboutOverlayBase backgroundColor={css.shapeColors.ccColor} className={addClass}>
+        <AboutOverlayBase backgroundColor={css.shapeColors.ccColor}
+                          className={addClass}
+                          ref={observe}>
 
             <AboutOverlayContainer className="about-overlay"
                                    id="about-overlay-container"
-                                   scaleHeight={scaleHeight}
-                                   scaleWidth={scaleWidth}>
+                                   scaleHeight={scaleH()}
+                                   scaleWidth={scaleW()}>
 
                 <AboutHeader>
                     <h1 className="global-text-shadow">Welcome to Mydogspies.com</h1>
