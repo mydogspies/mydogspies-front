@@ -18,6 +18,7 @@ const AboutOverlay = ({addClass}) => {
         },
     });
 
+    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
     const scaleH = () => {
         return height / 925;
     }
@@ -97,15 +98,18 @@ const AboutOverlay = ({addClass}) => {
                             on Github</a>, at least until the many things that need to be finished on this side finally are!
                     </p>
                 </AboutTextBoxFive>
+
                 <AboutSignature>
                     <h1 className="about-signature global-text-shadow">Mydogspies aka Peter A. Mankowski, Berlin 2021</h1>
                 </AboutSignature>
 
+                <AboutFooter className="about-overlay">
+                    <LicenseFooter addClassPTag="about-footer global-text-shadow"/>
+                </AboutFooter>
+
             </AboutOverlayContainer>
 
-            <AboutFooter className="about-overlay">
-                <LicenseFooter addClassPTag="about-footer global-text-shadow"/>
-            </AboutFooter>
+
 
         </AboutOverlayBase>
     )
@@ -133,10 +137,11 @@ const AboutOverlayContainer = styled.div`
 `;
 
 const AboutHeader = styled.div`
+  display: block;
   position: relative;
   top: 0;
   left: 245px;
-  width: 665px;
+  width: 680px;
 `;
 
 
@@ -192,17 +197,20 @@ const AboutTextBoxFive = styled.div`
 `;
 
 const AboutSignature = styled.div`
+  display: block;
   position: relative;
-  top: 735px;
+  top: 725px;
   left: 535px;
-  width: 515px;
+  width: 530px;
   transform: rotate(1deg);
 `;
 
 const AboutFooter = styled.div`
   position: absolute;
-  bottom: 10px;
-  right: 100px;
+  display: block;
+  top: 855px;
+  left: 740px;
+  width: 500px;
 `;
 
 

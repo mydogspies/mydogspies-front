@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import useDimensions from "react-cool-dimensions";
 
 import topProjectImage from '../../../../public/assets/remote/images/index/cds.jpg';
 import DogBlueSvg from "../../../logos/dog_blue";
@@ -16,11 +17,37 @@ import FlagSwissSvg from "../../../clipart/flag_switzerland";
 import FlagBrazilSvg from "../../../clipart/flag_brazil";
 import FlagUkraineSvg from "../../../clipart/flag_ukraine";
 
+
 const PillarsProject = () => {
 
+    /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
+        in order to find out the size of the about overlay window. This hook uses ResizeObserver
+        to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
+        and plug it into the styled component via AboutOverlayContainer.
+         */
+    const {observe, unobserve, width, height, entry} = useDimensions({
+        onResize: ({observe, unobserve, width, height, entry}) => {
+            unobserve(); // To stop observing the current target element
+            observe(); // To re-start observing the current target element
+        },
+    });
+
+    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
+    const scaleH = () => {
+        return height / 1091;
+    }
+
+    const scaleW = () => {
+        return width / 1189;
+    }
+
     return (
-        <PillarContainerProject backgroundImage={topProjectImage.src}>
-            <ContentContainerProject className="index project">
+        <PillarContainerProject backgroundImage={topProjectImage.src}
+                                ref={observe}>
+
+            <ContentContainerProject className="index project"
+                                     scaleHeight={scaleH()}
+                                     scaleWidth={scaleW()}>
 
                 <HeaderProject>
                     <h1 className="header global-text-shadow">Projects</h1>
@@ -131,15 +158,6 @@ const PillarContainerProject = styled.div`
   animation: projectBackgroundPos 0.7s ease-out, projectBackgroundOpacity 2.1s ease-out;
   background-size: cover;
   background-position: 50% 50%;
-
-  @media only screen and (max-height: 1000px) {
-
-  }
-
-  @media only screen and (max-height: 700px) {
-
-  }
-
 }
 `;
 
@@ -149,21 +167,10 @@ const ContentContainerProject = styled.div`
   pointer-events: none;
   position: absolute;
   top: 40%;
-  left: 57%;
-  transform: translate(-50%, -50%);
-
-
-  @media only screen and (max-height: 1000px) {
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.75, 0.75); // scale MUST come AFTER translate or this will not work
-    left: 50%;
-  }
-
-  @media only screen and (max-height: 700px) {
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.5, 0.5);
-    left: 50%;
-  }
+  left: 60%;
+  transform: translate(-50%, -50%) scale(
+          ${props => props.scaleWidth},
+          ${props => props.scaleHeight});
 `;
 
 const HeaderProject = styled.div`
@@ -176,9 +183,11 @@ const HeaderProject = styled.div`
 
 const FooterProject = styled.div`
   pointer-events: none;
+  display: block;
   position: relative;
   top: 170px;
   left: 50px;
+  width: 550px;
   transform: rotate(1deg);
 `;
 

@@ -1,13 +1,39 @@
 import styled from 'styled-components';
+import useDimensions from "react-cool-dimensions";
 
 import DogGreenSvg from "../../../logos/dog_green";
 import topCodeImage from "../../../../public/assets/remote/images/index/coding_screen_1.jpg";
 
 const PillarsProgramming = () => {
 
+    /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
+    in order to find out the size of the about overlay window. This hook uses ResizeObserver
+    to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
+    and plug it into the styled component via AboutOverlayContainer.
+     */
+    const { observe, unobserve, width, height, entry } = useDimensions({
+        onResize: ({ observe, unobserve, width, height, entry }) => {
+            unobserve(); // To stop observing the current target element
+            observe(); // To re-start observing the current target element
+        },
+    });
+
+    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
+    const scaleH = () => {
+        return height / 1091;
+    }
+
+    const scaleW = () => {
+        return width / 1189;
+    }
+
     return (
-        <PillarContainerCoding backgroundImage={topCodeImage.src}>
-            <ContentContainerCoding className="index coding">
+        <PillarContainerCoding backgroundImage={topCodeImage.src}
+                               ref={observe}>
+
+            <ContentContainerCoding className="index coding"
+                                    scaleHeight={scaleH()}
+                                    scaleWidth={scaleW()}>
 
                 <HeaderCoding>
                     <h1 className="header global-text-shadow">Coding</h1>
@@ -43,6 +69,7 @@ const PillarsProgramming = () => {
                 </FooterCoding>
 
             </ContentContainerCoding>
+
         </PillarContainerCoding>
     )
 
@@ -84,19 +111,9 @@ const ContentContainerCoding = styled.div`
   top: 50%;
   left: 50%;
   transform-origin: center;
-  transform: translate(-50%, -50%);
-
-  @media only screen and (max-height: 1000px) {
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.75, 0.75); // scale MUST come AFTER translate or this will not work
-    left: 50%;
-  }
-
-  @media only screen and (max-height: 700px) {
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.6, 0.6);
-    left: 50%;
-  }
+  transform: translate(-50%, -50%) scale(
+          ${props => props.scaleWidth},
+          ${props => props.scaleHeight});
 `;
 
 const HeaderCoding = styled.div`

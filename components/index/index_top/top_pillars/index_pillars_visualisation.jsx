@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import useDimensions from "react-cool-dimensions";
 
 import picTreeOneImage from '../../../../public/assets/remote/images/index/pic_tree_1.jpg';
 import moodFilmOneImage from '../../../../public/assets/remote/images/index/moods_film_1.jpg';
@@ -11,9 +12,34 @@ import topVisualImage from '../../../../public/assets/remote/images/index/chouse
 
 const PillarsVisualisation = () => {
 
+    /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
+    in order to find out the size of the about overlay window. This hook uses ResizeObserver
+    to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
+    and plug it into the styled component via AboutOverlayContainer.
+     */
+    const {observe, unobserve, width, height, entry} = useDimensions({
+        onResize: ({observe, unobserve, width, height, entry}) => {
+            unobserve(); // To stop observing the current target element
+            observe(); // To re-start observing the current target element
+        },
+    });
+
+    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
+    const scaleH = () => {
+        return height / 1091 * 0.85;
+    }
+
+    const scaleW = () => {
+        return width / 1189 * 0.85;
+    }
+
     return (
-        <PillarContainerVisual backgroundImage={topVisualImage.src}>
-            <ContentContainerVisual className="index visual">
+        <PillarContainerVisual backgroundImage={topVisualImage.src}
+                               ref={observe}>
+
+            <ContentContainerVisual className="index visual"
+                                    scaleHeight={scaleH()}
+                                    scaleWidth={scaleW()}>
 
                 <HeaderVisual>
                     <h1 className="header global-text-shadow">Visual Design</h1>
@@ -67,6 +93,7 @@ const PillarsVisualisation = () => {
                 </DogPurple>
 
             </ContentContainerVisual>
+
         </PillarContainerVisual>
     )
 
@@ -102,42 +129,25 @@ const PillarContainerVisual = styled.div`
   animation: visualBackgroundOpacity 2.4s ease-out, visualBackgroundPos 1.1s ease-out;
   background-size: cover;
   background-position: 35% 50%;
-
-  @media only screen and (max-height: 1000px) {
-
-  }
-
-  @media only screen and (max-height: 700px) {
-
-  }
-}
 `;
 
 const ContentContainerVisual = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  @media only screen and (max-height: 1000px) {
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.75, 0.75); // scale MUST come AFTER translate or this will not work
-    left: 50%;
-  }
-
-  @media only screen and (max-height: 700px) {
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.5, 0.5);
-    left: 50%;
-  }
+  top: 25%;
+  left: 65%;
+  transform: translate(-50%, -50%) scale(
+          ${props => props.scaleWidth},
+          ${props => props.scaleHeight});
 `;
 
 const HeaderVisual = styled.div`
   pointer-events: none;
+  display: block;
   position: relative;
   top: -40px;
   left: -35px;
+  width: 960px;
   transform: rotate(-2deg);
 
   @keyframes headerPosition {
@@ -158,7 +168,7 @@ const PicTreeBox = styled.div`
 
   pointer-events: none;
   position: relative;
-  top: 0;
+  top: 25px;
   left: 125px;
   transform: rotate(2deg);
 `;
@@ -224,7 +234,7 @@ const PicTreeOne = styled.img`
       transform: rotate(-1deg);
     }
   }
-  
+
   animation: picTreePos 1s ease-out;
 `;
 
@@ -233,7 +243,7 @@ const PicTreeOne = styled.img`
 const HenkaBox = styled.div`
   pointer-events: none;
   position: relative;
-  top: 355px;
+  top: 420px;
   left: -112px;
   transform: rotate(1deg);
 `;
@@ -294,7 +304,7 @@ const HenkaTwo = styled.img`
 const MoodFilmBox = styled.div`
   pointer-events: none;
   position: relative;
-  top: 405px;
+  top: 470px;
   left: 367px;
   transform: rotate(-2deg);
 `;
