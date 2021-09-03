@@ -2,18 +2,37 @@ import styled from "styled-components";
 import {useDispatch} from "react-redux";
 import {useInView} from "react-intersection-observer";
 import React, {useEffect} from "react";
-
-const Scroll   = require('react-scroll');
-const ScrollWrapper  = Scroll.Element;
+import Scroll from 'react-scroll';
 
 import {setCurrentIconColor} from "../../../redux/styles/styles.action";
 import backgroundColors from "../../../styles/icon_colors.module.scss";
 import shapeColors from '../../../styles/shape_colors.module.scss';
 
 import DogBlueSvg from "../../logos/dog_blue";
+import useDimensions from "react-cool-dimensions";
+
+const ScrollWrapper  = Scroll.Element;
 
 const IndexProject = () => {
 
+    /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
+    in order to find out the size of the about overlay window. This hook uses ResizeObserver
+    to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
+    and plug it into the styled component via AboutOverlayContainer.
+     */
+    const { observe, unobserve, width, height, entry } = useDimensions({
+        onResize: ({ observe, unobserve, width, height, entry }) => {
+            unobserve(); // To stop observing the current target element
+            observe(); // To re-start observing the current target element
+        },
+    });
+
+    const getScaleFactor = () => {
+        /* Do not touch low2 & high2 or it will break the scaling - use low1 and high1 to tune the element to fit */
+        return roundToTwo(mapRange((1 / width) * 1000, 1.6, 10, 1, 0));
+    };
+
+    /* The following code is used with the icon color logic. */
     const dispatch = useDispatch();
     const [ref, inView] = useInView({
         threshold: .7
@@ -84,6 +103,7 @@ const TempProjectTextBox = styled.div`
   }
   h1 {
     font-size: 55px;
+    line-height: 1.1em;
     padding: 0 0 15px 0;
   }
 `;

@@ -2,9 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import styled from 'styled-components';
 import {useInView} from "react-intersection-observer";
-
-const Scroll   = require('react-scroll');
-const ScrollWrapper  = Scroll.Element;
+import Scroll from 'react-scroll';
 
 import {setCurrentIconColor} from "../../../redux/styles/styles.action";
 import backgroundColors from "../../../styles/icon_colors.module.scss";
@@ -13,11 +11,13 @@ import shapeColors from '../../../styles/shape_colors.module.scss';
 import DogGreenSvg from "../../logos/dog_green";
 import useDimensions from "react-cool-dimensions";
 
+const ScrollWrapper = Scroll.Element;
+
 const IndexCode = () => {
 
     /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
     in order to find out the size of the about overlay window. This hook uses ResizeObserver
-    to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
+    to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
     and plug it into the styled component via AboutOverlayContainer.
      */
     const { observe, unobserve, width, height, entry } = useDimensions({
@@ -27,16 +27,10 @@ const IndexCode = () => {
         },
     });
 
-    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
-    const scaleH = () => {
-        console.log(height);
-        return height / 1091;
-    }
-
-    const scaleW = () => {
-        console.log(width);
-        return width / 594;
-    }
+    const getScaleFactor = () => {
+        /* Do not touch low2 & high2 or it will break the scaling - use low1 and high1 to tune the element to fit */
+        return roundToTwo(mapRange((1 / width) * 1000, 1.6, 10, 1, 0));
+    };
 
     /* The following code is used with the icon color logic. */
     const dispatch = useDispatch();
@@ -61,8 +55,7 @@ const IndexCode = () => {
             <ContainerCode ref={ref} className="index index-code" id="index-code">
 
                 <CodeLeft ref={observe}>
-                    <TempCode scaleHeight={scaleH()}
-                              scaleWidth={scaleW()}>
+                    <TempCode scaleFactor={getScaleFactor()}>
                         <TempCodeText>
                             <h1>CODING</h1>
                             <p>This area is still in development. Meanwhile feel free to visit my <a href="https://github.com/mydogspies" target="_blank">Github</a>.</p>
@@ -75,7 +68,6 @@ const IndexCode = () => {
 
                 </CodeLeft>
 
-
                 <CodeRight shapeColor={css.shapeColors.ccColor}>
 
                 </CodeRight>
@@ -87,6 +79,17 @@ const IndexCode = () => {
 }
 
 export default IndexCode;
+
+/* FUNCS */
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2")  + "e-2");
+}
+
+function mapRange(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
+/* CSS STYLES BELOW */
 
 const ContainerCode = styled.div`
   display: grid;
@@ -104,12 +107,11 @@ const CodeLeft = styled.div`
 // TODO the below styles are TEMP ONLY; remove any TAG-related formatting from here asap
 const TempCode = styled.div`
   position: relative;
-  top: 40%;
+  top: 45%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(
-          ${props => props.scaleWidth},
-          ${props => props.scaleHeight});
+  transform: translate(-50%, -50%) scale(${props => props.scaleFactor});
   text-align: center;
+  
   p {
     padding: 0 0 10px 0;
   }
@@ -121,16 +123,15 @@ const TempCode = styled.div`
 
 const TempCodeText = styled.div`
   display: block;
-  width: 75%;
+  width: 80%;
   margin: 0 auto;
 `;
 
 const DogGreenLogo = styled.div`
-  position: relative;
   display: block;
   width: 100px;
   margin: 0 auto;
-  top: 40px;
+  padding: 40px 0 0 0; 
 `;
 
 /* RIGHT CONTENT */
