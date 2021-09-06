@@ -1,10 +1,5 @@
 import Head from 'next/head';
-import {
-    BrowserView,
-    MobileView,
-    isBrowser,
-    isMobile
-} from "react-device-detect";
+import {BrowserView, MobileView, isBrowser, isMobile} from "react-device-detect";
 
 import OfflinePage from '../components/offline/site-offline-component/site-offline-component';
 import IndexTop from '../components/index/index_top/index_top';
@@ -33,7 +28,7 @@ export default function Home({status, userStatus}) {
                     <Head>
                         <title>Mydogspies.com - Coding, 3D and project management - Full stack development</title>
                     </Head>
-                    <OfflinePage />
+                    <h2>Welcome to Mydogspies.com | Mobile version will be up mid September 2021!</h2>
                 </MobileView>
             </>
         )
@@ -44,13 +39,6 @@ export default function Home({status, userStatus}) {
                 <OfflinePage />
             </>
         )
-    }
-}
-
-export async function getStaticProps() {
-
-    return {
-        props: {},
     }
 }
 

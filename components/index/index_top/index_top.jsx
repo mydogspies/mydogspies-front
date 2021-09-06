@@ -37,6 +37,16 @@ const IndexTop = () => {
     )
 }
 
+export default IndexTop;
+
+/* Trick NextJS back to static pages although we use getInitialProps in _app.js */
+export async function getStaticProps() {
+    return {
+        props: {},
+    }
+}
+
+/* STYLES */
 const Container = styled.div`
   z-index: 1;
   display: flex;
@@ -45,4 +55,4 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-export default IndexTop;
+

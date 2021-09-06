@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import {BrowserView, MobileView, isBrowser, isMobile} from "react-device-detect";
 import styled from 'styled-components';
 
 import shapeColors from '/styles/shape_colors.module.scss';
@@ -86,34 +87,39 @@ export default function StatusWrapper({children, status}) {
         /* site ONLINE - add navigation logic and pass on */
         return (
             <>
-                {panelOpen ? (
-                    <MenuContainer backgroundColor={css.shapeColors.cpColor} addClass="global-box-shadow">
-                        <MenuItemLink>
+                <BrowserView>
+                    {panelOpen ? (
+                        <MenuContainer backgroundColor={css.shapeColors.cpColor} addClass="global-box-shadow">
+                            <MenuItemLink>
 
-                        </MenuItemLink>
-                        <MenuClose className="pull-out-menu">
-                            <a href="#" onClick={handleMenuCloseClick} target="_self">
-                                <p className="menu-close global-text-shadow">close</p>
-                            </a>
-                        </MenuClose>
-                    </MenuContainer>
-                ) : null}
+                            </MenuItemLink>
+                            <MenuClose className="pull-out-menu">
+                                <a href="#" onClick={handleMenuCloseClick} target="_self">
+                                    <p className="menu-close global-text-shadow">close</p>
+                                </a>
+                            </MenuClose>
+                        </MenuContainer>
+                    ) : null}
 
-                {aboutOpen ? (
-                    <AboutContainer>
-                        <AboutClose className="about-overlay">
-                            <a href="#" onClick={handleAboutCloseClick} target="_self"><p
-                                className="about-close global-text-shadow">close</p></a>
-                        </AboutClose>
-                        <AboutOverlay addClass="global-box-shadow"/>
-                    </AboutContainer>
-                ) : null}
+                    {aboutOpen ? (
+                        <AboutContainer>
+                            <AboutClose className="about-overlay">
+                                <a href="#" onClick={handleAboutCloseClick} target="_self"><p
+                                    className="about-close global-text-shadow">close</p></a>
+                            </AboutClose>
+                            <AboutOverlay addClass="global-box-shadow"/>
+                        </AboutContainer>
+                    ) : null}
 
-                <a href="/"><IconHomeNavigate/></a>
+                    <a href="/"><IconHomeNavigate/></a>
 
-                <div onClick={handleAboutCloseClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
-                <div onClick={handleMenuCloseClick}><IconMenuNavigate fillOverride={menuFill}/></div>
-                {React.cloneElement(children, {userStatus})}
+                    <div onClick={handleAboutCloseClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
+                    <div onClick={handleMenuCloseClick}><IconMenuNavigate fillOverride={menuFill}/></div>
+                    {React.cloneElement(children, {userStatus})}
+                </BrowserView>
+                <MobileView>
+                    {React.cloneElement(children, {userStatus})}
+                </MobileView>
             </>
         )
     }
