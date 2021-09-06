@@ -128,6 +128,8 @@ const PillarsProject = () => {
 
 }
 
+export default PillarsProject;
+
 /* FUNCS */
 function roundToTwo(num) {
     return +(Math.round(num + "e+2") + "e-2");
@@ -136,9 +138,6 @@ function roundToTwo(num) {
 function mapRange(value, low1, high1, low2, high2) {
     return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
 }
-
-
-export default PillarsProject;
 
 // GENERAL STYLES //
 //

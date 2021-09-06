@@ -8,24 +8,25 @@ const AboutOverlay = ({addClass}) => {
 
     /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
     in order to find out the size of the about overlay window. This hook uses ResizeObserver
-    to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
+    to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
     and plug it into the styled component via AboutOverlayContainer.
      */
-    const { observe, unobserve, width, height, entry } = useDimensions({
-        onResize: ({ observe, unobserve, width, height, entry }) => {
+    const {observe, unobserve, width, height, entry} = useDimensions({
+        onResize: ({observe, unobserve, width, height, entry}) => {
             unobserve(); // To stop observing the current target element
             observe(); // To re-start observing the current target element
         },
     });
 
-    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
-    const scaleH = () => {
-        return height / 925;
-    }
-
-    const scaleW = () => {
-        return width / 1427;
-    }
+    const getScaleFactor = () => {
+        let widthChecked = width;
+        if (width <= 0) {widthChecked = 1000;}
+        /* Do not touch low2 & high2 or it will break the scaling - use low1 and high1 to tune the element to fit */
+        let scale = roundToTwo(mapRange((1 / widthChecked) * 1000, 0.1, 2.4, 1.2, 0));
+        let isFF = !!navigator.userAgent.match(/firefox/i);
+        if (isFF) {scale = scale * 0.9} // adapt to firefox different widths
+        return scale;
+    };
 
     // get css background colors
     //
@@ -44,8 +45,8 @@ const AboutOverlay = ({addClass}) => {
 
             <AboutOverlayContainer className="about-overlay"
                                    id="about-overlay-container"
-                                   scaleHeight={scaleH()}
-                                   scaleWidth={scaleW()}>
+                                   scaleFactor={getScaleFactor()}>
+
 
                 <AboutHeader>
                     <h1 className="global-text-shadow">Welcome to Mydogspies.com</h1>
@@ -103,12 +104,11 @@ const AboutOverlay = ({addClass}) => {
                     <h1 className="about-signature global-text-shadow">Mydogspies aka Peter A. Mankowski, Berlin 2021</h1>
                 </AboutSignature>
 
-                <AboutFooter className="about-overlay">
-                    <LicenseFooter addClassPTag="about-footer global-text-shadow"/>
-                </AboutFooter>
-
             </AboutOverlayContainer>
 
+            <AboutFooter className="about-overlay">
+                <LicenseFooter addClassPTag="about-footer global-text-shadow"/>
+            </AboutFooter>
 
 
         </AboutOverlayBase>
@@ -117,6 +117,16 @@ const AboutOverlay = ({addClass}) => {
 
 export default AboutOverlay;
 
+/* FUNCS */
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
+
+function mapRange(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
+/* STYLES */
 const AboutOverlayBase = styled.div`
   position:relative;
   opacity: 0.97;
@@ -128,11 +138,17 @@ const AboutOverlayBase = styled.div`
 
 const AboutOverlayContainer = styled.div`
   position: absolute;
-  top: 10%;
-  left: 38%;
-  transform: translate(-50%, -50%) scale(
-          ${props => props.scaleWidth},
-          ${props => props.scaleHeight});
+  top: 8%;
+  left: 37%;
+  transform: translate(-50%, -50%) scale(${props => props.scaleFactor});
+
+  @media screen and (max-width: 1050px) {
+    left: 32%;
+  }
+
+  @media screen and (min-width: 1300px) {
+    top: 12%;
+  }
 
 `;
 
@@ -143,7 +159,6 @@ const AboutHeader = styled.div`
   left: 245px;
   width: 680px;
 `;
-
 
 const AboutTextBoxOne = styled.div`
   position: absolute;
@@ -208,8 +223,8 @@ const AboutSignature = styled.div`
 const AboutFooter = styled.div`
   position: absolute;
   display: block;
-  top: 855px;
-  left: 740px;
+  bottom: 10px;
+  right: 4%;
   width: 500px;
 `;
 
