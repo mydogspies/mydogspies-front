@@ -11,8 +11,7 @@ definition for specific components below.
 
 /* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=PT+Sans&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&display=swap');
 /* Global variables */
 
 /* AREA COLORS */
@@ -48,7 +47,7 @@ $text-color-admin-heading: #322f01; // 6a
 
 
 /* GLOBAL FONTS */
-$font-headline: 'Arvo', serif;
+$font-headline: 'Roboto Slab', serif;
 $font-paragraph: 'PT Sans', sans-serif;
 
 /* GLOBAL STYLES */
@@ -60,6 +59,25 @@ a {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: $font-headline;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: $font-headline;
+}
+
+h2 span {
+  font-family: $font-headline;
+  font-size: 75%;
+  opacity: .8;
+}
+
+p {
+  font-family: $font-paragraph;
 }
 
 
@@ -76,22 +94,6 @@ copy, rename and use for whatever specific need.
 /* applies to the specifically index page ONLY */
 .index {
 
-  h2 {
-    font-family: $font-headline;
-    font-size: 26px;
-  }
-
-  h2 span {
-    font-family: $font-headline;
-    font-size: 75%;
-    opacity: .8;
-  }
-
-  p {
-    font-family: $font-paragraph;
-    font-size: 18px;
-  }
-
   //
   // These styles are for the top-index pillars container itself - NOT the content within pillars
   //
@@ -101,8 +103,8 @@ copy, rename and use for whatever specific need.
 
     // this h1 tag is for the vertical text on the pillars
     h1 {
-      font-family: $font-headline;
       font-size: 32px;
+      font-weight: 500;
       letter-spacing: 0.15em;
       color: white;
       filter: drop-shadow(-1px 1px 1px rgba(5, 5, 5, .1))
@@ -117,25 +119,22 @@ copy, rename and use for whatever specific need.
     color: $text-color-code;
 
     .smaller {
-      font-family: $font-paragraph;
       font-size: 16px;
     }
 
     .bigger {
-      font-family: $font-paragraph;
       font-size: 20px;
     }
 
     .header {
-      font-family: $font-headline;
-      font-size: 110px;
-      color: #cccccc;
+      font-size: 115px;
+      font-weight: 600;
+      color: #dddddd;
     }
 
     .footer {
-      font-family: $font-headline;
-      font-size: 36px;
-      color: #cccccc;
+      font-size: 38px;
+      color: #dddddd;
     }
 
   }
@@ -144,13 +143,12 @@ copy, rename and use for whatever specific need.
     color: $text-color-visual;
 
     .header {
-      font-family: $font-headline;
       font-size: 87px;
+      font-weight: 600;
       color: #ffffff;
     }
 
     p {
-      font-family: $font-paragraph;
       font-size: 16px;
 
       &.top {
@@ -180,14 +178,13 @@ copy, rename and use for whatever specific need.
 
 
     .header {
-      font-family: $font-headline;
       letter-spacing: 0.08em;
+      font-weight: 600;
       font-size: 96px;
       color: #eeeeee;
     }
 
     .footer {
-      font-family: $font-headline;
       font-size: 36px;
       color: #eeeeee;
     }
@@ -200,6 +197,11 @@ copy, rename and use for whatever specific need.
   &.index-code {
     background-color: $background-color-code;
     color: $text-color-code;
+
+    .header {
+      letter-spacing: 0.08em;
+      font-size: 35px;
+    }
 
     h2, h2 span {
       color: $text-color-code-heading;
@@ -215,6 +217,11 @@ copy, rename and use for whatever specific need.
     background-color: $background-color-visual;
     color: $text-color-visual;
 
+    .header {
+      letter-spacing: 0.08em;
+      font-size: 35px;
+    }
+
     h2, h2 span {
       color: $text-color-visual-heading;
     }
@@ -228,6 +235,12 @@ copy, rename and use for whatever specific need.
   &.index-project {
     background-color: $background-color-project;
     color: $text-color-project;
+
+    .header {
+      letter-spacing: 0.08em;
+      font-size: 35px;
+    }
+
 
     h2, h2 span {
       color: $text-color-project-heading;
@@ -245,7 +258,6 @@ copy, rename and use for whatever specific need.
 .about-overlay {
 
   h1 {
-    font-family: $font-headline;
     font-size: 45px;
     color: #efefef;
 
@@ -256,7 +268,6 @@ copy, rename and use for whatever specific need.
   }
 
   p {
-    font-family: $font-paragraph;
     font-size: 15px;
 
     &.about-footer {
@@ -280,7 +291,6 @@ copy, rename and use for whatever specific need.
   }
 
   p {
-    font-family: $font-paragraph;
     font-size: 15px;
 
     &.menu-close {
@@ -300,20 +310,17 @@ copy, rename and use for whatever specific need.
   color: $text-color-offline;
 
   h2 {
-    font-family: $font-headline;
     color: $text-color-offline-heading;
     font-size: 26px;
   }
 
   h2 span {
-    font-family: $font-headline;
     color: $text-color-offline-heading;
     font-size: 75%;
     opacity: .8;
   }
 
   p {
-    font-family: $font-paragraph;
     font-size: 18px;
   }
 

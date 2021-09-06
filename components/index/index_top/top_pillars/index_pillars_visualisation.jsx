@@ -14,7 +14,7 @@ const PillarsVisualisation = () => {
 
     /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
     in order to find out the size of the about overlay window. This hook uses ResizeObserver
-    to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
+    to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
     and plug it into the styled component via AboutOverlayContainer.
      */
     const {observe, unobserve, width, height, entry} = useDimensions({
@@ -24,22 +24,22 @@ const PillarsVisualisation = () => {
         },
     });
 
-    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
-    const scaleH = () => {
-        return height / 1091 * 0.85;
-    }
-
-    const scaleW = () => {
-        return width / 1189 * 0.85;
-    }
+    const getScaleFactor = () => {
+        let widthChecked = width;
+        if (width <= 0) {widthChecked = 1000;}
+        /* Do not touch low2 & high2 or it will break the scaling - use low1 and high1 to tune the element to fit */
+        let scale = roundToTwo(mapRange((1 / widthChecked) * 1000, 0.1, 2.8, 1.1, 0));
+        let isFF = !!navigator.userAgent.match(/firefox/i);
+        if (isFF) {scale = scale * 0.9} // adapt to firefox different widths
+        return scale;
+    };
 
     return (
         <PillarContainerVisual backgroundImage={topVisualImage.src}
                                ref={observe}>
 
             <ContentContainerVisual className="index visual"
-                                    scaleHeight={scaleH()}
-                                    scaleWidth={scaleW()}>
+                                    scaleFactor={getScaleFactor()}>
 
                 <HeaderVisual>
                     <h1 className="header global-text-shadow">Visual Design</h1>
@@ -99,6 +99,15 @@ const PillarsVisualisation = () => {
 
 }
 
+/* FUNCS */
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
+
+function mapRange(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
 export default PillarsVisualisation;
 
 // GENERAL STYLES //
@@ -134,32 +143,22 @@ const PillarContainerVisual = styled.div`
 const ContentContainerVisual = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 25%;
-  left: 65%;
-  transform: translate(-50%, -50%) scale(
-          ${props => props.scaleWidth},
-          ${props => props.scaleHeight});
+  top: 20%;
+  left: 64%;
+  transform: translate(-50%, -50%) scale(${props => props.scaleFactor});
+
+  @media screen and (max-width: 950px) {
+    left: 67%;
+  }
 `;
 
 const HeaderVisual = styled.div`
   pointer-events: none;
-  display: block;
   position: relative;
   top: -40px;
   left: -35px;
   width: 960px;
   transform: rotate(-2deg);
-
-  @keyframes headerPosition {
-    from {
-      left: -40px;
-    }
-    to {
-      left: -35px;
-    }
-  }
-
-  animation: headerPosition 1s ease-out;
 `;
 
 // PIC TREE
@@ -167,6 +166,7 @@ const HeaderVisual = styled.div`
 const PicTreeBox = styled.div`
 
   pointer-events: none;
+  display: block;
   position: relative;
   top: 25px;
   left: 125px;
@@ -183,17 +183,6 @@ const PicTreeTextBox = styled.div`
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.8);
   transform: rotate(1deg);
-
-  @keyframes picTreeTextBoxPos {
-    from {
-      top: 275px;
-    }
-    to {
-      top: 280px;
-    }
-  }
-
-  animation: picTreeTextBoxPos 0.5s ease-out;
 `;
 
 const PicTreeTextBoxTwo = styled.div`
@@ -205,17 +194,6 @@ const PicTreeTextBoxTwo = styled.div`
   border-radius: 10px;
   padding: 8px;
   background-color: rgba(255, 255, 255, 0.8);
-
-  @keyframes picTreeTextBoxTwoPos {
-    from {
-      left: 135px;
-    }
-    to {
-      left: 126px;
-    }
-  }
-
-  animation: picTreeTextBoxTwoPos 0.8s ease-out;
 `;
 
 const PicTreeOne = styled.img`
@@ -225,23 +203,13 @@ const PicTreeOne = styled.img`
   width: 500px;
   border-radius: 10px;
   transform: rotate(-1deg);
-
-  @keyframes picTreePos {
-    from {
-      transform: rotate(-2deg);
-    }
-    to {
-      transform: rotate(-1deg);
-    }
-  }
-
-  animation: picTreePos 1s ease-out;
 `;
 
 // HENKA SYMBOL
 //
 const HenkaBox = styled.div`
   pointer-events: none;
+  display: block;
   position: relative;
   top: 420px;
   left: -112px;
@@ -258,17 +226,6 @@ const HenkaTextBox = styled.div`
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.8);
   transform: rotate(-2deg);
-
-  @keyframes henkaTextBoxPos {
-    from {
-      transform: rotate(-1deg);
-    }
-    to {
-      transform: rotate(-2deg);
-    }
-  }
-
-  animation: henkaTextBoxPos 1s ease-out;
 `;
 
 const HenkaTextBoxTwo = styled.div`
@@ -303,6 +260,7 @@ const HenkaTwo = styled.img`
 //
 const MoodFilmBox = styled.div`
   pointer-events: none;
+  display: block;
   position: relative;
   top: 470px;
   left: 367px;
@@ -319,17 +277,6 @@ const MoodFilmTextBox = styled.div`
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.85);
   transform: rotate(3deg);
-
-  @keyframes moodTextBoxPos {
-    from {
-      transform: rotate(4deg);
-    }
-    to {
-      transform: rotate(3deg);
-    }
-  }
-
-  animation: moodTextBoxPos 1s ease-out;
 `;
 
 const MoodFilmTextBoxTwo = styled.div`
@@ -342,21 +289,6 @@ const MoodFilmTextBoxTwo = styled.div`
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.9);
   transform: rotate(4deg);
-
-  @keyframes moodTextBoxTwoPos {
-    from {
-      // top: -12px;
-      left: 52px;
-      transform: rotate(3deg);
-    }
-    to {
-      // top: -10px;
-      left: 50px;
-      transform: rotate(4deg);
-    }
-  }
-
-  animation: moodTextBoxTwoPos 0.7s ease-out;
 `;
 
 const MoodFilmOne = styled.img`
@@ -376,19 +308,4 @@ const DogPurple = styled.div`
   top: 96px;
   left: -57px;
   transform: rotate(-2deg);
-
-  @keyframes dogAnim {
-    from {
-      top: 94px;
-      left: -67px;
-      transform: rotate(-3deg);
-    }
-    to {
-      top: 96px;
-      left: -57px;
-      transform: rotate(-2deg);
-    }
-  }
-
-  animation: dogAnim 0.8s ease-out;
 `;

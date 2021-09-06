@@ -21,10 +21,10 @@ import FlagUkraineSvg from "../../../clipart/flag_ukraine";
 const PillarsProject = () => {
 
     /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
-        in order to find out the size of the about overlay window. This hook uses ResizeObserver
-        to measure the size of the AboutOverlayBase div. We then run it through the two tiny funcs, scaleH resp. scaleW,
-        and plug it into the styled component via AboutOverlayContainer.
-         */
+    in order to find out the size of the about overlay window. This hook uses ResizeObserver
+    to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
+    and plug it into the styled component via AboutOverlayContainer.
+     */
     const {observe, unobserve, width, height, entry} = useDimensions({
         onResize: ({observe, unobserve, width, height, entry}) => {
             unobserve(); // To stop observing the current target element
@@ -32,22 +32,22 @@ const PillarsProject = () => {
         },
     });
 
-    /*Note! The scaling ratio is based on the screen size at which the content has been originally created to */
-    const scaleH = () => {
-        return height / 1091;
-    }
-
-    const scaleW = () => {
-        return width / 1189;
-    }
+    const getScaleFactor = () => {
+        let widthChecked = width;
+        if (width <= 0) {widthChecked = 1000;}
+        /* Do not touch low2 & high2 or it will break the scaling - use low1 and high1 to tune the element to fit */
+        let scale = roundToTwo(mapRange((1 / widthChecked) * 1000, 0.1, 2.8, 1.3, 0));
+        let isFF = !!navigator.userAgent.match(/firefox/i);
+        if (isFF) {scale = scale * 0.9} // adapt to firefox different widths
+        return scale;
+    };
 
     return (
         <PillarContainerProject backgroundImage={topProjectImage.src}
                                 ref={observe}>
 
             <ContentContainerProject className="index project"
-                                     scaleHeight={scaleH()}
-                                     scaleWidth={scaleW()}>
+                                     scaleFactor={getScaleFactor()}>
 
                 <HeaderProject>
                     <h1 className="header global-text-shadow">Projects</h1>
@@ -128,6 +128,16 @@ const PillarsProject = () => {
 
 }
 
+/* FUNCS */
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
+
+function mapRange(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
+
 export default PillarsProject;
 
 // GENERAL STYLES //
@@ -166,11 +176,13 @@ const PillarContainerProject = styled.div`
 const ContentContainerProject = styled.div`
   pointer-events: none;
   position: absolute;
-  top: 40%;
-  left: 60%;
-  transform: translate(-50%, -50%) scale(
-          ${props => props.scaleWidth},
-          ${props => props.scaleHeight});
+  top: 38%;
+  left: 58%;
+  transform: translate(-50%, -50%) scale(${props => props.scaleFactor});
+
+  @media screen and (max-width: 950px) {
+    left: 63%;
+  }
 `;
 
 const HeaderProject = styled.div`

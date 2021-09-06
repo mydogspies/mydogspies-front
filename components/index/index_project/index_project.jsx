@@ -3,15 +3,16 @@ import {useDispatch} from "react-redux";
 import {useInView} from "react-intersection-observer";
 import React, {useEffect} from "react";
 import Scroll from 'react-scroll';
+import useDimensions from "react-cool-dimensions";
 
 import {setCurrentIconColor} from "../../../redux/styles/styles.action";
 import backgroundColors from "../../../styles/icon_colors.module.scss";
 import shapeColors from '../../../styles/shape_colors.module.scss';
 
 import DogBlueSvg from "../../logos/dog_blue";
-import useDimensions from "react-cool-dimensions";
 
-const ScrollWrapper  = Scroll.Element;
+
+const ScrollWrapper = Scroll.Element;
 
 const IndexProject = () => {
 
@@ -20,8 +21,8 @@ const IndexProject = () => {
     to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
     and plug it into the styled component via AboutOverlayContainer.
      */
-    const { observe, unobserve, width, height, entry } = useDimensions({
-        onResize: ({ observe, unobserve, width, height, entry }) => {
+    const {observe, unobserve, width, height, entry} = useDimensions({
+        onResize: ({observe, unobserve, width, height, entry}) => {
             unobserve(); // To stop observing the current target element
             observe(); // To re-start observing the current target element
         },
@@ -52,17 +53,19 @@ const IndexProject = () => {
 
     return (
         <ScrollWrapper name="project">
-            <ContainerProject ref={ref} className="index index-code" id="index-code">
+            <ContainerProject ref={ref} className="index index-project" id="index-project">
 
-                <ProjectLeft>
-                    <TempProjectTextBox>
-                        <h1>PROJECT MANAGEMENT</h1>
-                        <p>This area is still in development.</p>
-                        <p>Here will soon come a blog around the PM role and also some case studies.</p>
-                    </TempProjectTextBox>
-                    <DogBlueLogo>
-                        <DogBlueSvg />
-                    </DogBlueLogo>
+                <ProjectLeft ref={observe}>
+                    <TempProject scaleFactor={getScaleFactor()}>
+                        <TempProjectText>
+                            <h1 className="header">Project Management</h1>
+                            <p>This area is still in development.</p>
+                            <p>Here will soon come a blog around the PM role and also some case studies.</p>
+                        </TempProjectText>
+                        <DogBlueLogo>
+                            <DogBlueSvg/>
+                        </DogBlueLogo>
+                    </TempProject>
                 </ProjectLeft>
 
                 <ProjectRight shapeColor={css.shapeColors.cpColor}>
@@ -78,6 +81,16 @@ const IndexProject = () => {
 
 export default IndexProject;
 
+/* FUNCS */
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
+
+function mapRange(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
+/* CSS STYLES */
 const ContainerProject = styled.div`
   display: grid;
   grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
@@ -91,16 +104,18 @@ const ProjectLeft = styled.div`
 `;
 
 // TODO the below styles are TEMP ONLY; remove any TAG-related formatting from here asap
-const TempProjectTextBox = styled.div`
+const TempProject = styled.div`
   position: relative;
   width: 75%;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(${props => props.scaleFactor});
   text-align: center;
+
   p {
     padding: 0 0 10px 0;
   }
+
   h1 {
     font-size: 55px;
     line-height: 1.1em;
@@ -108,12 +123,16 @@ const TempProjectTextBox = styled.div`
   }
 `;
 
+const TempProjectText = styled.div`
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+`;
+
 const DogBlueLogo = styled.div`
-  position: relative;
+  display: block;
   width: 100px;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
 `;
 
 
@@ -121,5 +140,5 @@ const DogBlueLogo = styled.div`
 const ProjectRight = styled.div`
   grid-column-start: 3;
   background-color: ${props => props.shapeColor};
-\` ;
+\`  ;
 `;

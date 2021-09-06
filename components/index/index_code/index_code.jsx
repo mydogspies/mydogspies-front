@@ -57,7 +57,7 @@ const IndexCode = () => {
                 <CodeLeft ref={observe}>
                     <TempCode scaleFactor={getScaleFactor()}>
                         <TempCodeText>
-                            <h1>CODING</h1>
+                            <h1 className="header">Software development</h1>
                             <p>This area is still in development. Meanwhile feel free to visit my <a href="https://github.com/mydogspies" target="_blank">Github</a>.</p>
                             <p>Upcoming content here will be video and blogs relating to programming, devops and things IT in general.</p>
                         </TempCodeText>

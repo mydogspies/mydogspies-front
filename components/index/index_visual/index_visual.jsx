@@ -53,7 +53,7 @@ const IndexVisual = () => {
 
     return (
         <ScrollWrapper name="visual">
-            <ContainerVisual ref={ref} className="index index-code" id="index-code">
+            <ContainerVisual ref={ref} className="index index-visual" id="index-visual">
 
                 <VisualLeft shapeColor={css.shapeColors.cvColor}>
 
@@ -62,7 +62,7 @@ const IndexVisual = () => {
                 <VisualRight ref={observe}>
                     <TempVisual scaleFactor={getScaleFactor()}>
                         <TempVisualText>
-                            <h1>VISUAL DESIGN</h1>
+                            <h1 className="header">Visual Design</h1>
                             <p>This area is still in development. Some 3D stuff you can already find on my <a href="https://www.artstation.com/mydogspies" target="_blank">Artstation profile</a>.</p>
                             <p>A lot more projects and a visual design blog is on its way!</p>
                         </TempVisualText>
