@@ -47,6 +47,13 @@ export default function Home({status, userStatus}) {
     }
 }
 
+export async function getStaticProps() {
+
+    return {
+        props: {},
+    }
+}
+
 const ParentContainer = styled.div`
 
 `;
