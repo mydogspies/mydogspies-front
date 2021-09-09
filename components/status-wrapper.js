@@ -88,7 +88,7 @@ export default function StatusWrapper({children, status}) {
         return (
             <>
                 <BrowserView>
-                    {panelOpen ? (
+                    {/*{panelOpen ? (
                         <MenuContainer backgroundColor={css.shapeColors.cpColor} addClass="global-box-shadow">
                             <MenuItemLink>
 
@@ -99,7 +99,7 @@ export default function StatusWrapper({children, status}) {
                                 </a>
                             </MenuClose>
                         </MenuContainer>
-                    ) : null}
+                    ) : null}*/}
 
                     {aboutOpen ? (
                         <AboutContainer>
@@ -114,7 +114,7 @@ export default function StatusWrapper({children, status}) {
                     <a href="/"><IconHomeNavigate/></a>
 
                     <div onClick={handleAboutCloseClick}><IconAboutNavigate fillOverride={aboutFill}/></div>
-                    <div onClick={handleMenuCloseClick}><IconMenuNavigate fillOverride={menuFill}/></div>
+                    {/*<div onClick={handleMenuCloseClick}><IconMenuNavigate fillOverride={menuFill}/></div>*/}
                     {React.cloneElement(children, {userStatus})}
                 </BrowserView>
                 <MobileView>
