@@ -1,12 +1,38 @@
 import styled from "styled-components";
+import shapeColors from '../../../styles/shape_colors.module.scss';
+import DogGreySvg from "../../logos/dog_grey";
+
 
 const IndexTopContent = () => {
+
+    const css = {
+        shapeColors: {
+            ccColor: shapeColors.shapesColorCode,
+            cvColor: shapeColors.shapesColorVisual
+        }
+    }
 
     return (
         <Container>
 
             <ContentIndexTop>
-                NEW INDEX TOP
+
+                <Content>
+
+                    <CentreLogo>
+                        <DogGreySvg />
+                    </CentreLogo>
+
+                    <Code backgroundColor={css.shapeColors.ccColor}>
+
+                    </Code>
+
+                    <Visual backgroundColor={css.shapeColors.cvColor}>
+
+                    </Visual>
+
+                </Content>
+
             </ContentIndexTop>
 
         </Container>
@@ -25,10 +51,39 @@ const Container = styled.div`
 `;
 
 const ContentIndexTop = styled.div`
-  background-color: #7c509d;
   position: absolute;
   grid-column-start: 2;
   grid-column-end: 2;
   width: 100%;
   height: 100vh;
 `;
+
+const Content = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
+const Code = styled.div`
+  background-color: ${props => props.backgroundColor};
+  grid-column: 1;
+  height: 100vh;
+  width: 100%;
+`;
+
+const Visual = styled.div`
+  background-color: ${props => props.backgroundColor};
+  grid-column: 2;
+  height: 100vh;
+  width: 100%;
+`;
+
+const CentreLogo = styled.div`
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -80px;
+`;
+
