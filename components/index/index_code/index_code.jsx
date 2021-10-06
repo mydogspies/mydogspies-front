@@ -16,12 +16,12 @@ const ScrollWrapper = Scroll.Element;
 const IndexCode = () => {
 
     /* The following scaling code is using https://github.com/wellyshen/react-cool-dimensions
-    in order to find out the size of the about overlay window. This hook uses ResizeObserver
-    to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
-    and plug it into the styled component via AboutOverlayContainer.
-     */
-    const { observe, unobserve, width, height, entry } = useDimensions({
-        onResize: ({ observe, unobserve, width, height, entry }) => {
+        in order to find out the size of the about overlay window. This hook uses ResizeObserver
+        to measure the size of the AboutOverlayBase div. We then run it through getScaleFactor, do some math,
+        and plug it into the styled component via AboutOverlayContainer.
+         */
+    const {observe, unobserve, width, height, entry} = useDimensions({
+        onResize: ({observe, unobserve, width, height, entry}) => {
             unobserve(); // To stop observing the current target element
             observe(); // To re-start observing the current target element
         },

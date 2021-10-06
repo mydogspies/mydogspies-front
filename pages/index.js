@@ -1,11 +1,10 @@
 import Head from 'next/head';
-import {BrowserView, MobileView, isBrowser, isMobile} from "react-device-detect";
+import {BrowserView, MobileView, isBrowser, isMobile} from 'react-device-detect';
 
 import OfflinePage from '../components/offline/site-offline-component/site-offline-component';
 import IndexTop from '../components/index/index_top/index_top';
-import IndexCode from "../components/index/index_code/index_code";
-import IndexVisual from "../components/index/index_visual/index_visual";
-import IndexProject from "../components/index/index_project/index_project";
+import IndexCode from '../components/index/index_code/index_code';
+import IndexVisual from '../components/index/index_visual/index_visual';
 import styled from "styled-components";
 
 export default function Home({status, userStatus}) {
@@ -21,7 +20,6 @@ export default function Home({status, userStatus}) {
                         <IndexTop />
                         <IndexCode />
                         <IndexVisual />
-                        <IndexProject />
                     </ParentContainer>
                 </BrowserView>
                 <MobileView>

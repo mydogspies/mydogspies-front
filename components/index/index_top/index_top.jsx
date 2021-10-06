@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {useInView} from 'react-intersection-observer';
 import {useDispatch} from 'react-redux';
-import {setCurrentIconColor} from "../../../redux/styles/styles.action";
+import {setCurrentIconColor} from '../../../redux/styles/styles.action';
 
 import styles from '../../../styles/icon_colors.module.scss';
 import backgroundColors from '../../../styles/svg_background_colors.module.scss';
 
-import TopPillars from "./top_pillars/top_pillars";
+import IndexTopContent from '../index_top/index_top_content';
 
 const IndexTop = () => {
 
@@ -31,7 +31,7 @@ const IndexTop = () => {
     return (
         <Container ref={ref} className="index index-top" id="index-top">
 
-            <TopPillars />
+            <IndexTopContent />
 
         </Container>
     )

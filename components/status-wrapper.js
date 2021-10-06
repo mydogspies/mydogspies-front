@@ -7,7 +7,6 @@ import shapeColors from '/styles/shape_colors.module.scss';
 // TODO to be used with a new auth and logged users
 import OfflineHeader from './offline/offline-logged-header/offline-logged-header';
 
-import IconMenuNavigate from '../components/navigation/icon_menu_navigate/icon_menu_navigate';
 import IconAboutNavigate from './navigation/icon_menu_about/icon_menu_about';
 import IconHomeNavigate from './navigation/icone_menu_home/icon_menu_home';
 
