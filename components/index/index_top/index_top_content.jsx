@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import shapeColors from '../../../styles/shape_colors.module.scss';
-import DogGreySvg from "../../logos/dog_grey";
 
+import AboutSquare from "../index_components/about";
+import BlogSquare from "../index_components/blog";
+import VideoSquare from "../index_components/videos";
+import LogoRotation from "../index_components/logo_rotation";
 
 const IndexTopContent = () => {
 
@@ -15,25 +18,33 @@ const IndexTopContent = () => {
     return (
         <Container>
 
-            <ContentIndexTop>
+            <Main>
 
-                <Content>
+            </Main>
 
-                    <CentreLogo>
-                        <DogGreySvg />
-                    </CentreLogo>
+            <ColumnOne backgroundColor={css.shapeColors.ccColor}>
 
-                    <Code backgroundColor={css.shapeColors.ccColor}>
+                <SquareOne>
+                    <VideoSquare />
+                </SquareOne>
 
-                    </Code>
+                <SquareTwo>
+                    <BlogSquare />
+                </SquareTwo>
 
-                    <Visual backgroundColor={css.shapeColors.cvColor}>
+            </ColumnOne>
 
-                    </Visual>
+            <ColumnTwo backgroundColor={css.shapeColors.cvColor}>
 
-                </Content>
+                <SquareThree>
+                    <LogoRotation />
+                </SquareThree>
 
-            </ContentIndexTop>
+                <SquareFour>
+                    <AboutSquare />
+                </SquareFour>
+
+            </ColumnTwo>
 
         </Container>
     )
@@ -46,44 +57,47 @@ const Container = styled.div`
   z-index: 2;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1.8fr 1.2fr 1.2fr;
   height: 100vh;
 `;
 
-const ContentIndexTop = styled.div`
-  position: absolute;
-  grid-column-start: 2;
-  grid-column-end: 2;
-  width: 100%;
-  height: 100vh;
-`;
-
-const Content = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
-
-const Code = styled.div`
-  background-color: ${props => props.backgroundColor};
+const Main = styled.div`
+  background-color: white;
   grid-column: 1;
   height: 100vh;
   width: 100%;
 `;
 
-const Visual = styled.div`
+const ColumnOne = styled.div`
   background-color: ${props => props.backgroundColor};
   grid-column: 2;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   height: 100vh;
   width: 100%;
 `;
 
-const CentreLogo = styled.div`
-  position: absolute;
-  width: 160px;
-  height: 100px;
-  top: 50%;
-  left: 50%;
-  margin: -100px 0 0 -80px;
+const SquareOne = styled.div`
+
 `;
 
+const SquareTwo = styled.div`
+
+`;
+
+const ColumnTwo = styled.div`
+  background-color: ${props => props.backgroundColor};
+  grid-column: 3;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 100vh;
+  width: 100%;
+`;
+
+const SquareThree = styled.div`
+
+`;
+
+const SquareFour = styled.div`
+
+`;

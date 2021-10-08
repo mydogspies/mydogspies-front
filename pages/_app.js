@@ -1,5 +1,4 @@
 import StatusWrapper from '../components/status-wrapper';
-import getAccessToken from '../middleware/backendApi/oktaAccessToken';
 import mydogspiesApiQuery from '../middleware/backendApi/mydogspiesApiQuery';
 
 import {useDispatch} from "react-redux";
@@ -10,13 +9,13 @@ import {wrapper} from '../redux/store';
 import '../styles/globals.scss';
 import App from 'next/app';
 
-function MyApp({Component, pageProps, status, token}) {
+function MyApp({Component, pageProps, status}) {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(setToken(token));
-    }, [token]);
+    // useEffect(() => {
+    //     dispatch(setToken(token));
+    // }, [token]);
 
     return (
         <>
@@ -31,10 +30,10 @@ MyApp.getInitialProps = async (ctx) => {
 
     const pageProps = await App.getInitialProps(ctx);
     const url = process.env.DB_API + '/api/v1/status';
-    const token = await getAccessToken();
+    const token = '1234abcd'; // TODO for dev only
     const result = await mydogspiesApiQuery(url, 'GET', token);
     const status = result.online;
-    return {...pageProps, status, token};
+    return {...pageProps, status};
 };
 
 export default wrapper.withRedux(MyApp);

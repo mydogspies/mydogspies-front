@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import {BrowserView, MobileView, isBrowser, isMobile} from 'react-device-detect';
+import styled from "styled-components";
 
 import OfflinePage from '../components/offline/site-offline-component/site-offline-component';
 import IndexTop from '../components/index/index_top/index_top';
-import IndexCode from '../components/index/index_code/index_code';
-import IndexVisual from '../components/index/index_visual/index_visual';
-import styled from "styled-components";
+
+import Footer from '../components/license_footer/license_footer'
+
 
 export default function Home({status, userStatus}) {
 
@@ -18,8 +19,7 @@ export default function Home({status, userStatus}) {
                     </Head>
                     <ParentContainer id="parent-container">
                         <IndexTop />
-                        <IndexCode />
-                        <IndexVisual />
+                        <Footer />
                     </ParentContainer>
                 </BrowserView>
                 <MobileView>
@@ -43,6 +43,7 @@ export default function Home({status, userStatus}) {
 const ParentContainer = styled.div`
 
 `;
+
 
 
 
