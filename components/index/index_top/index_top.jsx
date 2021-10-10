@@ -39,7 +39,7 @@ const IndexTop = () => {
 
 export default IndexTop;
 
-/* Trick NextJS back to static pages although we use getInitialProps in _app.js */
+/* Trick NextJS back to static pages although we use getInitialProps in _app.ts */
 export async function getStaticProps() {
     return {
         props: {},
