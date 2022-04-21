@@ -21,7 +21,6 @@ const IndexPillars = () => {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr 1fr;
-  
   height: 100vh;
 `;
 
@@ -32,6 +31,14 @@ const ColumnCode = styled.div`
   text-orientation: sideways;
   text-align: left;
   padding:5% 0 0 5%;
+
+  &:hover {
+    ${Container} {
+      grid-template-columns: 1fr 3fr 0.5fr 0.5fr 1fr;
+    }
+  }
+
+  
 `;
 
 const ColumnVisual = styled.div`

@@ -31,11 +31,12 @@ function MyApp({Component, pageProps, status, token}) {
 MyApp.getInitialProps = async (ctx) => {
 
     const pageProps = await App.getInitialProps(ctx);
-    const url = process.env.DB_API + '/api/v1/status';
-    const token = await getAccessToken();
-    const result = await mydogspiesApiQuery(url, 'GET', token);
-    const status = result.online;
-    return {...pageProps, status, token};
+    // const url = process.env.DB_API + '/api/v1/status';
+    // const token = await getAccessToken();
+    // const result = await mydogspiesApiQuery(url, 'GET', token);
+    // const status = result.online;
+    const status = true;
+    return {...pageProps, status};
 };
 
 export default wrapper.withRedux(MyApp);
