@@ -1,7 +1,4 @@
-import { UserProvider } from '@auth0/nextjs-auth0';
 import StatusWrapper from '../components/status-wrapper';
-import getAccessToken from '../middleware/backendApi/oktaAccessToken';
-import mydogspiesApiQuery from '../middleware/backendApi/mydogspiesApiQuery';
 
 import {useDispatch} from "react-redux";
 import React, {useEffect} from 'react';
@@ -20,11 +17,9 @@ function MyApp({Component, pageProps, status, token}) {
     }, [token]);
 
     return (
-        <UserProvider>
           <StatusWrapper status={status}>
             <Component {...pageProps} status={status} />
           </StatusWrapper>
-        </UserProvider>
     );
 }
 
