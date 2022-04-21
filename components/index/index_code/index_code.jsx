@@ -59,7 +59,8 @@ const IndexCode = () => {
                         <TempCodeText>
                             <h1 className="header">Software development</h1>
                             <p>This area is still in development. Meanwhile feel free to visit my <a href="https://github.com/mydogspies" target="_blank">Github</a>.</p>
-                            <p>Upcoming content here will be video and blogs relating to programming, devops and things IT in general.</p>
+                            <p>Upcoming content here will be video and blogs relating to programming, devops and things IT in general. v0.1a</p>
+
                         </TempCodeText>
                         <DogGreenLogo>
                             <DogGreenSvg />
