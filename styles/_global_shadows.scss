@@ -1,0 +1,23 @@
+// global box shadow used for all major background elements
+// use this for all elements
+.global-box-shadow {
+  box-shadow: -2px 2px 3px rgb(5 5 5 / 0.1), // primary shadow from ambient light LEFT
+              2px -2px 3px rgb(5 5 5 / 0.03), // secondary
+  ;
+}
+
+.global-text-shadow {
+  filter: drop-shadow(-2px 2px 1px rgba(5, 5, 5, .05))
+}
+
+// global shadow for all nav icons
+// use only on svg-based ones
+.global-svg-menu-shadow {
+  filter: drop-shadow(-3px 2px 1px rgba(5, 5, 5, .1))
+          drop-shadow(3px -2px 2px rgba(6, 6, 6, .07));
+}
+
+.global-svg-icon-shadow {
+  filter: drop-shadow(-2px 1px 1px rgba(5, 5, 5, .1))
+          drop-shadow(2px -1px 1px rgba(6, 6, 6, .02));
+}

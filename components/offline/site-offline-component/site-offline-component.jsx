@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import logo from '../../../public/assets/dog_blue_final.svg';
+import logo from '../../../public/assets/local/icons/dog_blue_final.svg';
 
 const OfflinePage = () => {
 
@@ -12,13 +12,13 @@ const OfflinePage = () => {
             </Head>
 
             <Grid>
-                <Logo src={logo} alt="Mydogspies.com blue logo"/>
+                <Logo src={logo.src} alt="Mydogspies.com blue logo"/>
                 <TextContainer>
                     <Headline><h2>Welcome to Mydogspies.com</h2></Headline>
                     <Text>
                         <p>
                             This space will soon become the home for Berlin-based visual designer and software
-                            developer Mydogspies. Still in construction but we hope it will be up end of July.
+                            developer Mydogspies. Site will be up end first week September.
                         </p>
                     </Text>
                 </TextContainer>

@@ -1,59 +1,83 @@
 /*
 The globals.css specifies all fonts, tags and colors. Do NOT put layout
 definitions into this file. They belong in-line within each component! Do not
-EVER specify text, tag or color attributes within components. Rather add a new
+specify text, tag or color attributes within components. Rather add a new
 definition for specific components below.
  */
 
 /* Obligatory imports */
 @use 'reset';
+@use 'global_shadows';
 
 /* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=PT+Sans&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&display=swap');
 /* Global variables */
 
 /* AREA COLORS */
 //
 /* INDEX */
-$background-color-index: #c2c2c2;
+$background-color-index: #444444;
 $text-color-index: #373621; // 5
 $text-color-index-heading: #3f3c06; // 6
 
 /* CODE */
-$background-color-code: #c4c4c4;
+$background-color-code: #444444;
 $text-color-code: #302e13; // 5b
 $text-color-code-heading: #403d0c; // 6b
 
 /* PROJECT */
-$background-color-project: #c4c4c4;
+$background-color-project: #444444;
 $text-color-project: #112421; // 3b
 $text-color-project-heading: #0b423a; // 4b
 
 /* VISUAL */
-$background-color-visual: #c4c4c4;
+$background-color-visual: #444444;
 $text-color-visual: #240604; // 1
 $text-color-visual-heading: #440a0a; // 2
 
 /* OFFLINE */
-$background-color-offline: #c4c4c4;
+$background-color-offline: #eeeeee;
 $text-color-offline: #19302c; // 3a
 $text-color-offline-heading: #05372f; //4a
 /* ADMIN */
-$background-color-admin: #c2c2c2;
+$background-color-admin: #eeeeee;
 $text-color-admin: #2a2914; // 5a
 $text-color-admin-heading: #322f01; // 6a
 
 
 /* GLOBAL FONTS */
-$font-headline: 'Arvo', serif;
+$font-headline: 'Roboto Slab', serif;
 $font-paragraph: 'PT Sans', sans-serif;
 
 /* GLOBAL STYLES */
 a {
   text-decoration: none;
   border-bottom:1px dotted;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: $font-headline;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: $font-headline;
+}
+
+h2 span {
+  font-family: $font-headline;
+  font-size: 75%;
+  opacity: .8;
+}
+
+p {
+  font-family: $font-paragraph;
 }
 
 
@@ -64,63 +88,120 @@ apply to. Reuse for various components if possible and do not override. Rather
 copy, rename and use for whatever specific need.
 */
 
+/*                 */
 /* -- INDEX PAGE --*/
+/*                 */
 /* applies to the specifically index page ONLY */
 .index {
 
-  h2 {
-    font-family: $font-headline;
-    font-size: 26px;
+  //
+  // These styles are for the top-index pillars container itself - NOT the content within pillars
+  //
+
+  &.index-top {
+    background-color: $background-color-index;
+
+    // this h1 tag is for the vertical text on the pillars
+    h1 {
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: white;
+      filter: drop-shadow(-1px 1px 1px rgba(5, 5, 5, .1))
+    }
   }
 
-  h2 span {
-    font-family: $font-headline;
-    font-size: 75%;
-    opacity: .8;
-  }
-
-  p {
-    font-family: $font-paragraph;
-    font-size: 18px;
-  }
-
-  // NOTE: Below sub styles are for index-top only!
+  //
+  // Below styles apply to the individual pillar CONTENT
+  //
 
   &.coding {
     color: $text-color-code;
+
+    .smaller {
+      font-size: 16px;
+    }
+
+    .bigger {
+      font-size: 20px;
+    }
+
+    .header {
+      font-size: 115px;
+      font-weight: 600;
+      color: #dddddd;
+    }
+
+    .footer {
+      font-size: 38px;
+      color: #dddddd;
+    }
+
   }
 
   &.visual {
     color: $text-color-visual;
+
+    .header {
+      font-size: 87px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 16px;
+
+      &.top {
+
+        &.smaller {
+          font-size: 14px;
+        }
+
+        &.extra {
+          font-size: 16px;
+          color: $text-color-visual;
+        }
+      }
+    }
   }
 
   &.project {
     color: $text-color-project;
+
+    span {
+      font-weight: bold;
+    }
+
+    p.smaller {
+        font-size: 10px;
+      }
+
+
+    .header {
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      font-size: 96px;
+      color: #eeeeee;
+    }
+
+    .footer {
+      font-size: 36px;
+      color: #eeeeee;
+    }
   }
 
-  &.index-top {
-    background-color: $background-color-index;
-    color: $text-color-index;
-
-    h1 {
-      font-family: $font-headline;
-      font-size: 32px;
-      letter-spacing: 0.15em;
-    }
-
-    h2, h2 span {
-      color: $text-color-index-heading;
-    }
-
-    a {
-      color: $text-color-index;
-      opacity: .8;
-    }
-  }
+  //
+  // The below styles apply to each section below the pillars (below top-index container)
+  //
 
   &.index-code {
     background-color: $background-color-code;
     color: $text-color-code;
+
+    .header {
+      letter-spacing: 0.08em;
+      font-size: 35px;
+    }
 
     h2, h2 span {
       color: $text-color-code-heading;
@@ -136,6 +217,11 @@ copy, rename and use for whatever specific need.
     background-color: $background-color-visual;
     color: $text-color-visual;
 
+    .header {
+      letter-spacing: 0.08em;
+      font-size: 35px;
+    }
+
     h2, h2 span {
       color: $text-color-visual-heading;
     }
@@ -150,6 +236,12 @@ copy, rename and use for whatever specific need.
     background-color: $background-color-project;
     color: $text-color-project;
 
+    .header {
+      letter-spacing: 0.08em;
+      font-size: 35px;
+    }
+
+
     h2, h2 span {
       color: $text-color-project-heading;
     }
@@ -161,26 +253,74 @@ copy, rename and use for whatever specific need.
   }
 }
 
-/* relates to all styling when site is offline*/
+/* -- ABOUT OVERLAY -- */
+/* Applies only to the overlay when using the "about" icon/menu item */
+.about-overlay {
+
+  h1 {
+    font-size: 45px;
+    color: #efefef;
+
+    &.about-signature {
+      font-size: 21px;
+      color: #ffffff;
+    }
+  }
+
+  p {
+    font-size: 15px;
+
+    &.about-footer {
+      font-size: 11px;
+      color: #ffffff;
+    }
+
+    &.about-close {
+      font-size: 17px;
+      color: #ffffff;
+    }
+  }
+}
+
+/* PULLOUT MENU */
+/* Applies only to the pull-out when using the "navigate" icon/menu item */
+.pull-out-menu {
+
+  h1 {
+    color: #eeeeee;
+  }
+
+  p {
+    font-size: 15px;
+
+    &.menu-close {
+      font-size: 17px;
+      color: #ffffff;
+    }
+  }
+}
+
+
+/*                 */
+/* -- OFFLINE STATE --*/
+/*                 */
+/* relates to all styling when site is offline */
 .offline-pages {
   background-color: $background-color-offline;
   color: $text-color-offline;
 
   h2 {
-    font-family: $font-headline;
     color: $text-color-offline-heading;
     font-size: 26px;
   }
 
   h2 span {
-    font-family: $font-headline;
     color: $text-color-offline-heading;
     font-size: 75%;
     opacity: .8;
   }
 
   p {
-    font-family: $font-paragraph;
     font-size: 18px;
   }
 
@@ -189,6 +329,3 @@ copy, rename and use for whatever specific need.
     opacity: .8;
   }
 }
-
-
-

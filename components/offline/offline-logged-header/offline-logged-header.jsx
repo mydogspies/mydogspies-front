@@ -19,7 +19,7 @@ const Tab = styled.div`
   background-color: cornflowerblue;
   height: 30px;
   width: 75px;
-  left: 75%;
+  left: 87%;
   border: 2px saddlebrown;
   border-radius: 0 0 5px 5px;
   font-size: 15px;
