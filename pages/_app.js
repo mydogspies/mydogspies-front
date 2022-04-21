@@ -30,7 +30,7 @@ MyApp.getInitialProps = async (ctx) => {
     // const token = await getAccessToken();
     // const result = await mydogspiesApiQuery(url, 'GET', token);
     // const status = result.online;
-    const status = true;
+    const status = "true";
     return {...pageProps, status};
 };
 
